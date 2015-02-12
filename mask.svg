@@ -1,0 +1,9 @@
+<svg>
+<mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
+    <linearGradient id="g" gradientUnits="objectBoundingBox" x2="0" y2="1">
+        <stop stop-color="white" stop-opacity="1" offset="0"/>
+        <stop stop-color="white" stop-opacity="0" offset="1"/>
+    </linearGradient>
+    <rect width="400px" height="300px" fill="url(#g)"/>
+</mask>
+</svg>

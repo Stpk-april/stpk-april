@@ -1,0 +1,179 @@
+﻿<html>
+<head>
+<title>まとめ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+		li{
+		list-style:none;
+		}
+		button{
+		display: inline-block;
+		padding: 0px 3px;
+		border: none;
+		border-radius: 7px;
+		background-color: #bcbcbc;
+		color: #fff;
+		font-family: 'Noto Sans Japanese', serif;
+		font-size: 27px;
+		cursor: pointer;
+		margin:3px;
+		}
+      input + label {
+        display: inline-block;
+        background-color: #bcbcbc;
+        font-size: 27px;
+		margin:3px;
+		border-radius: 7px;
+        cursor: pointer;
+		padding:1px 3px;
+		}
+      input:checked + label {
+        background-color: #222;
+      }
+      input {
+        display: none;
+      }
+	  
+	  li{
+	  float:left;margin:10px
+	  }
+</style>
+<script type="text/javascript" src="extras/jquery.min.1.7.js"></script>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="icon" href="favicon.ico">
+</head>
+<div style="width:100%; height:auto">
+<div  style="position:absolute; text-align:center; left:20%; width:60%" >
+<section class="_continer">
+	<span id="chk_box">
+	<form>
+	<button class="select00" type="reset">ALL</button>
+	<input id="selectce" name="chk01" type="checkbox" value="ce"></input>
+	<label for="selectce" class="labelce">蒼天</label>
+	<input id="selecting" name="chk01" type="checkbox" value="ing"></input>
+	<label for="selecting" class="labeling">赫炎</label>
+	<input id="selectsha" name="chk01" type="checkbox" value="sha"></input>
+	<label for="selectsha" class="labelsha">漆黒</label>
+	<input id="select04" name="chk01" type="checkbox" value="val"></input>
+	<label for="select04" class="label04">白光</label>
+	<input id="select05" name="chk01" type="checkbox" value="so"></input>
+	<label for="select05" class="label05">紫影</label>
+	<input id="select06" name="chk01" type="checkbox" value="ou"></input>
+	<label for="select06" class="label06">黄雷</label>
+	<input id="select07" name="chk01" type="checkbox" value="ka"></input>
+	<label for="select07" class="label07">灰燼</label>
+	</form>
+	<form>
+	<input id="select10" name="chk02" type="radio" checked="true" value=""></input>	
+	<label for="select10" class="label10">ALL</label>
+	<input id="select11" name="chk02" type="radio" value="il"></input>
+	<label for="select11" class="label11">イラスト</label>
+	<input id="select08" name="chk02" type="radio" value="no"></input>	
+	<label for="select08" class="label08">小説</label>
+	<input id="select09" name="chk02" type="radio" value="ma"></input>
+	<label for="select09" class="label09">漫画</label>
+	</form>
+	</span>
+	<div class="clr"></div>
+		<ul class="_items">
+		<li data-filter="ce ing il">
+		1
+			<img src="images/arc_01.png">
+		</li>
+		<li data-filter="ing sha no">
+			2
+		<img src="images/arc_02.png">
+		</li>
+		<li data-filter="ing sha ma">
+			3<img src="images/arc_03.png">
+		</li>
+			<li data-filter="ing sha il">
+		4	<img src="images/arc_04.png">
+		</li>
+			<li data-filter="sha il">
+		5	<img src="images/arc_05.png">
+		</li>
+			<li data-filter="ing sha ou ma">
+		6	<img src="images/arc_06.png">
+		</li>
+			<li data-filter="sha ou il">
+		7	<img src="images/arc_07.png">
+		</li>
+			<li data-filter="ing sha no">
+		8	<img src="images/arc_08.png">
+		</li>
+			<li data-filter="ing sha ma">
+		9	<img src="images/arc_09.png">
+		</li>
+			<li data-filter="ing sha il">
+		9	<img src="images/arc_10.png">
+		</li>
+			<li data-filter="ing il">
+		10	<img src="images/arc_11.png">
+		</li>
+			<li data-filter="ce ing sha ma">
+		11	<img src="images/arc_12.png">
+		</li>
+	</ul>
+<div id="debug"> </div>
+</section>
+</div>
+</div>
+<script type="text/javascript">
+var n=0;
+
+
+$( document ).ready(function() {
+
+ var t= $(location).attr('search').split('=');
+	if(t[1]){
+			$( "li" ).filter(function( ) {
+				return $(this).attr("data-filter").indexOf(t[1])==-1;
+			}).hide();
+			
+			$( "input" ).filter(function( ) {
+				return $(this).val().indexOf(t[1])!=-1;
+			}).attr("checked", true);
+	}
+});
+
+$("#chk_box input").click(function()
+	{
+	$('li').show();
+		var thi='';
+		$("input:checkbox[name=chk01]:checked").each(function()
+		{
+			thi=$(this).val();
+			$( "li" ).filter(function( ) {
+				return $(this).attr("data-filter").indexOf(thi)==-1;
+			}).hide();
+		});
+		$("input:radio[name=chk02]:checked").each(function()
+		{
+			thi=$(this).val();
+			$( "li" ).filter(function( ) {
+				return $(this).attr("data-filter").indexOf(thi)==-1;
+			}).hide();
+		});
+		
+		
+	$( "li" ).filter(function( ) {
+		return $(this).is(':visible');
+	}).hide().fadeIn();
+
+});
+$('.select00').click(function(){
+	$("input:checkbox[name=chk01]:checked").each(function()
+	{$(this).attr("checked", false)});
+	$('li').fadeOut();
+	$('li').fadeIn('slow');
+});
+
+</script>
+
+
+
+<body>
+</body>
+</html>

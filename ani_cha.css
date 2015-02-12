@@ -1,0 +1,40 @@
+body{
+}
+.aaa{
+	color:white;
+}
+.btn_ {
+	background: #CED7D6;
+	color: #222;
+}
+.btn_:active {
+	color: #01DFA5;
+	background: #DCF6ED;
+}
+.btn_:active:before {
+	color: #01DFA5;
+}
+.help_line{
+ border-top:1px solid  #fff; 
+ border-bottom:1px solid  #fff; 
+}
+
+
+#clickbut{
+	outline: 5px  double white;
+}
+
+
+.help_w{
+	background:#000;
+}
+#count_{
+text-shadow:none;
+background:rgba(0%,0%,0%,0.4);
+}
+
+
+.toast-item {
+	background: #333;
+	color: #eee;
+}

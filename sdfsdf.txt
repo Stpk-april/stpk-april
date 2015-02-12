@@ -1,0 +1,250 @@
+/* ruby£¨«ë«ÓÙþí®ðÚªßîï?ªÎ«¤«ó«é«¤«óÖÅæ´£©
+------------------------------------------- */
+/* Firefox¡¢Safari¡¢OperaéÄò¦ïÒ */
+ruby {
+	display			: inline-table;
+	text-align		: center;
+	text-indent		: 0px;
+	white-space		: nowrap;
+	border			: none;
+	margin			: 0px;
+	padding			: 0px;
+	line-height		: 1;
+	height			: 1.8em;
+	vertical-align	: text-bottom;
+	border			: none;
+}
+
+/* IE8 beta 2éÄò¦ïÒ (úÞî¤Ùí?) */
+/*
+html:first-child  ruby {
+	white-space		: normal;
+}
+*/
+/* IE7éÄò¦ïÒ */
+*:first-child+html ruby {
+	white-space		: normal;
+}
+/* IE6éÄò¦ïÒ */
+* html body ruby {
+	white-space		: normal;
+	display			: inline-table;
+	vertical-align	: baseline;
+}
+
+
+/* rb£¨ÜâÙþ£©
+------------------------------------------- */
+/* Firefox¡¢Safari¡¢OperaéÄò¦ïÒ */
+rb {
+	display			: table-row-group;
+	line-height		: 1;
+	text-align		: center;
+	border			: none;
+	margin			: 0px;
+	padding			: 0px;
+	white-space		: nowrap;
+}
+/* IE8 beta 2éÄò¦ïÒ (úÞî¤Ùí?) */
+/*
+html:first-child  rb {
+	white-space		: normal;
+}
+*/
+/* IE7éÄò¦ïÒ */
+*:first-child+html rb {
+	white-space		: normal;
+}
+/* IE6éÄò¦ïÒ */
+* html body ruby rb {
+	display			: table-row-group;
+	vertical-align	: bottom;
+	white-space		: normal;
+}
+
+
+/* rt£¨«Õ«ê«¬«Ê£©
+------------------------------------------- */
+/* Firefox¡¢Safari¡¢OperaéÄò¦ïÒ */
+rt {
+	display			: table-header-group;
+	font-size		: 0.625em;	/*	òÉªê?Ù£ªÎ«á«¤«ó«Æ«­«¹«ÈªË?ª¹ªëßÓ?«µ«¤«º	*/
+	line-height		: 1.1;
+	text-align		: center;
+	white-space		: nowrap;
+	border			: none;
+	margin			: 0px;
+	padding			: 0px;
+}
+/* IE8 beta 2éÄò¦ïÒ (úÞî¤Ùí?) */
+/*
+html:first-child  rt {
+	white-space		: normal;
+}
+*/
+/* IE7éÄò¦ïÒ */
+*:first-child+html rt {
+	white-space		: normal;
+}
+/* IE6éÄò¦ïÒ */
+* html body ruby rt {
+	white-space		: normal;
+	line-height		: 1em;
+	display			: table-header-group;
+	position		: static;
+	top				: 0em;
+}
+
+
+/* rp£¨CSS OFF?÷¾ªÇªÎ?ï·ªêÙþí®¡¢÷×ßÈÜôÊ¦ãÊ£©
+------------------------------------------- */
+/* îï«Ö«é«¦«¶Íì÷×ò¦ïÒ */
+rp {
+	display			: none;
+}
+
+
+/* hné©áÈªÇªÎòÉªê?Ù£«µ«¤«ºðàïÚ£¨ù±é©ªÊíÞùê¡¢îê?ªËðàïÚª·ªÆª¯ªÀªµª¤£©
+------------------------------------------- */
+/*
+h1 rt	{	font-size: 0.39em;	}
+h2 rt	{	font-size: 0.42em;	}
+h3 rt	{	font-size: 0.45em;	}
+h4 rt	{	font-size: 0.48em;	}
+h5 rt	{	font-size: 0.52em;	}
+h6 rt	{	font-size: 0.57em;	}
+*/
+
+
+
+/* «Þ«¦«¹«ª?«Ð?ªÇ?ÓÞ¡¢òÉªê?Ù£îêéÄÛô?øúãÆ
+------------------------------------------- */
+/* IE8 beta 2éÄò¦ïÒ (úÞî¤Ùí?) */
+/*
+html:first-child ruby:hover {
+	border: none;
+}
+*/
+/* IE8 beta 2éÄò¦ïÒ (úÞî¤Ùí?) */
+/*
+html:first-child ruby:hover rt {
+	font-size: 0.625em;
+}
+*/
+
+/*	IE6ªÇIE7.jsªòÞÅéÄª·ªÆª¤ªÆ¡¢ªÊªªª«ªÄfixedÛÕöÇ«Ö«í«Ã«¯ª¬ª¢ªëíÞùê¡¢
+òÉªê?Ù£?ÓÞãÁªËfixed«Ö«í«Ã«¯ª¬ú¼Û°ÜôÙ¥ªËªÊªëª¿ªáIE6ªÇªÎªßÑ¦ÒöÙí?ûù	*/
+/*
+*:first-child+html ruby:hover rt	{	font-size: 1em!important;	font-size: 0.625em;	}
+*:first-child+html h1 ruby:hover rt	{	font-size: 1em!important;	font-size: 0.39em;	}
+*:first-child+html h2 ruby:hover rt	{	font-size: 1em!important;	font-size: 0.42em;	}
+*:first-child+html h3 ruby:hover rt	{	font-size: 1em!important;	font-size: 0.45em;	}
+*:first-child+html h4 ruby:hover rt	{	font-size: 1em!important;	font-size: 0.48em;	}
+*:first-child+html h5 ruby:hover rt	{	font-size: 1em!important;	font-size: 0.52em;	}
+*:first-child+html h6 ruby:hover rt	{	font-size: 1em!important;	font-size: 0.57em;	}
+*:first-child+html ruby:hover		{
+	border: 1px dashed #CCCCCC !important;
+	border: none;
+	background-color: transparent !important;
+	background-color: #CCCCCC;
+}
+*/
+
+
+
+/* Ruby text*/
+body.notIE ruby {
+    display: inline-table;
+    text-align: center;
+    border-collapse: collapse;
+	border: none;
+    vertical-align: middle;
+}
+
+/* Fixed problem with IE8 and the rtc tag */
+body.ie8 ruby rtc {
+	display: ruby-text;
+	border: solid 1px black;
+}
+
+
+body.notIE  ruby > rt, body.notIE rtc {
+    display: table-header-group;
+}
+
+/* used to move first ruby
+ container above the base */
+body.notIE ruby > rb, body.notIE rbc, ruby > rt + rt, body.notIE rtc + rtc {
+    display: table-row;
+}
+
+/* base and second ruby
+ are formatted as table-rows */
+body.notIE ruby > rt + rt, body.notIE rtc + rtc {
+    border-bottom: hidden;
+}
+
+/* if there are two annotations then extra
+ border is no longer necessary
+ and can be annihilated
+ using border collapse mechanism */
+body.notIE rb, rbc, body.notIE rt, rtc {
+    white-space: nowrap;
+}
+
+/* prohibits line breaks inside ruby text */
+body.notIE rtc > rt, body.notIE rbc > rb {
+    display: table-cell;
+}
+
+/* used to distribute annotations
+ in table like manner */
+body.notIE rtc > rt[rbspan] {
+    column-span: attr(rbspan);
+}
+
+/* ruby text may span several cells */
+body.notIE ruby > rt, body.notIE rtc {
+    font-size: 0.5em;
+    line-height: 1.em;
+}
+
+/* font-size of ruby text is reduced */
+body.notIE rp {
+    display: none;
+}
+
+/* Addition to add english rbc */
+ruby.syllables rbc rb {
+	
+}
+
+ruby.syllables rbc rb:after {
+	content: "¡¤"
+}
+
+ruby.syllables rbc rb:last-child:after {
+	content: "";
+}
+
+ruby.syllables rtc rt {
+	padding-right: 0.5em;
+}
+
+ruby.syllables rtc rt:last-child {
+	padding-right: 0;
+}
+
+
+
+
+ruby {
+	ruby-align: center;
+}
+
+
+body.ie6 ruby rt.small,
+body.ie7 ruby rt.small {
+	
+	padding: 0 1em;
+}

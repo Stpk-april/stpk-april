@@ -1,0 +1,31 @@
+﻿<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<script type="text/javascript" src="extras/jquery.min.1.7.js"></script>
+<script type="text/javascript" src="extras/jquery-ui-1.8.20.custom.min.js"></script>
+<script type="text/javascript" src="extras/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="extras/modernizr.2.5.3.min.js"></script>
+<script type="text/javascript" src="lib/hash.js"></script>
+<style>
+
+
+</style>
+</head>
+<div id="align"> 
+	<div id="content">
+		<div class="box2">
+			<div class="md-trigger" data-modal="modal-1" src="images/main_06.gif">
+			<a href="#" class="Button"><img src="images/main_03.gif"></a>
+			<a href="#" class="Button"><img src="images/main_06.gif"></a>
+			<a href="#" class="Button"><img src="images/main_07.gif"></a>
+			<a href="#" class="Button"><img src="images/main_08.gif"></a>
+			<a href="#" class="Button"><img src="images/main_09.gif"></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<a href="http://stpkkikaku.wink.ws/"><img src="images/book.png"></a>
+
+Sample

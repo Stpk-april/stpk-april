@@ -1,0 +1,269 @@
+body{
+	-webkit-transition: all 0.7s;
+	-moz-transition: all 0.7s;
+	transition: all 0.7s;
+ -moz-user-select     : none;
+ -khtml-user-select   : none;
+ -webkit-user-select  : none;
+ -o-user-select       : none;
+ user-select          : none;
+}
+
+.aaa{
+ -moz-user-select     : none;
+ -khtml-user-select   : none;
+ -webkit-user-select  : none;
+ -o-user-select       : none;
+ user-select          : none;
+ z-index:9999;
+}
+
+#archive_ ul,li {position:relative;left:-30px;top:-10px;list-style:none;}
+#archive_ li {float:left;margin:10px}
+#archive_ i img{width:50px; height:50px;}
+
+
+#shop_ ul,li {position:relative;left:-30px;top:-10px;list-style:none;}
+#shop_ li {float:left;margin:10px}
+
+::selection {
+    background:rgba(0,0,0,0);
+    color: #FFF;
+    text-shadow: none;
+}
+::-moz-selection {
+    background:rgba(0,0,0,0);
+    color: #FFF;
+	text-shadow: none;
+}
+::-webkit-selection {
+    background:rgba(0,0,0,0);
+    color: #FFF;
+    text-shadow: none;
+}
+.steam{
+pointer-events:none;
+position:fixed;
+cursor:pointer;
+background:url(images/steam01.png);
+width:100px;
+height:100px;
+background-size:100%;
+opacity:0.8;
+}
+
+#game_main{
+	margin:0px 10px;
+}
+
+.div_round {
+padding:3px;
+-moz-border-radius: 3px;
+-o-border-radius: 3px;
+-khtml-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+}
+
+.thema_box{
+	-moz-border-radius: 2px 2px 0px 0px;
+	-o-border-radius: 2px 2px 0px 0px;
+	-khtml-border-radius: 2px 2px 0px 0px;
+	-webkit-border-radius: 2px 2px 0px 0px;
+	border-radius: 2px 2px 0px 0px;
+}
+.lock_box{
+position:absolute;
+top:0px;
+color:white;
+width:100%;
+height:100%;
+background: rgba(114, 114, 114, 0.5);
+-moz-border-radius: 3px;
+-o-border-radius: 3px;
+-khtml-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+}
+
+#archives{
+position:absolute;
+width:500px; 
+left:750px;
+top:20px;
+}
+#clickbut{
+	display:block;
+	cursor:pointer;
+	background:url(images/ons_s.jpg) no-repeat ;
+	position:relative; 
+	left:0px; 
+	outline: 5px  double white;
+	top:0px; 
+	width:700px; 
+	height:495px
+}
+
+#shop{
+position:absolute;
+width:500px; 
+left:720px;
+top:20px;
+}
+
+input + label {
+	color:white;
+	display: inline-block;
+	margin:3px;
+    cursor: pointer;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	border: 2px solid rgba(0,0,0,0);
+	min-width:80px;
+	text-align:center;
+	padding:5px;
+	box-shadow: inset 0 0 0 0px #98004a;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	}
+input:checked + label { 
+	box-shadow: inset 0 0 0 5px #0B614B;
+	background: #0B614B;
+}
+input {
+    display: none;
+ }
+ 
+ 
+ 
+ 
+ 
+#neon{
+	position:absolute;
+	top:26.8%;
+	left:510px;
+	float:bottom;
+	overflow:hidden;
+	width:100px;
+	height:105px;
+	cursor:pointer;
+    background-image: url(images/neon_b.png); 
+}
+#tesla{
+	cursor:pointer;
+	position:absolute;
+	top:25%;
+	left:400px;
+	width:120px;
+	height:130px;
+	background:url(images/tesla.png) no-repeat;
+}
+#kia_con
+{
+	position:absolute;
+	top:32%;
+	left:8%;
+}
+
+#kia{
+	position:absolute;
+	width:120px;
+	height:105px;
+	background:url(images/kia.png) no-repeat;	
+    -webkit-animation: play 3s  infinite alternate;
+       -moz-animation: play 3s  infinite alternate;
+        -ms-animation: play 3s  infinite alternate;
+         -o-animation: play 3s  infinite alternate;
+            animation: play 3s infinite alternate;
+
+}
+@-webkit-keyframes play {
+   from { top:0px; }	
+     to { top:5px; }
+}
+
+@-moz-keyframes play {
+   from { top:0px; }	
+     to { top:5px; }
+}
+
+@-ms-keyframes play {
+   from { top:0px; }	
+     to { top:5px; }
+}
+
+@-o-keyframes play {
+   from { top:0px; }	
+     to { top:5px; }
+}
+
+@keyframes play {
+   from { top:0px; }	
+     to { top:5px; }
+}
+
+#theA{
+	cursor:pointer;
+	position:absolute;
+	top:280px;
+	left:300px;
+	width:100px;
+	height:120px;
+	background:url(images/A.png) no-repeat;
+}
+
+#lily{
+	cursor:pointer;
+	position:absolute;
+	top:360px;
+	left:180px;
+	width:120px;
+	height:80px;
+	background:url(images/lily.png) no-repeat;
+}
+
+
+
+
+
+#hi{
+	position:absolute;
+	width:100px;
+	height:105px;
+	cursor:pointer;
+    background-image: url(images/neon_h_s.png); 
+    -webkit-animation: plays 2s steps(10) infinite alternate;
+       -moz-animation: plays 2s steps(10) infinite alternate;
+        -ms-animation: plays 2s steps(10) infinite alternate;
+         -o-animation: plays 2s steps(10) infinite alternate;
+            animation: plays 2s steps(10) infinite alternate;
+}
+
+@-webkit-keyframes plays {
+   from { background-position:    0px; }	
+     to { background-position: -1000%; }
+}
+
+@-moz-keyframes plays {
+   from { background-position:    0px; }
+     to { background-position: -1000%; }
+}
+
+@-ms-keyframes plays {
+   from { background-position:    0px; }
+     to { background-position: -1000%; }
+}
+
+@-o-keyframes plays {
+   from { background-position:    0px; }
+     to { background-position: -1000%; }
+}
+
+@keyframes plays {
+   from { background-position:    0px; }
+     to { background-position: -1000%; }
+}
