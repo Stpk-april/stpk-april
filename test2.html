@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>温泉</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/jquery.toastmessage.css">
+<link rel="stylesheet" href="default_thema.css">
+<link rel="stylesheet" href="game_sys.css">
+<link id="now_thema" rel="stylesheet" href="ani_cha.css">
+	
+<script type="text/javascript" src="js/jquery.toastmessage.js"></script>
+<script type="text/javascript" src="js/clicker.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+
+</head>
+<body>
+
+<div id="save_load" style="position:absolute; bottom:10px;right:10px;">
+<button  class="btn btn_ btn_a" onclick="reset_clk()">CLEAR SAVE</button>
+<button  class="btn btn_ btn_a" onclick="save_clk()">SAVE</button>
+<button  class="btn btn_ btn_a" onclick="load_clk()">LOAD</button>
+</div>
+
+<div id="game_main" style="width:700px">
+<div id="clickbut">
+<div id="count_"><span id="btnCount">0</span>回手を伸ばした<br><span style="font-size:14px">（<span  id="te_second"></span>）</span></div>
+<div>
+<div id="kia_con"><div id="kia" class="char_" genre="1 fe 0" style="background-size:100%"> </div></div>
+<div id="neon" class="char_" genre="5 fe 1"  style="background-size:100%"><div id="hi" style="background-size:auto 100%"></div><div style="position:absolute;z-index:1;height:100%;width:100%"></div></div> 
+<div id="tesla" class="char_" genre="5 ma 0" style="background-size:100%"> </div>
+<div id="theA" class="char_" genre="4 ma 0" style="background-size:100%"> </div>
+<div id="lily" class="char_" genre="4 fe 0" style="background-size:100%"> </div>
+</div>
+</div>
+<div class="help_line">
+<span id="view_help">&nbsp;</span>
+</div>
+<div id="_menu" class="button-group" style="text-align:center">
+<button id="button5" class="btn btn_ btn_a icon-cart" style="width:25%" data-hover="100回消費"><span>良き青空を願う<br>LV:<t id="now_a_l">0</t></span></button>
+<button id="button1" class="btn btn_ btn_a icon-cart" style="width:25%"  data-hover="200回消費"><span>輝く<br>LV:<span id="now_k_l">0</span></span></button>
+<button id="button3" class="btn btn_ btn_a icon-cart" style="width:25%"  data-hover="100回消費"><span>諦めなくなる<br>LV:<span id="now_c_l">0</span></span></button>
+<button id="button4" class="btn btn_ btn_a icon-cart" style="width:25%"  data-hover="初回無料"><span>メモリーが増える<br>LV:<span id="now_cha_l">0</span></span></button>
+<button id="change" class="btn btn_ btn_a " style="width:99.7%" style="position:absolute;">ショップ</button>
+</div>
+<div style="font-size:9px;position:absolute;bottom:0px">
+※各キャラクター、アーカイブにマウスオーバーすると説明が見えます<br>
+※当ゲームはFireFox、Safari、Opera(not mini)、Chrome、IEなどHTML5をサポートする各のブラウザ最新版を基準で作られています
+</div>
+
+</div>
+<!--
+<h1>How to play</h1>
+<h3>①温泉に手を伸ばす
+<br>②手を伸ばした回数を消費して色々買おう
+<br>③？？？？
+<br>④PROFIT!</h3>
+<br>
+-->
+
+<div id="archives">
+<h1>アーカイブ</h1>
+<h4 id="view_arc_c">(<span id="arc_c">0</span>/9)&nbsp;<span id="view_arc">&nbsp;</span></h4>
+<div style="outline: 1px #fff;">
+<ul id="archive_"></ul>
+</div>
+</div>
+
+
+<div id="shop">
+<h1>ショップ</h1>
+<ul id="shop_" style="height:530px">
+<h3 id="thema" style="cursor:pointer;">テーマカラー ▽</h3>
+<form id="chg_thema">
+	<input id="chg_default" type="radio" name="thema_ch" checked="checked" ></input>
+	<label for="chg_default">
+		<div class="thema_box" style="height:40px;background:#CED7D6"></div>
+		基本
+	</label>
+	<input id="chg_blue" type="radio" name="thema_ch" ></input>
+	<label for="chg_blue"><div style="position:relative;">
+		<div class="thema_box" style="height:40px;background:#6BDBFF"></div>
+		青
+		<div id="blue_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	<input id="chg_red" type="radio" name="thema_ch"></input>
+	<label for="chg_red"><div style="position:relative;">
+		<div class="thema_box" style="height:40px;background:#FF6B6B"></div>
+		赤
+		<div id="red_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	<input id="chg_black" type="radio" name="thema_ch"></input>
+	<label for="chg_black"><div style="position:relative;">
+		<div class="thema_box" style="height:40px;background:Black"></div>
+		黒
+		<div id="black_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	<input id="chg_white" type="radio" name="thema_ch"></input>
+	<label for="chg_white"><div style="position:relative;">
+		<div class="thema_box" style="height:40px;background:White"></div>
+		白
+		<div id="white_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	<input id="chg_purple"type="radio" name="thema_ch"></input>
+	<label for="chg_purple"><div style="position:relative;">
+		<div class="thema_box" style="height:40px;background:#ED6DE6"></div>
+		紫
+		<div id="purple_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	<input id="chg_yellow" type="radio"name="thema_ch"></input>
+	<label for="chg_yellow"><div style="position:relative;">
+		<div class="thema_box" style="height:40px;background:#FFFB6B"></div>
+		黄
+		<div id="yellow_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	<input id="chg_pink" type="radio"name="thema_ch"></input>
+	<label for="chg_pink"><div style="position:relative;">
+		<div class="thema_box" style="height:40px;background:#FFC2B1"></div>
+		ピンク
+		<div id="pink_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	<input type="radio"name="thema_ch"  id="chg_orange" ></input>
+	<label for="chg_orange"><div style="position:relative;">
+		<div class="thema_box" style="height:40px;background:#FFC76B"></div>
+		オレンジ
+		<div id="orange_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+</form>
+<h3 id="onsen" style="cursor:pointer;"> 温泉 ▽</h3>
+	<form id="chg_onsen">
+	<input type="radio" name="onsen_ch"  id="onsen00" checked="checked" ></input>
+	<label for="onsen00"><div   style="position:relative;">
+		<div class="thema_box" style="height:60px;width:85px;background:url('images/on_thumb00.png');"></div>
+		基本
+		</div>
+	</label>
+	<input type="radio" name="onsen_ch"  id="onsen01" ></input>
+	<label for="onsen01"><div style="position:relative;">
+		<div class="thema_box" style="height:60px;width:85px;background:url('images/on_thumb01.png');"></div>
+		室内温泉①
+		<div id="onsen01_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	<input type="radio" name="onsen_ch"  id="onsen02" ></input>
+	<label for="onsen02"><div style="position:relative;">
+		<div class="thema_box" style="height:60px;width:85px;background:url('images/on_thumb02.png');"></div>
+		野外温泉①
+		<div id="onsen02_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	
+	<input type="radio" name="onsen_ch"  id="onsen03" ></input>
+	<label for="onsen03"><div style="position:relative;">
+		<div class="thema_box" style="height:60px;width:85px;background:url('images/on_thumb03.png');"></div>
+		猿と一緒
+		<div id="onsen03_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	
+	
+	</form>
+<h3 id="back_" style="cursor:pointer;">壁紙 ▽</h3>
+	<form id="chg_back">
+	<input type="radio" name="back_ch"  id="back00" ></input>
+	<label for="back00"><div style="position:relative;">
+		<div class="thema_box" style="height:60px;width:85px;background:black;"></div>
+		基本
+		</div>
+	</label>
+	<input type="radio" name="back_ch"  id="back01" ></input>
+	<label for="back01"><div style="position:relative;">
+		<div class="thema_box" style="height:60px;width:85px;background:url('images/ba_thumb02.jpg');"></div>
+		壁紙①
+		<div id="back01_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	<input type="radio" name="back_ch"  id="back02" ></input>
+	<label for="back02"><div style="position:relative;">
+		<div class="thema_box" style="height:60px;width:85px;background:url('images/back03.jpg');"></div>
+		壁紙②
+		<div id="back02_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	<input type="radio" name="back_ch"  id="back03" ></input>
+	<label for="back03"><div style="position:relative;">
+		<div class="thema_box" style="height:60px;width:85px;background:url('images/ba_thumb00.jpg');"></div>
+		壁紙③
+		<div id="back03_lock" class="lock_box"><br>10000回</div>
+	</div>
+	</label>
+	<input type="radio" name="back_ch"  id="back04" ></input>
+	<label for="back04"><div style="position:relative;">
+		<div class="thema_box" style="height:60px;width:85px;background:url('images/back04.png');"></div>
+		壁紙④
+		<div id="back04_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	<input type="radio" name="back_ch"  id="back02" ></input>
+	<label for="back02"><div style="position:relative;">
+		<div class="thema_box" style="height:60px;width:85px;background:url('images/back03.jpg');"></div>
+		壁紙②
+		<div id="back02_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	<input type="radio" name="back_ch"  id="back02" ></input>
+	<label for="back02"><div style="position:relative;">
+		<div class="thema_box" style="height:60px;width:85px;background:url('images/back03.jpg');"></div>
+		壁紙②
+		<div id="back02_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	<input type="radio" name="back_ch"  id="back02" ></input>
+	<label for="back02"><div style="position:relative;">
+		<div class="thema_box" style="height:60px;width:85px;background:url('images/back03.jpg');"></div>
+		壁紙②
+		<div id="back02_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	<input type="radio" name="back_ch"  id="back02" ></input>
+	<label for="back02"><div style="position:relative;">
+		<div class="thema_box" style="height:60px;width:85px;background:url('images/back03.jpg');"></div>
+		壁紙②
+		<div id="back02_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	<input type="radio" name="back_ch"  id="back02" ></input>
+	<label for="back02"><div style="position:relative;">
+		<div class="thema_box" style="height:60px;width:85px;background:url('images/back03.jpg');"></div>
+		壁紙②
+		<div id="back02_lock" class="lock_box"><br>10000回</div>
+		</div>
+	</label>
+	</form>
+</ul>
+</div>
+<h1 id="debug"></h1>
+</body>
+
+</html>

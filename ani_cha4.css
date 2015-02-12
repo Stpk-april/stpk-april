@@ -1,0 +1,44 @@
+body{
+ color:#A4E7F5;
+}
+
+.aaa{
+	color:#fff;
+}
+
+.btn_ {
+	background:#A4E7F5;
+	color: #2697AE;
+}
+.btn_:active {
+	color: #004F5F;
+	background: #BFF5FF;
+}
+.btn_:active:before {
+	color: #004F5F;
+}
+#shop h1,h3{
+text-shadow:
+   -1px -1px 0 #27AEC9,  
+    1px -1px 0 #27AEC9,
+   -1px  1px 0 #27AEC9,
+    1px  1px 0 #27AEC9;
+}
+.help_line{
+ border-top:1px solid  #fff; 
+ border-bottom:1px solid  #fff; 
+}
+.help_w{
+	color:#2D5861;
+	background:#D8EFF4;
+}
+
+#count_{
+color:#fff;
+text-shadow:
+   -1px -1px 0 #27AEC9,  
+    1px -1px 0 #27AEC9,
+   -1px  1px 0 #27AEC9,
+    1px  1px 0 #27AEC9;
+background:rgba(191,234,245,0.4);
+}

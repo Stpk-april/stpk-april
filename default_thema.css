@@ -1,0 +1,110 @@
+.help_w{
+	background:#000;
+}
+/* ---- button ---- */
+
+/* General button style (reset) */
+.btn {
+	border: none;
+	font-family: 'Noto Sans Japanese', serif;
+	cursor: pointer;
+	text-transform: uppercase;
+	position: relative;
+	-webkit-transition: all 0.7s;
+	-moz-transition: all 0.7s;
+	transition: all 0.7s;
+	margin:0px;
+}
+.btn:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.7s;
+	-moz-transition: all 0.7s;
+	transition: all 0.7s;
+}
+/* Pseudo elements for icons */
+.icon-cart:before {
+	word-wrap: break-word;
+	content: attr(data-hover);
+}
+/* Button 5 */
+.btn_ {
+	background: #CED7D6;
+	color: #222;
+	line-height: 24px;
+	font-size: 16px;
+	overflow: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	margin: 0px -2px;
+	}
+
+.btn_:active {
+	color: #01DFA5;
+	background: #DCF6ED;
+}
+
+.btn_ span {
+	display: inline-block;
+	-webkit-transition: all 0.7s;
+	-webkit-backface-visibility: hidden;
+	-moz-transition: all 0.7s;
+	-moz-backface-visibility: hidden;
+	transition: all 0.7s;
+	backface-visibility: hidden;
+		margin:0px;
+}
+
+.btn_:before {
+	position: absolute;
+	width: 100%;
+	line-height: 270%;
+	-webkit-transition: all 0.7s;
+	-moz-transition: all 0.7s;
+	transition: all 0.7s;
+}
+
+.btn_:active:before {
+	color: #01DFA5;
+}
+
+/* Button 5a */
+.btn_a:hover span {
+	-webkit-transform: translateY(300%);
+	-moz-transform: translateY(300%);
+	-ms-transform: translateY(300%);
+	transform: translateY(300%);
+}
+
+.btn_a:before {
+	left: 0;
+	top: -100%;
+}
+
+.btn_a:hover:before {
+	top: 0;
+}
+
+.help_line{
+ margin:10px 0px; 
+ width:100%
+}
+
+#count_{
+font-size:26px;
+pointer-events: none;
+padding:4px;
+text-align: center;
+ -moz-user-select     : none;
+ -khtml-user-select   : none;
+ -webkit-user-select  : none;
+ -o-user-select       : none;
+ user-select          : none;
+background:rgba(0%,0%,0%,0.4);
+margin: 20px 0px;
+}
+#count_ br{
+font-size:20px;
+}

@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Anchors</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="ani_cha.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="js/clicker.js"></script>
+
+<style>
+button {
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: transparent;
+    border: none;
+
+    color: #FFFFFF;
+}
+
+#neon{
+	position:absolute;
+	top:100px;
+	left:500px;
+	width:150px;
+	height:170px;
+	background:url(images/neon_b.png) no-repeat;
+}
+
+.smoke {
+position: absolute;
+width: 250px;
+height: 250px;
+background:url('images/smoke-texture.png') no-repeat;
+bottom: 150px;
+margin-left:0px
+}
+
+
+#tesla{
+	position:absolute;
+	top:90px;
+	left:330px;
+	width:180px;
+	height:200px;
+	background:url(images/tesla.png) no-repeat;
+}
+
+.smoke {
+position: absolute;
+width: 250px;
+height: 250px;	
+background:url('images/smoke-texture.png') no-repeat;
+bottom: 150px;
+margin-left:0px
+}
+
+
+</style>
+<body>
+<span id="btnCount">0</span>回手を伸ばした（<span id="te_second"></span>/s）
+<div id="clickbut" style="cursor:pointer;background:url(images/ons_s.jpg); width:700px; height:452px">
+<div id="kia" style="background-size:100%"> </div>
+<div id="neon" style="background-size:100%"><div id="neon_h" style="background-size:100%"></div></div>
+<div id="tesla" style="background-size:100%"> </div>
+</div>
+<div style="position:absolute; top:20px;left:750px">
+<div>輝ける<img src="images/close.png" id="button1" ></img></div>
+諦めなくなる（<span id="now_c">100</span>回消費）<img id="button3" src="images/close.png" >
+<div id="zunga"></div>
+メモリが増える（<span id="now_cha"></span>）<img id="button4" src="images/close.png" >
+<h1>How to play</h1>
+<h3>①温泉に手を伸ばす
+<br>②手を伸ばした回数を消費して色々買おう
+<br>③？？？？
+<br>④PROFIT!</h3>
+<br>
+<span id="view_help"></span>
+
+</div>
+</body>
+
+</html>

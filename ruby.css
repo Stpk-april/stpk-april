@@ -1,0 +1,96 @@
+﻿@-moz-document url-prefix(){
+/* Ruby text*/
+body.notIE ruby {
+    display: inline-table;
+    text-align: center;
+    border-collapse: collapse;
+	border: none;
+	line-height: 0.7em;
+    vertical-align: middle;
+	position:relative;
+	top:-0.4em;
+}
+
+/* Fixed problem with IE8 and the rtc tag */
+body.ie8 ruby rtc {
+	display: ruby-text;
+	border: solid 1px black;
+}
+
+
+body.notIE  ruby > rt, body.notIE rtc {
+    display: table-header-group;
+}
+
+/* used to move first ruby
+ container above the base */
+body.notIE ruby > rb, body.notIE rbc, ruby > rt + rt, body.notIE rtc + rtc {
+    display: table-row;
+}
+
+/* base and second ruby
+ are formatted as table-rows */
+body.notIE ruby > rt + rt, body.notIE rtc + rtc {
+    border-bottom: hidden;
+}
+
+/* if there are two annotations then extra
+ border is no longer necessary
+ and can be annihilated
+ using border collapse mechanism */
+body.notIE rb, rbc, body.notIE rt, rtc {
+    white-space: nowrap;
+}
+
+/* prohibits line breaks inside ruby text */
+body.notIE rtc > rt, body.notIE rbc > rb {
+    display: table-cell;
+}
+
+/* used to distribute annotations
+ in table like manner */
+body.notIE rtc > rt[rbspan] {
+    column-span: attr(rbspan);
+}
+
+/* ruby text may span several cells */
+body.notIE ruby > rt, body.notIE rtc {
+    font-size: 0.5em;
+    line-height: 1.2em;
+}
+
+/* font-size of ruby text is reduced */
+body.notIE rp {
+    display: none;
+}
+
+/* Addition to add english rbc */
+ruby.syllables rbc rb {
+	
+}
+
+ruby.syllables rbc rb:after {
+	content: "·"
+}
+
+ruby.syllables rbc rb:last-child:after {
+	content: "";
+}
+
+ruby.syllables rtc rt {
+	padding-right: 0.5em;
+}
+
+ruby.syllables rtc rt:last-child {
+	padding-right: 0;
+}
+ruby {
+	ruby-align: center;
+}
+
+
+body.ie6 ruby rt.small,
+body.ie7 ruby rt.small {	
+	padding: 0 1em;
+}
+}	

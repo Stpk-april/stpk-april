@@ -1,0 +1,237 @@
+body{
+ -moz-user-select     : none;
+ -khtml-user-select   : none;
+ -webkit-user-select  : none;
+ -o-user-select       : none;
+ user-select          : none;
+ background: #fff;
+}
+html{
+ background: #fff;
+}
+
+.aaa{
+ -moz-user-select     : none;
+ -khtml-user-select   : none;
+ -webkit-user-select  : none;
+ -o-user-select       : none;
+ user-select          : none;
+ z-index:9999;
+
+}
+/* ---- button ---- */
+
+
+button {
+  display: inline-block;
+  padding: 0.5em 1.0em;
+  border: none;
+  border-radius: 7px;
+  color: #222;
+  width:33%;
+
+  font-family: 'Noto Sans Japanese', serif;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:hover {
+	background-color: #bfa;
+}
+button:active {
+}
+
+/* ---- button-group ---- */
+
+.button-group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.button-group button {
+  float: left;
+  border-radius: 0;
+}
+
+.button-group button:first-child { border-radius: 0 0 0 0.2em; }
+.button-group button:last-child { border-radius: 0 0 0.2em 0; }
+
+
+
+#archive_ ul,li {position:relative;left:-30px;top:-10px;list-style:none;}
+#archive_ li {float:left;margin:10px}
+#archive_ i img{width:50px; height:50px;}
+
+
+::selection {
+    background:rgba(0,0,0,0);
+    color: #FFF;
+    text-shadow: none;
+}
+::-moz-selection {
+    background:rgba(0,0,0,0);
+    color: #FFF;
+	text-shadow: none;
+}
+::-webkit-selection {
+    background:rgba(0,0,0,0);
+    color: #FFF;
+    text-shadow: none;
+}
+#count_{
+font-size:26px;
+pointer-events: none;
+padding:4px;
+text-align: center;
+ -moz-user-select     : none;
+ -khtml-user-select   : none;
+ -webkit-user-select  : none;
+ -o-user-select       : none;
+ user-select          : none;
+background:rgba(0%,0%,0%,0.4);
+margin: 20px 0px;
+}
+#count_ br{
+font-size:20px;
+}
+#archives{
+position:absolute;
+width:500px; 
+left:720px;
+top:20px;
+color:#000;
+}
+
+
+#neon{
+	position:absolute;
+	top:26.8%;
+	left:510px;
+	float:bottom;
+	overflow:hidden;
+	width:100px;
+	height:105px;
+	cursor:pointer;
+    background-image: url(images/neon_b.png); 
+}
+.steam{
+pointer-events:none;
+position:fixed;
+cursor:pointer;
+background:url(images/steam01.png);
+width:100px;
+height:100px;
+background-size:100%;
+opacity:0.8;
+}
+
+#tesla{
+	cursor:pointer;
+	position:absolute;
+	top:25%;
+	left:400px;
+	width:120px;
+	height:130px;
+	background:url(images/tesla.png) no-repeat;
+}
+
+#kia{
+	position:absolute;
+	top:10%;
+	left:8%;
+	width:120px;
+	height:135px;
+	background:url(images/kia.png) no-repeat;	
+    -webkit-animation: play 3s  infinite alternate;
+       -moz-animation: play 3s  infinite alternate;
+        -ms-animation: play 3s  infinite alternate;
+         -o-animation: play 3s  infinite alternate;
+            animation: play 3s infinite alternate;
+
+}
+@-webkit-keyframes play {
+   from { top:190px; }	
+     to { top:195px; }
+}
+
+@-moz-keyframes play {
+   from { top:190px; }	
+     to { top:195px; }
+}
+
+@-ms-keyframes play {
+   from { top:190px; }	
+     to { top:195px; }
+}
+
+@-o-keyframes play {
+   from { top:190px; }	
+     to { top:195px; }
+}
+
+@keyframes play {
+   from { top:190px; }	
+     to { top:195px; }
+}
+
+#theA{
+	cursor:pointer;
+	position:absolute;
+	top:280px;
+	left:300px;
+	width:100px;
+	height:120px;
+	background:url(images/A.png) no-repeat;
+}
+
+#lily{
+	cursor:pointer;
+	position:absolute;
+	top:360px;
+	left:180px;
+	width:120px;
+	height:80px;
+	background:url(images/lily.png) no-repeat;
+}
+
+
+
+
+
+#hi{
+	position:absolute;
+	width:100px;
+	height:105px;
+	cursor:pointer;
+    background-image: url(images/neon_h_s.png); 
+    -webkit-animation: plays 2s steps(10) infinite alternate;
+       -moz-animation: plays 2s steps(10) infinite alternate;
+        -ms-animation: plays 2s steps(10) infinite alternate;
+         -o-animation: plays 2s steps(10) infinite alternate;
+            animation: plays 2s steps(10) infinite alternate;
+}
+
+@-webkit-keyframes plays {
+   from { background-position:    0px; }	
+     to { background-position: -1000%; }
+}
+
+@-moz-keyframes plays {
+   from { background-position:    0px; }
+     to { background-position: -1000%; }
+}
+
+@-ms-keyframes plays {
+   from { background-position:    0px; }
+     to { background-position: -1000%; }
+}
+
+@-o-keyframes plays {
+   from { background-position:    0px; }
+     to { background-position: -1000%; }
+}
+
+@keyframes plays {
+   from { background-position:    0px; }
+     to { background-position: -1000%; }
+}

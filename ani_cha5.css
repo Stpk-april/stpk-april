@@ -1,0 +1,36 @@
+body{
+	color:#FFF2F2;
+}
+.aaa{
+	color:#FF9E00;
+	text-shadow:
+   -1px -1px 0 #FFFBF7,  
+    1px -1px 0 #FFFBF7,
+   -1px  1px 0 #FFFBF7,
+    1px  1px 0 #FFFBF7;
+}
+.btn_ {
+	background: #E9BC63;
+	color: #604116;
+}
+.btn_:active {
+	color: #F59207;
+	background: #FADFAA;
+}
+.btn_:active:before {
+	color: #FF4E4E;
+}
+.help_line{
+ border-top:1px solid  #fff; 
+ border-bottom:1px solid  #fff; 
+}
+.help_w{
+	color:#7F5D19;
+	background:#FDF6E7;
+}
+#clickbut{
+	outline: 3px  dashed white;
+}
+#count_{
+background:rgba(102,27,27,0.4);
+}
