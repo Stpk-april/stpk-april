@@ -1,10 +1,41 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
 <head>
 <title>Canvas Demo</title>
 <script type="text/javascript" src="extras/jquery.min.1.7.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load('visualization', '1', {packages: ['corechart']});
+</script> 
 <script type="text/javascript" src="js/test.js"></script>
 
+<form id="choose">
+	<input id="var0" value="" name="id" type="radio" checked="checked"></input>
+	<input id="var1" value="Illust" name="id" type="radio" ></input>
+	<input id="var2" value="Novel" name="id" type="radio"></input>
+</form>
+
+<div id="view"> </div>
+<div id="profile"> </div>
+
+
+
+
+
+<!--
+<form>
+	name
+	<input id="name" value="" name="id" type="text">
+    twitter
+	<input id="twitter" value="" name="id" type="text">
+    work
+	<input id="work" value="" name="id" type="text">
+    arts
+	<input id="arts" value="" name="id" type="text">
+</form>
+	<Button id="go"> GO </Button>
+-->
 </head>
 </body>
 </html>
+
