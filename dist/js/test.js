@@ -191,9 +191,49 @@ $(function(){
 			$('#illust-page1').show();
 			$('#illust-page2').hide();
 		});
-//		$('#home-page1').append(gen	erate_thumb('logo2.png','aaa'));
-});
+		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
+		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
+		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
+		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
+		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
+		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
+		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
+		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
+		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
+		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
+		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
 
+		
+		var isMobile = {
+			Android: function() {
+				return navigator.userAgent.match(/Android/i);
+			},
+			BlackBerry: function() {
+				return navigator.userAgent.match(/BlackBerry/i);
+			},
+			iOS: function() {
+				return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+			},
+			Opera: function() {
+				return navigator.userAgent.match(/Opera Mini/i);
+			},
+			Windows: function() {
+				return navigator.userAgent.match(/IEMobile/i);
+			},
+			any: function() {
+				return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+			}
+		};
+//		console.log($( document ).height());
+		if(isMobile.any()) {
+			$('#dummy').attr('data-'+($( document ).height()+200),"margin-top:20px;opacity:0;");
+		}
+		
+		var s= skrollr.init({
+			forceHeight: true,
+			skrollrBody:'skrollr-body'
+		});	
+});
 
 function generate_thumb(img, name)
 {
@@ -201,5 +241,6 @@ function generate_thumb(img, name)
 	$t.append('<img style="width: 100% height: auto;"  class="img-thumbnail" alt="300x200" src='+img+'>');
 	$t.append('<div class="caption">'+name+'</div>');
 	return $t;
+
 }
 
