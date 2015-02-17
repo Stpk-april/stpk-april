@@ -202,11 +202,6 @@ $(function(){
 		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
 		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
 		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
 
 		
 		var isMobile = {
@@ -229,10 +224,9 @@ $(function(){
 				return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
 			}
 		};
-
+//		console.log($( document ).height());
 		if(isMobile.any()) {
-			$('#gototop').hide();
-			$('#dummy').attr('data-'+($( document ).height()+600),"opacity:0;");
+			$('#dummy').attr('data-'+($( document ).height()+200),"margin-top:20px;opacity:0;");
 		}
 		
 		var s= skrollr.init({

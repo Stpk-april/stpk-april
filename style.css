@@ -87,7 +87,7 @@ a.Button3{
   -ms-filter: drop-shadow(0px 0px 10px #ffffff);
   filter: drop-shadow(0px 0px 10px #ffffff);
 
- }
+}
 
 a.Button4{
   display:block; 
@@ -95,6 +95,25 @@ a.Button4{
   opacity:0.7;
 }
 
+
+a.Button5{
+  opacity:0.7;
+  margin-left:25%;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;  
+  -webkit-filter: drop-shadow(0px 0px 10px #ffffff);
+  -moz-filter: drop-shadow(0px 0px 10px #ffffff);
+  -o-filter: drop-shadow(0px 0px 10px #ffffff);
+  -ms-filter: drop-shadow(0px 0px 10px #ffffff);
+  filter: drop-shadow(0px 0px 10px #ffffff);
+ }
+
+ a:hover.Button5{
+	opacity:1;
+ }
  
 a:hover.Button{
 	position:relative;
@@ -212,6 +231,7 @@ a:hover.Button4{
 
 	}
 }
+
 
 @-webkit-keyframes slideout {
   from {
@@ -351,19 +371,19 @@ padding: 10px;
 .cha_01{
 position:relative;
 float:left;
-width:157px;
-height:307px; 
+width:184px;
+height:122px; 
 top:0px;
 left:0px;
-background-image:url(images/cha_ra_01.png);
+background-image:url(images/images/back_01.png);
 }
 .cha_02{
-position:relative;
+position:absolute;
 float:left;
 width:146px;
 height:307px; 
-top:0px;
-left:0px;
+top:273px;
+left:475px;
 background-image:url(images/cha_ra_02.png);
 }
 .cha_03{
@@ -385,13 +405,13 @@ left:0px;
 background-image:url(images/cha_ra_04.png);
 }
 .cha_05{
-position:relative;
+position:absolute;
 float:left;
-width:199px;
-height:160px; 
+width:46px;
+height:450px; 
 top:0px;
-left:0px;
-background-image:url(images/cha_ra_05.png);
+left:610px;
+background-image:url(images/images/back_05.png);
 }
 
 .cha_06{
@@ -411,7 +431,7 @@ width:118px;
 height:404px; 
 top:0px;
 left:0px;
-background-image:url(images/cha_ra_07.png);
+/*background-image:url(images/cha_ra_07.png);*/
 }
 .cha_08{
 position:absolute;
@@ -442,11 +462,11 @@ background-image:url(images/cha_ra_10.png);
 .cha_11{
 position:absolute;
 float:left;
-width:82px;
-height:384px; 
-top:316px;
-left:732px;
-background-image:url(images/cha_ra_11.png);
+width:101px;
+height:167px; 
+top:208px;
+left:290px;
+background-image:url(images/images/back_11.png);
 }
 .cha_12{
 position:absolute;
@@ -491,11 +511,11 @@ background-image:url(images/cha_ra_15.png);
 .cha_16{
 position:absolute;
 float:left;
-width:139px;
-height:259px; 
-top:441px;
-left:175px;
-background-image:url(images/cha_ra_16.png);
+width:135px;
+height:168px; 
+top:273px;
+left:475px;
+background-image:url(images/images/back_16.png);
 }
 
 .cha_17{
@@ -505,7 +525,7 @@ width:274px;
 height:136px; 
 top:565px;
 left:458px;
-background-image:url(images/cha_ra_17.png);
+/*background-image:url(images/cha_ra_17.png);*/
 }
 
 
@@ -519,60 +539,33 @@ background-image:url(images/cha_ra_17.png);
 }
 :hover .ch-item {
     opacity:1;
-/*	filter: drop-shadow(0px 0px 10px #ffffff);
-	-webkit-filter: drop-shadow(0px 0px 10px #ffffff); 
-	-ms-filter: drop-shadow(0px 0px 10px #ffffff); 
-	-mo-filter: drop-shadow(0px 0px 10px #ffffff); 
-	-o-filter: drop-shadow(0px 0px 10px #ffffff); */
 }
 
 
 .ch-info {
 	position: relative;
 	float:left;
-	left:0;
-	right:0;
 	opacity: 0;
 	text-shadow: 1px 1px 5px #fff,-1px 1px 5px #fff,1px -1px 5px #fff,-1px -1px 5px #fff,0px 0px 10px #fff;
-	-webkit-transition: all 0.3s linear 0.4s;
-	-moz-transition: all 0.3s linear 0.4s;
-	-o-transition: all 0.3s linear 0.4s;
-	-ms-transition: all 0.3s linear 0.4s;
-	transition: all 0.3s linear 0.4s;
+	-webkit-transition: all 0.2s linear 0.3s;
+	-moz-transition: all 0.2s linear 0.3s;
+	-o-transition: all 0.2s linear 0.3s;
+	-ms-transition: all 0.2s linear 0.3s;
+	transition: all 0.2s linear 0.3s;
 
-	/*
-	-webkit-transition: all 0.4s ease-in-out;
-	-moz-transition: all 0.4s ease-in-out;
-	-o-transition: all 0.4s ease-in-out;
-	-ms-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out;	
-/*	-webkit-transform: scale(0.5);
-	-moz-transform: scale(0.5);
-	-o-transform: scale(0.5);
-	-ms-transform: scale(0.5);
-	transform: scale(0.5);
-	-webkit-backface-visibility: hidden; /*for a smooth font */
 }
 .ch-item:hover .ch-info {
 	opacity: 1;	
-	text-shadow: 0px 0px 1px #fff;
-	
-/*	-webkit-transform: scale(1);
-	-moz-transform: scale(1);
-	-o-transform: scale(1);
-	-ms-transform: scale(1);
-	transform: scale(1);	*/
+	text-shadow: 0px 0px 1px #fff, 1px 1px 5px #aaa,-1px 1px 5px #aaa,1px -1px 0px #aaa,-1px -1px 0px #aaa;
 }
 
 .ch-info h3 {
-	position:absolute;
+	position:relative;
 	color: #fff;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	font-size: 22px;
-	font-family: 'Open Sans', Arial, sans-serif;
+	font-family: 'Noto Sans Japanese','Open Sans', Arial, sans-serif;
 	
  }
+ 
  
 
 .ch-info h2 {
@@ -581,7 +574,7 @@ background-image:url(images/cha_ra_17.png);
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-size: 22px;
-	font-family: 'Open Sans', Arial, sans-serif;
+	font-family: 'Noto Sans Japanese','Open Sans', Arial, sans-serif;
 	-ms-transform: rotate(90deg); /* IE 9 */
     -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
     transform: rotate(90deg);
