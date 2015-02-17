@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-thema.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load('visualization', '1', {packages: ['corechart']});
+</script> 
+<script type="text/javascript" src="js/test.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/respond.js"></script>
+	<script type="text/javascript" src="./js/skrollr.min.js"></script>
+
+  
+  </head>
+  <style>
+  a:active { outline: none; }
+	.tab-pane{
+	}
+	.tab-pane div{
+		margin:5px
+	}
+	input{
+		display:none;
+	}
+	
+	
+	#topping{
+		position:fixed;
+		background: url(logo2.png) no-repeat;
+		background-size:auto 100%;
+		opacity:1;
+		top:0px;
+		margin-top:0px;
+		z-index:9999;
+		pointer-events: none;
+	}
+	#topping img{
+		opacity:1;
+	}
+  </style>
+  
+  <body>
+<div id="skrollr-body">
+  <img src="ajax-loader.gif" id="loadingg" style="position:fixed; margin-left:45%; margin-right:auto; margin-top:45%; margin-bottom:auto">	
+  <div id="gamen">
+  <div id="genre_sel" style="text-align:center; margin-bottom:10px">
+  <label id="laoption0" for="option0" class="resets btn btn-default  btn-sm" >
+	全部
+  </label>
+  <input type="" name="options" id="option0" value="" ></input>
+  <label id="laoption1" for="option1" class="btn btn-default btn-sm" >
+	セレナリア
+  </label>
+    <input type="checkbox" name="options" id="option1" value="blue" ></input>
+  <label id="laoption2" for="option2" class="btn btn-default  btn-sm">
+  インガノック
+  </label>
+    <input type="checkbox" name="options" id="option2" value="red"></input>
+  <label id="laoption3" for="option3" class="btn btn-default  btn-sm">
+  シャルノス
+  </label>
+    <input type="checkbox" name="options" id="option3" value="black"></input>
+  <label id="laoption4" for="option4" class="btn btn-default  btn-sm" >
+  ヴァルーシア
+  </label>
+    <input type="checkbox" name="options" id="option4" value="white"></input>
+  <label id="laoption5" for="option5" class="btn btn-default  btn-sm" >
+  ソナーニル
+  </label>
+    <input type="checkbox" name="options" id="option5" value="purple"></input>
+  <label id="laoption6" for="option6" class="btn btn-default  btn-sm" >
+  ガクトゥーン
+  </label>
+    <input type="checkbox" name="options" id="option6" value="yellow"></input>
+  <label id="laoption7" for="option7" class="btn btn-default  btn-sm" >
+  カルーシェル
+  </label>
+    <input type="checkbox" name="options" id="option7" value="gray"> </input>
+  </div>
+<div  id="tabbs"  style="position:relative;margin-left:auto; margin-right:auto">
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#home"><span class="glyphicon glyphicon-home"> </span> All</a></li>
+  <li><a href="#illust"><span class="glyphicon glyphicon-picture" ></span> イラスト</a></li>
+  <li><a href="#manga"><span class="glyphicon glyphicon-th-large" ></span> 漫画</a></li>
+  <li><a href="#novel"><span class="glyphicon glyphicon-book" ></span> 小説</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" style="text-align:center" id="home">  
+  	<ul class="pager homepager" id="pageTab">
+	  <li class="hpg previous" style="display:none" id="home-older"><a href="#home-page1">←</a></li>
+	  <li class="hpg next" id="home-newer"><a href="#home-page2">→</a></li>
+	</ul>
+	<div class="home-page" id="home-page1">
+			<div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>		<div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>		<div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>		<div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>		<div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>		<div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>		<div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>		<div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>		<div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>		<div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>
+		  <div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>
+		  <div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>
+		  <div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>
+		  <div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>
+		  <div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>
+		  <div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb22
+            </div>
+          </div>
+		  <div class="img-thumbnail col-xs-5 col-sm-13">
+            <img style="width: 100% height: auto;;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+            <div class="caption">
+				thumb
+            </div>
+          </div>
+	</div>
+	<div class="home-page" id="home-page2">
+	</div>
+  </div>
+  <div class="tab-pane" style="text-align:center"  id="illust">
+  	<ul class="pager illustpager" id="pageTab2">
+	  <li class="next" id="illust-newer"><a href="#illust-page2">→</a></li>
+	  <li class="previous" id="illust-older"><a href="#illust-page1">←</a></li>
+	</ul>
+
+  <div class="illust-page" id="illust-page1">
+	</div>
+	<div class="illust-page" id="illust-page2">
+	</div>
+  </div>
+  <div class="tab-pane" id="manga">
+  <div class="manga-page" id="manga-page1">
+	</div>
+  </div>
+  
+  <div class="tab-pane" id="novel">
+  <div class="novel-page" id="novel-page1">
+	</div>
+  </div>
+				</div>
+			</div>
+	</div>
+	
+</div>
+ <div id="topping" class="jumbotron"
+		data-anchor-target="footer"
+		data-0="margin-top:0;opacity:1; "
+		data-60="margin-top:10px;opacity:0.7;"
+		data-120="margin-top:20px;opacity:0;"
+		>
+
+</div>	
+</body>
+<footer>
+		  <div class="col-xs-5 col-sm-14" style="opacity:0">
+            <img style="width: 100% height: auto;opacity:0;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">
+          </div>
+</footer>
+	<script type="text/javascript">
+	
+	skrollr.init({
+		forceHeight: false
+	});
+	</script>
+</html>
