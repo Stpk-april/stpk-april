@@ -226,7 +226,7 @@ $(function(){
 		};
 //		console.log($( document ).height());
 		if(isMobile.any()) {
-			$('#dummy').attr('data-'+($( document ).height()+200),"margin-top:20px;opacity:0;");
+			$('#dummy').attr('data-'+($( document ).height()+600),"margin-top:20px;opacity:0;");
 		}
 		
 		var s= skrollr.init({
