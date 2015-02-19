@@ -232,7 +232,7 @@ $(function(){
 
 		if(isMobile.any()) {
 			$('#gototop').hide();
-			$('#dummy').attr('data-'+($( document ).height()+600),"opacity:0;");
+			$('#dummy').attr('data-'+($( document ).height()+1000),"opacity:0;");
 		}
 		
 		var s= skrollr.init({
