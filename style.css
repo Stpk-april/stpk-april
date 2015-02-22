@@ -375,7 +375,8 @@ width:184px;
 height:122px; 
 top:0px;
 left:0px;
-background-image:url(images/images/back_01.png);
+background-position: 0px 0px;
+background-image:url(images/cha_sprite.png);
 }
 .cha_02{
 position:absolute;
@@ -411,7 +412,8 @@ width:46px;
 height:450px; 
 top:0px;
 left:610px;
-background-image:url(images/images/back_05.png);
+background-position: -610px 0px;
+background-image:url(images/cha_sprite.png);
 }
 
 .cha_06{
@@ -466,16 +468,18 @@ width:101px;
 height:167px; 
 top:208px;
 left:290px;
-background-image:url(images/images/back_11.png);
+background-position: -290px -209px;
+background-image:url(images/cha_sprite.png);
 }
 .cha_12{
 position:absolute;
 float:left;
-width:136px;
-height:378px; 
-top:316px;
-left:814px;
-background-image:url(images/cha_ra_12.png);
+width:84px;
+height:335px; 
+top:208px;
+left:391px;
+background-position: -391px -209px;
+background-image:url(images/cha_sprite.png);
 }
 
 .cha_13{
@@ -515,7 +519,8 @@ width:135px;
 height:168px; 
 top:273px;
 left:475px;
-background-image:url(images/images/back_16.png);
+background-position: -475px -282px;
+background-image:url(images/cha_sprite.png);
 }
 
 .cha_17{
@@ -566,9 +571,16 @@ left:458px;
 	
  }
  
+.ch-info h2 {
+	position:relative;
+	color: #fff;
+	font-family: 'Noto Sans Japanese','Open Sans', Arial, sans-serif;
+	
+ }
+ 
  
 
-.ch-info h2 {
+.rotate_90  {
 	position:absolute;
 	color: #fff;
 	text-transform: uppercase;
