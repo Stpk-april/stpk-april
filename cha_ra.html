@@ -7,20 +7,19 @@
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="icon" href="favicon.ico">
 <script type="text/javascript" src="extras/jquery.min.1.7.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
 <script src="js/lightbox.js"></script>
 <link rel="stylesheet" href="css/lightbox.css" />
-
 <style type="text/css">
 .lb-outerContainer{
   background-color: rgba(0,0,0,0.0) !important;
 }
 .lb-data .lb-closeContainer .lb-close{
-	position:relative !important;
+	display:none;
+/*	position:relative !important;
 	z-index:9999 !important;
 	top:-40px !important;
-	right: 5px !important
+	right: 5px !important */
 }
 </style>
 </head>
@@ -32,7 +31,7 @@
 	<div id="content">
 	<div class="box">
 <!--		<div class="box_logo"> </div> -->
-			<a href="images/profile26.png" class="Button2" rel="lightbox">
+			<a href="images/profile26.png" class="Button2" rel="lightbox[imgs]">
 			<div class="ch-item cha_01">
 					<div class="ch-info" style="top:70px;left:80px">
 			<h3>あるとせす</h3>
@@ -61,7 +60,7 @@
 					</div>			
 				</div>
 			</a>
-			<a href="images/profile01.png" class="Button2" rel="lightbox" >
+			<a href="images/profile01.png" class="Button2" rel="lightbox[imgs]" >
 			<div class="ch-item cha_05">
 					<div class="ch-info" style="top:350px; left:-30px;">
 						<h2 class="rotate_90">Seiniel</h2>
@@ -110,7 +109,7 @@
 					</div>	
 			</div>
 			</a>
-			<a href="images/profile09.png" class="Button2" rel="lightbox" >
+			<a href="images/profile09.png" class="Button2" rel="lightbox[imgs]" >
 			<div class="ch-item cha_12">
 				<div class="ch-info" style="top:270px; left:20px;">
 						<h2>のぽ</h2>
@@ -138,7 +137,7 @@
 					</div>	
 			</div>
 			</a>
-			<a href="images/profile25.png" class="Button2" rel="lightbox"  >
+			<a href="images/profile25.png" class="Button2" rel="lightbox[imgs]"  >
 			<div class="ch-item cha_16">
 				<div class="ch-info" style="top:110px; left:30px;">
 						<h3 class="outl">かかし太陽</h3>
@@ -163,12 +162,16 @@
 			<a href="info.html" class="Button4 but02_04"></a>
 			<a href="Sample.html" class="Button4 but02_05"></a>
 			</div>
-
 		<div class="box_side side-02">
 		</div>
 </div>
 </div>
 
 </body>
+
+<script type="text/javascript">
+var charac = true;
+</script>
+
 
 </html>
