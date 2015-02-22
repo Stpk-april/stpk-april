@@ -49,10 +49,11 @@ lightbox = new Lightbox options
 
     function LightboxOptions() {
       this.fileLoadingImage = 'images/loading.gif';
-      this.fileCloseImage = 'images/close.png';
+      this.fileCloseImage = 'images/close.png'; /*Changed*/
       this.resizeDuration = 700;
       this.fadeDuration = 500;
-      this.labelImage = "Image";
+	  if(!charac) this.labelImage = "Image"; /*Changed*/
+      else this.labelImage = "Charactor";
       this.labelOf = "of";
     }
 
@@ -61,7 +62,6 @@ lightbox = new Lightbox options
   })();
 
   Lightbox = (function() {
-
     function Lightbox(options) {
       this.options = options;
       this.album = [];
@@ -145,7 +145,8 @@ lightbox = new Lightbox options
         _this.changeImage(_this.currentImageIndex + 1);
         return false;
       });
-      $lightbox.find('.lb-loader, .lb-close').on('click', function(e) {
+      $lightbox.find('.lb-outerContainer, .lb-loader, .lb-close').on('click', function(e) {
+		/*Changed*/
         _this.end();
         return false;
       });
@@ -337,11 +338,11 @@ lightbox = new Lightbox options
         visibility: "visible"
       });
     };
-
     return Lightbox;
 
   })();
 
+  
   $(function() {
     var lightbox, options;
     options = new LightboxOptions;
