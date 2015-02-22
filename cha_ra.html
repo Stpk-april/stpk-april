@@ -163,6 +163,25 @@
 
 <script type="text/javascript">
 var charac = true;
+if ( $.browser.msie&&$.browser.version*1<10 ) 
+{
+		console.log('ie :'+$.browser.version);
+		console.log('だーれですかこの２１世紀にIE9以下なんて使うやつはぁぁ');
+		$('h3').css({opacity:0.1});
+		$('a .ch-item').css({opacity:0.70});
+		$('h2').css({opacity:0.1});
+		$('a .ch-item').mouseenter(function(){
+			$(this).animate({opacity:1.00},500,function(){});
+			$(this).find('h3').animate({opacity:1.00},500,function(){});
+			$(this).find('h2').animate({opacity:1.00},500,function(){});
+		})
+		.mouseleave(function(){
+			$(this).animate({opacity:0.70},500,function(){});
+			$(this).find('h3').animate({opacity:0.1},1000,function(){});
+			$(this).find('h2').animate({opacity:0.1},1000,function(){});
+		});
+}	
+
 </script>
 
 
