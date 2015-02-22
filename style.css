@@ -22,7 +22,6 @@ img {border: none;}
      outline: none;
 }
 a {
-
 font-size: 100%; 
 font-smoothing: antialiased;
 text-rendering: optimizeLegibility;
@@ -36,16 +35,6 @@ hr{
 float:left;
 width:80%;
 }
-#align {  
-width:100%;  
-text-align:center;  
-}   
- 
-#content {  
-margin:0 auto;width:750px;
-text-align:left;  
-}
-
 .bottom_fade {
 	position: absolute;
 	width: 910px;
@@ -69,10 +58,13 @@ a:active {
 a.Button{
   display:block; 
   height:99px; 
+  
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
   opacity:0.7;
  } 
 a.Button2{
-  display:block; 
+  display:block;
 }
 
 a.Button3{
@@ -80,6 +72,8 @@ a.Button3{
   height:99px; 
   position:relative;
   left:-10px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity:1;
   -webkit-filter: drop-shadow(0px 0px 10px #ffffff);
   -moz-filter: drop-shadow(0px 0px 10px #ffffff);
@@ -205,7 +199,9 @@ a:hover.Button4{
 
 
 .box{
-display:block; 
+display:block;
+position:relative;
+left:0px;
 width:950px;
 height:700px;
 background-image:url(images/back.png); 
@@ -246,6 +242,7 @@ top:330px;
 width:400px;
 height:300px;
 }
+
 
 .box_in{
 
@@ -485,6 +482,8 @@ left:458px;
 
 
 .ch-item {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
     opacity:0.7;
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
@@ -492,7 +491,9 @@ left:458px;
     -ms-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
 }
-:hover .ch-item {
+a:hover .ch-item {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity:1;
 }
 
@@ -500,6 +501,8 @@ left:458px;
 .ch-info {
 	position: relative;
 	float:left;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 	opacity: 0;
 	text-shadow: 1px 1px 5px #fff,-1px 1px 5px #fff,1px -1px 5px #fff,-1px -1px 5px #fff,0px 0px 10px #fff;
 	-webkit-transition: all 0.2s linear 0.3s;
@@ -510,24 +513,42 @@ left:458px;
 
 }
 .ch-item:hover .ch-info {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 	opacity: 1;	
 	text-shadow: 0px 0px 1px #fff, 1px 1px 5px #aaa,-1px 1px 5px #aaa,1px -1px 0px #aaa,-1px -1px 0px #aaa;
 }
 
 .ch-info h3 {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 	position:relative;
 	color: #fff;
 	font-family: 'Noto Sans Japanese','Open Sans', Arial, sans-serif;
 	
  }
+
+a:hover .ch-info h3 {
+	progid:DXImageTransform.Microsoft.Shadow(direction=135,strength=2,color=ff0000);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+}
+
  
 .ch-info h2 {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 	position:relative;
 	color: #fff;
 	font-family: 'Noto Sans Japanese','Open Sans', Arial, sans-serif;
 	
  }
  
+ 
+a:hover .ch-info h2 {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+ }
  
 
 .rotate_90  {
@@ -536,12 +557,18 @@ left:458px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-size: 22px;
-	font-family: 'Noto Sans Japanese','Open Sans', Arial, sans-serif;
-	-ms-transform: rotate(90deg); /* IE 9 */
-    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
-    transform: rotate(90deg);
+	font-family: 'Noto Sans Japanese','Open Sans', Arial, sans-serif; 
+	-webkit-writing-mode: vertical-rl;
+	-moz-writing-mode: vertical-rl;
+	-ms-writing-mode: tb-rl;
+	-ms-writing-mode: vertical-rl;
+	writing-mode: vertical-rl;
     -moz-transform: rotate(90deg);
-	
+	-moz-margin-left:-10px;
+	margin-left:34px;
+	-moz-margin-top:0px;
+	margin-top:-20px;
+    
 }
 
 
