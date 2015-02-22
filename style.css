@@ -86,14 +86,21 @@ a.Button3{
   -o-filter: drop-shadow(0px 0px 10px #ffffff);
   -ms-filter: drop-shadow(0px 0px 10px #ffffff);
   filter: drop-shadow(0px 0px 10px #ffffff);
-
 }
 
 a.Button4{
   display:block; 
   height:99px;
   opacity:0.7;
-}
+  top:0px;
+  left:0px;
+  -webkit-transition: all 0.6s ease-in-out;
+  -moz-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  -ms-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;  
+
+ }
 
 
 a.Button5{
@@ -145,18 +152,6 @@ a:hover.Button4{
 	position:relative;
 	top:0px;
 	left:-10px;
-	-webkit-animation-duration: 1s;
-	-webkit-animation-name: slideout;
-	-o-animation-duration: 1s;
-	-o-animation-name: slideout;
-	-moz-animation-duration: 1s;
-	-moz-animation-name: slideout;
-	animation-duration: 1s;
-	animation-name: slideout;
-	-webkit-filter: drop-shadow(0px 0px 10px #ffffff); 
-	-moz-filter: drop-shadow(0px 0px 10px #ffffff); 
-	-o-filter: drop-shadow(0px 0px 10px #ffffff); 
-	filter: drop-shadow(0px 0px 10px #ffffff);
 	opacity:1;
 }
 	
@@ -207,51 +202,6 @@ a:hover.Button4{
 	opacity:1;
   }
 }
-
-
-
-
-@keyframes slideout {
-  from {
-	position:relative;
-	top:0px;
-	left:0px;
-	filter: drop-shadow(0px 0px 0px #ffffff);
-	opacity:0.7;
-
-	}
-
-  to {
-	position:relative;
-	top:0px;
-	left:-10px;
-	filter: drop-shadow(0px 0px 10px #ffffff);
-	opacity:1;
-
-
-	}
-}
-
-
-@-webkit-keyframes slideout {
-  from {
-  position:relative;
-	top:0px;
-	left:0px;
-	-webkit-filter: drop-shadow(0px 0px 0px #ffffff); 
-	opacity:0.7;
-
-	}
-
-  to {
-	position:relative;
-	top:0px;
-	left:-10px;
-	-webkit-filter: drop-shadow(0px 0px 10px #ffffff); 
-	opacity:1;
-	}
-}
-
 
 
 .box{
