@@ -42,7 +42,6 @@ lightbox = new Lightbox options
 
 (function() {
   var $, Lightbox, LightboxOptions;
-
   $ = jQuery;
 
   LightboxOptions = (function() {
@@ -52,7 +51,7 @@ lightbox = new Lightbox options
       this.fileCloseImage = 'images/close.png'; /*Changed*/
       this.resizeDuration = 700;
       this.fadeDuration = 500;
-	  if(!charac) this.labelImage = "Image"; /*Changed*/
+	  if(!('charac' in window)) this.labelImage = "Image"; /*Changed*/
       else this.labelImage = "Charactor";
       this.labelOf = "of";
     }
