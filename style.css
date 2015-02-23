@@ -541,14 +541,18 @@ a:hover .ch-item {
 	-ms-writing-mode: tb-rl;
 	-ms-writing-mode: vertical-rl;
 	writing-mode: vertical-rl;
-    -moz-transform: rotate(90deg);
-	-moz-margin-left:-10px;
 	margin-left:34px;
-	-moz-margin-top:0px;
 	margin-top:-20px;
     
 }
-
+@-moz-document url-prefix() { 
+  .rotate_90 {
+    transform: rotate(90deg);
+	margin-left:0px;
+	margin-top:0px;
+	}
+}
+ 
 
 
 .pict_thumb {
