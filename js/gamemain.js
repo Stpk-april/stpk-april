@@ -719,7 +719,10 @@ if (('localStorage' in window) && window.localStorage != null && localStorage.ge
 		if(ougon==-999)ap_archive('11','黄金瞳のメモリーを集めました',1);
 		if(female+male==-20)ap_archive('08','すべてのメモリーを集めました',1);
 		if(tot_clk>=1000) ap_archive('15','1万回以上クリックしました',1);
-		if(total_c>=10000)	ap_archive('14','１万回以上手を伸ばしました');
+		if(total_c>10000){
+			ap_archive('14','１万回以上手を伸ばしました');
+			find_arc('14').checked=-1;
+		}
 
 		if(char_list_num.length==0){
 			$('#now_cha_l').html('MAX');
@@ -733,6 +736,7 @@ if (('localStorage' in window) && window.localStorage != null && localStorage.ge
 			$('#now_c_l').html('MAX');
 			$('#button3').attr('data-hover', 'MAX');
 		}
+			$('#arc_c').html(arc_cl);
 			set_toast('ロード完了');		
 	}
 }
