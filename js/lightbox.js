@@ -5,6 +5,26 @@
  * @license http://creativecommons.org/licenses/by/2.5/
  * - Free for use in both personal and commercial projects
  * - Attribution requires leaving author name, author link, and the license info intact
+
+
+
+ changed - (from stpk-kikaku) 
+
+ to insert iframe
+
+ if(self.album[imageNumber].link.indexOf('dummy')!=-1){
+		$('.lb-iframe').show();
+		$('.lb-iframe').attr('src', self.album[imageNumber].iframe);
+		$('.lb-iframe').attr('width', '100%');
+		$('.lb-iframe').attr('height', '100%');
+	}
+ else{
+		$('.lb-iframe').hide();
+		$('.lb-iframe').attr('src', '');
+		$('.lb-iframe').attr('width', '0%');
+		$('.lb-iframe').attr('height', '0%');
+	}
+
  */
 
 (function() {
@@ -135,7 +155,7 @@
       function addToAlbum($link) {
         self.album.push({
           link: $link.attr('href'),
-          video: $link.attr('data-video') || $link.attr('href'),
+          iframe: $link.attr('data-iframe') || $link.attr('href'),
           title: $link.attr('data-title') || $link.attr('title')
         });
       }
@@ -204,9 +224,9 @@
         $image.width(preloader.width);
         $image.height(preloader.height);
 		/* added */
-		if(self.album[imageNumber].video.indexOf('youtube')!=-1){
+		if(self.album[imageNumber].link.indexOf('dummy')!=-1){
         $('.lb-iframe').show();
-		$('.lb-iframe').attr('src', self.album[imageNumber].video);
+		$('.lb-iframe').attr('src', self.album[imageNumber].iframe);
 		$('.lb-iframe').attr('width', '100%');
 		$('.lb-iframe').attr('height', '100%');
 		}
