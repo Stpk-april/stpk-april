@@ -12,12 +12,12 @@
 <link rel="stylesheet" href="css/lightbox.css" />
 <style type="text/css">
 .lb-outerContainer{
- background-color: rgba(0,0,0,0.0) !important;
+ background: transparent !important;
 }
 .lb-data .lb-closeContainer .lb-close{
 	position:relative !important;
 	z-index:9999 !important;
-	top:-40px !important;
+	top:-14px !important;
 	right: 5px !important;
 }
 </style>
@@ -166,7 +166,6 @@ var charac = true;
 if ( $.browser.msie&&$.browser.version*1<10 ) 
 {
 		console.log('ie :'+$.browser.version);
-		console.log('だーれですかこの２１世紀にIE9以下なんて使うやつはぁぁ');
 		$('h3').css({opacity:0.1});
 		$('a .ch-item').css({opacity:0.70});
 		$('h2').css({opacity:0.1});
@@ -180,6 +179,8 @@ if ( $.browser.msie&&$.browser.version*1<10 )
 			$(this).find('h3').animate({opacity:0.1},1000,function(){});
 			$(this).find('h2').animate({opacity:0.1},1000,function(){});
 		});
+
+//		.mouseover(
 }	
 
 </script>
