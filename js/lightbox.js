@@ -8,9 +8,16 @@
 
 
 
- changed - (from stpk-kikaku) 
+*changed history - (stpk-april.bitbucket.org) 
+ 
+to show charactor in caption
+ 
+ 	if(!('charac' in window)) return "Image " + curImageNum + " of " + albumSize;
+	else return "Charactor " + curImageNum + " of " + albumSize;
 
+ 
  to insert iframe
+ $("<div id='lightboxOverlay' class='lightboxOverlay'></div><div id='lightbox' class='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' /><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a><iframe class='lb-iframe' style='position:absolute; left:0px; padding:4px;' src='' frameborder='0' allowfullscreen></iframe></div><div class='lb-loader'><a class='lb-cancel'></a></div></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'></a></div></div></div></div>").appendTo($('body'));
 
  if(self.album[imageNumber].link.indexOf('dummy')!=-1){
 		$('.lb-iframe').show();
@@ -34,7 +41,7 @@
   var LightboxOptions = (function() {
     function LightboxOptions() {
       this.fadeDuration                = 500;
-      this.fitImagesInViewport         = false;
+      this.fitImagesInViewport         = true;
       this.resizeDuration              = 700;
       this.positionFromTop             = 50;
       this.showImageNumberLabel        = true;
@@ -44,8 +51,9 @@
     
     // Change to localize to non-english language
     LightboxOptions.prototype.albumLabel = function(curImageNum, albumSize) {
-      return "Image " + curImageNum + " of " + albumSize;
-    };
+		if(!('charac' in window)) return "Image " + curImageNum + " of " + albumSize;
+		else return "Charactor " + curImageNum + " of " + albumSize;
+	};
 
     return LightboxOptions;
   })();
@@ -111,7 +119,6 @@
         }
         return false;
       });
-
       this.$lightbox.find('.lb-prev').on('click', function() {
         if (self.currentImageIndex === 0) {
           self.changeImage(self.album.length - 1);
@@ -129,7 +136,7 @@
         }
         return false;
       });
-
+	  
       this.$lightbox.find('.lb-loader, .lb-close').on('click', function() {
         self.end();
         return false;
@@ -225,23 +232,23 @@
         $image.height(preloader.height);
 		/* added */
 		if(self.album[imageNumber].link.indexOf('dummy')!=-1){
-        $('.lb-iframe').show();
-		$('.lb-iframe').attr('src', self.album[imageNumber].iframe);
-		$('.lb-iframe').attr('width', '100%');
-		$('.lb-iframe').attr('height', '100%');
+			$('.lb-iframe').show();
+			$('.lb-iframe').attr('src', self.album[imageNumber].iframe);
+			$('.lb-iframe').attr('width', '100%');
+			$('.lb-iframe').attr('height', '100%');
 		}
 		else{
-		$('.lb-iframe').hide();
-		$('.lb-iframe').attr('src', '');
-		$('.lb-iframe').attr('width', '0%');
-		$('.lb-iframe').attr('height', '0%');
+			$('.lb-iframe').hide();
+			$('.lb-iframe').attr('src', '');
+			$('.lb-iframe').attr('width', '0%');
+			$('.lb-iframe').attr('height', '0%');
 		}
 		
 		
 		
-        if (self.options.fitImagesInViewport) {
-          // Fit image inside the viewport.
-          // Take into account the border around the image and an additional 10px gutter on each side.
+        if (self.options.fitImagesInViewport&&self.album[imageNumber].iframe.indexOf('.html')==-1) {
+        // Fit image inside the viewport.
+        // Take into account the border around the image and an additional 10px gutter on each side.
 
           windowWidth    = $(window).width();
           windowHeight   = $(window).height();
