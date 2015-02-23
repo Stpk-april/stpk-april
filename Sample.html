@@ -12,6 +12,15 @@
 <script src="js/lightbox.js"></script>
 <link rel="stylesheet" href="css/lightbox.css" />
 <style type="text/css">
+
+.lb-data .lb-closeContainer .lb-close{
+	position:fixed !important;
+	z-index:9999 !important;
+	top:20px !important;
+	left: 20px !important;
+	right: auto !important;
+}
+
 </style>
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
@@ -22,8 +31,8 @@
 		<div class="box_ov">
 			<div  id="box_in" style="height:675; width:950;margin: 0 30px;padding:30px;">		
 			<h3> WEB体験版（？）公開中！</h3>
-			<a href="test3.html" class="button5" target="blank_">
-			<img src="images/fake.jpg">
+			<a href="images/game_dummy.jpg"  data-iframe="test3.html" data-lightbox="game-1">
+			<img src="images/fake.jpg" style="margin-left:240px">
 			</a>
 			<img src="images/null_t.png">
 		</div>
