@@ -1,18 +1,18 @@
 ﻿/*
 
- * Copyright 2015 Seiniel
+ * Copyright 2015 
  * Licensed under the MIT License
  * http://opensource.org/licenses/MIT
 
 */
 
-var count =1000000000000;
+var count =0;
 var char_list=new Array();
 var arcv_list=new Array();
 var char_list_num=new Array(0,1,2,3,4);
 var char_count=0;
 
-var timer;
+var timer, timer2;
 var btnCount;
 var cnt_ck=false,aki_ck=false;
 var tictac_max=2000, tictac=2000, tictac_c=0, tictac_l=0;
@@ -303,6 +303,7 @@ function change_thema_f(no_thema){
 
 window.onload = function(){
 	timer = setInterval(tick, tictac);
+	timer2 = setInterval(save_clk, 300000);
 	btnCount = document.getElementById("btnCount");
 }
 $(function(){
