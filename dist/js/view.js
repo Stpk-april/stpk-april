@@ -36,7 +36,6 @@ function handleQueryResponse(event){
 		return;
 	}
 	else{
-	$('body').fadeIn();
 	var data = event.getDataTable();
 	if(data.getNumberOfRows()!=0){
 		$('#userprof').attr('data-content','<img style="margin-left:auto;margin-right:auto; width:auto" src="'+data.getValue(0,1)+'">');
@@ -56,14 +55,14 @@ function handleQueryResponse(event){
 					$('#tabbs').prepend('<h6>(画像クリックで 拡大表示します）</h6>');
 					$imgs=$('<a href="'+data.getValue(0,5)+'"rel="lightbox"></a>').append($imgs);
 				}
-				$('#home').append($imgs);			
+				$('#home').append($imgs);
+				$('body').fadeIn();
 			}
 			img.src = data.getValue(0,5);
-
 		}
-		if(now_>1){$('.previous').wrap('<a href="gallery.html?aid='+(now_*1-1)+'"></a>');}
-		else{$('.previous').hide()};
 		
+		if(now_>1){$('.previous').wrap('<a href="gallery.html?aid='+(now_*1-1)+'"></a>');}
+		else{$('.previous').hide()};		
 		if(now_<27){$('.next').wrap('<a href="gallery.html?aid='+(now_*1+1)+'"></a>');}
 		else{$('.next').hide()};
 		$('#userprof').popover('show');
