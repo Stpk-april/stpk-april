@@ -335,7 +335,7 @@ $(function(){
 	
 	$("#chg_thema input").click(function(event){
 		var now_ck= '#'+$('#chg_thema input[type=radio]:checked').attr('id');		
-		console.log(now_ck);
+//		console.log(now_ck);
 		for(var i=0;i<comp_thema.length;i++){
 			if(now_ck==comp_thema[i].id){
 				if(count<comp_thema[i].cost&&comp_thema[i].checked!=1){

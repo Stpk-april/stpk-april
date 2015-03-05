@@ -31,9 +31,27 @@ to show charactor in caption
 		$('.lb-iframe').attr('width', '0%');
 		$('.lb-iframe').attr('height', '0%');
 	}
+	
+
+
+
+	$('#inout').hide();
+	$('#zomin').click(function(){
+		$('#zomin').hide();
+		$('#zomout').show();
+			lightbox.changeImage(lightbox.currentImageIndex,1);
+	});
+	$('#zomout').click(function(){
+			$('#zomout').hide();
+			$('#zomin').show();
+		lightbox.changeImage(lightbox.currentImageIndex,0);
+	});
+
 
  */
 
+var nowimage=true;
+ 
 (function() {
   // Use local alias
   var $ = jQuery;
@@ -43,7 +61,7 @@ to show charactor in caption
       this.fadeDuration                = 500;
       this.fitImagesInViewport         = true;
       this.resizeDuration              = 700;
-      this.positionFromTop             = 50;
+      this.positionFromTop             = 70;
       this.showImageNumberLabel        = true;
       this.alwaysShowNavOnTouchDevices = false;
       this.wrapAround                  = false;
@@ -102,20 +120,23 @@ to show charactor in caption
       
       // Attach event handlers to the newly minted DOM elements
       this.$overlay.hide().on('click', function() {
+		$('#inout').hide();        
         self.end();
         return false;
       });
 
       this.$lightbox.hide().on('click', function(event) {
         if ($(event.target).attr('id') === 'lightbox') {
-          self.end();
+		$('#inout').hide();        
+		self.end();
         }
         return false;
       });
 
       this.$outerContainer.on('click', function(event) {
         if ($(event.target).attr('id') === 'lightbox') {
-          self.end();
+		$('#inout').hide();        
+		self.end();
         }
         return false;
       });
@@ -138,7 +159,8 @@ to show charactor in caption
       });
 	  
       this.$lightbox.find('.lb-loader, .lb-close').on('click', function() {
-        self.end();
+		$('#inout').hide();        
+		self.end();
         return false;
       });
     };
@@ -149,7 +171,6 @@ to show charactor in caption
       var $window = $(window);
 
       $window.on('resize', $.proxy(this.sizeOverlay, this));
-
       $('select, object, embed').css({
         visibility: "hidden"
       });
@@ -202,12 +223,18 @@ to show charactor in caption
         top: top + 'px',
         left: left + 'px'
       }).fadeIn(this.options.fadeDuration);
-
+		$('#inout').fadeIn(this.options.fadeDuration);
       this.changeImage(imageNumber);
     };
-
+	
     // Hide most UI elements in preparation for the animated resizing of the lightbox.
-    Lightbox.prototype.changeImage = function(imageNumber) {
+    Lightbox.prototype.changeImage = function(imageNumber, option) {
+	  option=(option==null)? -1:option;
+	  console.log(option);
+	  if(option==-1){
+		  $('#zomout').hide();        
+		  $('#zomin').show();        
+	  }
       var self = this;
 
       this.disableKeyboardNav();
@@ -246,10 +273,9 @@ to show charactor in caption
 		
 		
 		
-        if (self.options.fitImagesInViewport&&self.album[imageNumber].iframe.indexOf('.html')==-1) {
+        if (self.options.fitImagesInViewport&&self.album[imageNumber].iframe.indexOf('.html')==-1&&option!=1&&nowimage==true) {
         // Fit image inside the viewport.
         // Take into account the border around the image and an additional 10px gutter on each side.
-
           windowWidth    = $(window).width();
           windowHeight   = $(window).height();
           maxImageWidth  = windowWidth - self.containerLeftPadding - self.containerRightPadding - 20;
@@ -409,7 +435,6 @@ to show charactor in caption
       var KEYCODE_ESC        = 27;
       var KEYCODE_LEFTARROW  = 37;
       var KEYCODE_RIGHTARROW = 39;
-
       var keycode = event.keyCode;
       var key     = String.fromCharCode(keycode).toLowerCase();
       if (keycode === KEYCODE_ESC || key.match(/x|o|c/)) {
@@ -447,6 +472,21 @@ to show charactor in caption
   $(function() {
     var options  = new LightboxOptions();
     var lightbox = new Lightbox(options);
+	$('#inout').hide();
+	$('#zomin').click(function(){
+		$('#zomin').hide();
+		$('#zomout').show();
+			lightbox.changeImage(lightbox.currentImageIndex,1);
+		lightbox.sizeOverlay();
+	});
+	$('#zomout').click(function(){
+		$('#zomout').hide();
+		$('#zomin').show();
+		lightbox.changeImage(lightbox.currentImageIndex,0);
+		lightbox.sizeOverlay();
+
+	});
+
   });
 
 }).call(this);

@@ -30,8 +30,7 @@ changed history :
 	.page-header
 	change padding
 */
-
-
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
 
 article,
 aside,
@@ -115,7 +114,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, serif;
+  font-family: 'Noto Sans Japanese', monospace, serif;
   font-size: 1em;
 }
 
@@ -323,7 +322,7 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans Japanese', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -485,7 +484,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans Japanese', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
   line-height: 1.1;
 }
@@ -937,16 +936,24 @@ pre code {
 .col-xs-12 {
   width: 100%;
 }
-	#topping{
+#topping{
 		margin-left:0%;
 		width:100%;
 		height:20%;
-	}
-	#gamen{
+}
+#gamen{
 		margin-top:35%;
-	}
+}
+
+#navgat{
+		text-align:center;
+}	
 
 @media (min-width: 768px) {
+
+#navgat{
+		text-align:left;
+}	
   #tabbs{
 	width:70%
   }
@@ -5918,7 +5925,7 @@ body.modal-open,
   left: 0;
   z-index: 1010;
   display: none;
-  max-width: 276px;
+  max-width: 800px;
   padding: 1px;
   text-align: left;
   white-space: normal;

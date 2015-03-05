@@ -323,7 +323,7 @@ height:122px;
 top:0px;
 left:0px;
 background-position: 0px 0px;
-background-image:url(images/cha_sprite.png);
+background-image:url(images/cha_sprite.jpg);
 }
 .cha_02{
 position:absolute;
@@ -360,7 +360,7 @@ height:450px;
 top:0px;
 left:610px;
 background-position: -610px 0px;
-background-image:url(images/cha_sprite.png);
+background-image:url(images/cha_sprite.jpg);
 }
 
 .cha_06{
@@ -416,7 +416,7 @@ height:167px;
 top:208px;
 left:290px;
 background-position: -290px -209px;
-background-image:url(images/cha_sprite.png);
+background-image:url(images/cha_sprite.jpg);
 }
 .cha_12{
 position:absolute;
@@ -426,7 +426,7 @@ height:335px;
 top:208px;
 left:391px;
 background-position: -391px -209px;
-background-image:url(images/cha_sprite.png);
+background-image:url(images/cha_sprite.jpg);
 }
 
 .cha_13{
@@ -442,11 +442,12 @@ background-image:url(images/cha_ra_13.png);
 .cha_14{
 position:absolute;
 float:left;
-width:156px;
-height:153px; 
-top:410px;
-left:455px;
-background-image:url(images/cha_ra_14.png);
+width:152px;
+height:201px; 
+top:209px;
+left:798px;
+background-position: -798px -209px;
+background-image:url(images/cha_sprite.jpg);
 }
 
 .cha_15{
@@ -467,17 +468,18 @@ height:168px;
 top:273px;
 left:475px;
 background-position: -475px -282px;
-background-image:url(images/cha_sprite.png);
+background-image:url(images/cha_sprite.jpg);
 }
 
 .cha_17{
 position:absolute;
 float:left;
-width:274px;
-height:136px; 
-top:565px;
-left:458px;
-/*background-image:url(images/cha_ra_17.png);*/
+width:145px;
+height:168px; 
+top:375px;
+left:0px;
+background-position: -0px -375px;
+background-image:url(images/cha_sprite.jpg);
 }
 
 
@@ -599,3 +601,26 @@ padding:0.5em;
 .but02_04 { background-position: -75px -108px; width: 75px; height: 104px; }
 .but02_05 { background-position: -0px -195px; width: 75px; height: 103px; }
 .but02_06 { background-position: -75px -212px; width: 75px; height: 103px; }
+
+
+
+
+#inout
+{
+	cursor:pointer;
+	position:fixed;
+	z-index:20000;
+	margin: -15px -30px
+}
+#zomin
+	{
+		background:url(images/plus.png);
+		width:150px;
+		height:100px
+}
+#zomout
+	{
+	background:url(images/minus.png);
+	width:150px;
+	height:100px;
+}
