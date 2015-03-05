@@ -38,12 +38,12 @@ function handleQueryResponse(event){
 	else{
 	var data = event.getDataTable();
 	if(data.getNumberOfRows()!=0){
-		$('#userprof').attr('data-content','<img style="margin-left:auto;margin-right:auto; width:auto" src="'+data.getValue(0,1)+'">');
+		$('#userprof').attr('data-content','<img style="margin-left:auto;margin-right:auto; width:100%" src="'+data.getValue(0,1)+'">');
 		$('#username').html(data.getValue(0,0));
 		$('title').html(data.getValue(0,0));
 		for(var i in test){
 			if(data.getValue(0,4)!=null&&data.getValue(0,4).indexOf(test[i])!=-1){
-			$('#genres').append('<a href="matome.html?option'+(i*1+1)+'"><button class="btn btn-default  btn-sm" style="margin-right:5px;">'+test2[i]+'</button></a>');
+			$('#genres').append('<a href="matome.html?option'+(i*1+1)+'"><button class="btn btn-default  btn-sm" style="margin:3px;">'+test2[i]+'</button></a>');
 			}
 		}
 		$('#usertwitter').html(data.getValue(0,2));
@@ -56,7 +56,7 @@ function handleQueryResponse(event){
 					$imgs=$('<a href="'+data.getValue(0,5)+'"rel="lightbox"></a>').append($imgs);
 				}
 				$('#home').append($imgs);
-				$('body').fadeIn();
+				$('body').fadeIn();		
 			}
 			img.src = data.getValue(0,5);
 		}
@@ -67,7 +67,6 @@ function handleQueryResponse(event){
 		else{$('.next').hide()};
 		$('#userprof').popover('show');
 		$('#userprof').popover('hide');
-		
 	}
 	}
 	nowimage=false;
@@ -75,6 +74,42 @@ function handleQueryResponse(event){
 var togg=false;
 $(function(){
 
+		var isMobile = {
+			Android: function() {
+				return navigator.userAgent.match(/Android/i);
+			},
+			BlackBerry: function() {
+				return navigator.userAgent.match(/BlackBerry/i);
+			},
+			iOS: function() {
+				return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+			},
+			Opera: function() {
+				return navigator.userAgent.match(/Opera Mini/i);
+			},
+			Windows: function() {
+				return navigator.userAgent.match(/IEMobile/i);
+			},
+			any: function() {
+				return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+			}
+		};
+
+		if(isMobile.any()) {
+			$('#back_').css({
+			'margin-left':'auto',
+			'margin-right':'auto'
+			})
+			.after('<p>');
+			$('#userprof').css({
+			'margin-left':'auto',
+			'margin-right':'auto'
+			});
+			$('#genres').css({
+			'text-align':'center',
+			});
+		}
+		
 	$('#userprof').click(function(){
 		if(togg==false){
 			$('#userprof').html('プロフィールを閉じる');
