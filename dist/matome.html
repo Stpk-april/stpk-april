@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap 101 Template</title>
+    <title>企画まとめページ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <link href="css/bootstrap-thema.css" rel="stylesheet" media="screen">
@@ -44,7 +44,8 @@ google.load('visualization', '1', {packages: ['corechart']});
 	}
   </style>
   
-  <body>
+<body>
+<span id="top">&nbsp;</span>
 <div id="skrollr-body">
   <img src="ajax-loader.gif" id="loadingg" style="position:absolute; margin-left:45%; margin-right:auto; margin-top:45%; margin-bottom:auto">	
   <div id="gamen">
@@ -104,7 +105,7 @@ google.load('visualization', '1', {packages: ['corechart']});
   <div class="tab-pane" style="text-align:center"  id="illust">
   	<ul class="pager illustpager" id="pageTab2">
 	  <li class="next" id="illust-newer"><a href="#illust-page2">→</a></li>
-	  <li class="previous" id="illust-older"><a href="#illust-page1">←</a></li>
+	  <li class="previous" style="display:none" id="illust-older"><a href="#illust-page1">←</a></li>
 	</ul>
 
   <div class="illust-page" id="illust-page1">
@@ -113,12 +114,12 @@ google.load('visualization', '1', {packages: ['corechart']});
 	</div>
   </div>
   <div class="tab-pane" id="manga">
-  <div class="manga-page" id="manga-page1">
+  <div class="manga-page" style="text-align:center" id="manga-page1">
 	</div>
   </div>
   
   <div class="tab-pane" id="novel">
-  <div class="novel-page" id="novel-page1">
+  <div class="novel-page" style="text-align:center" id="novel-page1">
 	</div>
   </div>
 				</div>
@@ -132,10 +133,19 @@ google.load('visualization', '1', {packages: ['corechart']});
 		data-60="margin-top:10px;opacity:0.7;"
 		data-120="margin-top:20px;opacity:0;"
 >
+
 <div id ="dummy"></div>
 
 </div>	
+
+<div id="gototop" style="position:fixed;bottom:0; margin-left:10%; margin-bottom:20px;opacity:1" 
+		data-0="margin-bottom:-40px;opacity:0"
+		data-200="margin-bottom:40px;opacity:1.0;"
+>
+<a href="#top"> <button class="btn btn-default btn-lg glyphicon glyphicon-upload"></button></a>
+</div>	
 </body>
+
 <footer>
 		  <div class="col-xs-5 col-sm-14" style="opacity:0">
             <img style="width: 100% height: auto;opacity:0;"  class="img-thumbnail" alt="300x200" src="thumb-4.jpg">

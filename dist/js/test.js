@@ -34,15 +34,15 @@ var novel = new Array();
 var query;
 var now_;
 $( document ).ready(function() {
-	 query = new google.visualization.Query('http://spreadsheets.google.com/a/google.com/tq?key='+key+'&pub=1');
-	 var t= $(location).attr('search').split('&');
+	$('body').hide();
+	query = new google.visualization.Query('http://spreadsheets.google.com/a/google.com/tq?key='+key+'&pub=1');
 	set_Q('');
 })
 function set_Q(txt){
 	$('#loadingg').show();
 	$('#gamen').hide();
 	now='';
-	query.setQuery("SELECT B, C, D, E, F "+txt);
+	query.setQuery("SELECT B, C, D, E, F, I ");
 	query.send(handleQueryResponse);
 }
 function handleQueryResponse(event){
@@ -51,38 +51,54 @@ function handleQueryResponse(event){
 		return;
 	}
 	var data = event.getDataTable();
-	for (i=0; i<13&&i<data.getNumberOfRows(); i++){
-		$("#home-page1").prepend('<button type="button" class="genr btn btn-default" genre="'+data.getValue(i,4)+'">'+data.getValue(i,0)+'</button>').hide().fadeIn();
-		alls.push('<button type="button" class="genr btn btn-default" genre="'+data.getValue(i,4)+'">'+data.getValue(i,0)+'</button>');
+	for (i=0; i<16; i++){
+		$("#home-page1").append(generate_thumb(data.getValue(i,5),data.getValue(i,0),data.getValue(i,4),(i+1))).hide().fadeIn();
+		alls.push(generate_thumb(data.getValue(i,5),data.getValue(i,0),data.getValue(i,4),(i+1)));
 		if(data.getValue(i,3).indexOf('Illust')!=-1) insother(data,'illust','-page1');
 		if(data.getValue(i,3).indexOf('comic')!=-1) insother(data,'manga','');
 		if(data.getValue(i,3).indexOf('Novel')!=-1) insother(data,'novel','');
 	}
-	
-	if(data.getNumberOfRows()>=13){
-	for (i=13; i<data.getNumberOfRows(); i++){
-		$("#home-page2").prepend('<button type="button" class="genr btn btn-default" genre="'+data.getValue(i,4)+'">'+data.getValue(i,0)+'</button>');
-		alls.push('<button type="button" class="genr btn btn-default" genre="'+data.getValue(i,4)+'">'+data.getValue(i,0)+'</button>');
+	for (i=16; i<data.getNumberOfRows()-1; i++){
+		$("#home-page2").append(generate_thumb(data.getValue(i,5),data.getValue(i,0),data.getValue(i,4),(i+1)));
+		alls.push(generate_thumb(data.getValue(i,5),data.getValue(i,0),data.getValue(i,4),(i+1)));
 		if(data.getValue(i,3).indexOf('Illust')!=-1) insother(data,'illust','-page2');
 		if(data.getValue(i,3).indexOf('comic')!=-1) insother(data,'manga','');
 		if(data.getValue(i,3).indexOf('Novel')!=-1) insother(data,'novel','');
 	}
-	}
-	else{
-		$('#home-newer').hide();
-	}
+	
+	re_merg(illust, 'illust',1);
+	$( "img" )
+	  .error(function() {
+		$( this ).attr( "src", "http://dummyimage.com/150x150/FFF/000" );
+	  });
+	
 	$('#loadingg').hide();
-	$('#gamen').fadeIn();
+	$('#gamen').fadeIn();	
+	autosort();
+	$('body').fadeIn();
+}
+
+function autosort(){
+	if($(location).attr('search').indexOf('option')!=-1){
+	var t= $(location).attr('search').split('?')[1];
+		if(t.split('option')[1]*1<8&&t.split('option')[1]*1>=0){
+			t='#'+t;
+			sorting(t);
+		}
+	}
 }
 
 function insother(data,chk,pgng){
-		$("#"+chk+pgng).prepend('<button type="button" class="genr btn btn-default" genre="'+data.getValue(i,4)+'">'+data.getValue(i,0)+'</button>');
+		var temped=generate_thumb(data.getValue(i,5),data.getValue(i,0),data.getValue(i,4),(i+1));
 		switch (chk){
-			case 'illust' : illust.push('<button type="button" class="genr btn btn-default" genre="'+data.getValue(i,4)+'">'+data.getValue(i,0)+'</button>');
+			case 'illust' : illust.push(temped);
 							break;
-			case 'manga' : manga.push('<button type="button" class="genr btn btn-default" genre="'+data.getValue(i,4)+'">'+data.getValue(i,0)+'</button>');
+			case 'manga' : manga.push(temped);
 							break;
-			case 'novel' : novel.push('<button type="button" class="genr btn btn-default" genre="'+data.getValue(i,4)+'">'+data.getValue(i,0)+'</button>');
+			case 'novel' : novel.push(temped);
+		}
+		if(chk!='illust'){
+				$("#"+chk+pgng).append(temped);
 		}
 }
 function re_merg(data, pge, pgr){
@@ -91,17 +107,17 @@ pgr=(pgr==null)? 0: pgr;
 		$('.'+pge+'pager').hide();
 		for(var i=0;i<data.length;i++){
 			if(data[i]!='0'){
-				if(temp1>=13){
+				if(temp1>=16){
 					temp1++;
-					$('#'+pge+'-page2').prepend(data[i]);
+					$('#'+pge+'-page2').append(data[i]);
 				}
 				else{
 					temp1++
-					$('#'+pge+'-page1').prepend(data[i]);			
+					$('#'+pge+'-page1').append(data[i]);			
 				}
 			}
 		}
-		if(temp1>=13&&pgr!=0){
+		if(temp1>=16&&pgr!=0){
 			$('.'+pge+'pager').show();
 			$('.'+pge+'pager > .next').show();
 			$('.'+pge+'pager > .previous').hide();
@@ -115,7 +131,7 @@ function copyarray(array2){
 		temp=''+array2[i];
 		tarray.push(temp);
 	}
-	console.log(tarray);
+//	console.log(tarray);
 	return tarray;
 }
 
@@ -128,22 +144,22 @@ $(function(){
 		 })
 		$('#pageTab a').click(function (e) {
 		  e.preventDefault();
-		  console.log(this);
+//		  console.log(this);
 		  var targetbox = $(this).attr('href');
 		  $('.home-page').hide();
 		  $('.hpg').toggle();
-		  $(targetbox).show();
+		  $(targetbox).fadeIn();
 		});
 		
 		$('#pageTab2 a').click(function (e) {
 		  e.preventDefault();
-		  console.log(this);
+//		  console.log(this);
 		  var targetbox = $(this).attr('href');
 		  $('.illust-page').hide();
 		  $('.illustpager > li').toggle();
-		  $(targetbox).show();
+		  $(targetbox).fadeIn();
 		});
-
+		
 		$('#genre_sel input').click(function(){
 			var al2= copyarray(alls);
 			var il2= copyarray(illust);
@@ -184,31 +200,17 @@ $(function(){
 			re_merg(il2, 'illust',1);
 			re_merg(ma2, 'manga');
 			re_merg(no2, 'novel');
-			re_merg(al2, 'home',1);
+			re_merg(al2, 'home',1);			
+			$( "img" )
+			  .error(function() {
+				$( this ).attr( "src", "http://dummyimage.com/150x150/FFF/000" );
+			  });
 			$('#home').tab('show');
 			$('#home-page1').show();
 			$('#home-page2').hide();
 			$('#illust-page1').show();
 			$('#illust-page2').hide();
 		});
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-		$('#home-page1').append(generate_thumb('thumb-4.jpg','aaa'));
-
-		
 		var isMobile = {
 			Android: function() {
 				return navigator.userAgent.match(/Android/i);
@@ -241,12 +243,56 @@ $(function(){
 		});	
 });
 
-function generate_thumb(img, name)
+function generate_thumb(img, name,genre,id)
 {
-	var $t=$('<div class="img-thumbnail col-xs-5 col-sm-13"></div>');
-	$t.append('<img style="width: 100% height: auto;"  class="img-thumbnail" alt="300x200" src='+img+'>');
-	$t.append('<div class="caption">'+name+'</div>');
-	return $t;
-
+	return '<a href="gallery.html?aid='+id+'"><button type="button" class="genr btn btn-default col-xs-5 col-sm-13" style="margin:5px" genre="'+genre+'"><img class="img-thumbnail" src="'+img+'"><br>'+name+'</button></a>';
 }
 
+function sorting(id_){
+			var al2= copyarray(alls);
+			var il2= copyarray(illust);
+			var ma2= copyarray(manga);
+			var no2= copyarray(novel);
+			if($(id_).attr('id')!='option0'){
+				$('#la'+$(id_).attr('id')).toggleClass('active');
+			}
+			else{
+				$('input').attr('checked',false);			
+				$('.btn').removeClass('active');			
+			}
+			var temp=$(id_).val();
+				for(var i=0;i<al2.length;i++){
+					if(al2[i].indexOf(temp)==-1){
+						al2[i]='0';
+					}
+				}
+				for(var i=0;i<il2.length;i++){
+					if(il2[i].indexOf(temp)==-1){
+						il2[i]='0';
+					}
+				}
+				for(var i=0;i<ma2.length;i++){
+					if(ma2[i].indexOf(temp)==-1){
+						ma2[i]='0';
+					}
+				}
+				for(var i=0;i<no2.length;i++){
+					if(no2[i].indexOf(temp)==-1){
+						no2[i]='0';
+					}
+				}
+			$('.genr').remove();
+			re_merg(il2, 'illust',1);
+			re_merg(ma2, 'manga');
+			re_merg(no2, 'novel');
+			re_merg(al2, 'home',1);			
+			$( "img" )
+			  .error(function() {
+				$( this ).attr( "src", "http://dummyimage.com/150x150/FFF/000" );
+			  });
+			$('#home').tab('show');
+			$('#home-page1').fadeIn();
+			$('#home-page2').hide();
+			$('#illust-page1').fadeIn();
+			$('#illust-page2').hide();
+}
