@@ -109,7 +109,8 @@ $(function(){
 			'text-align':'center',
 			});
 		}
-		
+	
+	
 	$('#userprof').click(function(){
 		if(togg==false){
 			$('#userprof').html('プロフィールを閉じる');
