@@ -69,7 +69,7 @@ var nowimage=true;
     
     // Change to localize to non-english language
     LightboxOptions.prototype.albumLabel = function(curImageNum, albumSize) {
-		if(!('charac' in window)) return "Image " + curImageNum + " of " + albumSize;
+		if($('title').attr('id')!='ch_prof') return "Image " + curImageNum + " of " + albumSize;
 		else return "Charactor " + curImageNum + " of " + albumSize;
 	};
 
@@ -230,16 +230,13 @@ var nowimage=true;
     // Hide most UI elements in preparation for the animated resizing of the lightbox.
     Lightbox.prototype.changeImage = function(imageNumber, option) {
 	  option=(option==null)? -1:option;
-	  console.log(option);
 	  if(option==-1){
 		  $('#zomout').hide();        
 		  $('#zomin').show();        
 	  }
       var self = this;
-
       this.disableKeyboardNav();
       var $image = this.$lightbox.find('.lb-image');
-
       this.$overlay.fadeIn(this.options.fadeDuration);
 
       $('.lb-loader').fadeIn('slow');
