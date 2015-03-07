@@ -1,4 +1,5 @@
-﻿<html>
+﻿<!DOCTYPE html>
+<html>
 <head>
 <title>ダウンロード</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -10,7 +11,7 @@
 <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
 <script src="js/lightbox.js"></script>
 <script type="text/javascript" src="js/filesaver.js"></script>
-<script type="text/javascript" src="js/jszip.js"></script>
+<script type="text/javascript" src="http://stuk.github.io/jszip/dist/jszip.js"></script>
 <link rel="stylesheet" href="css/lightbox.css" />
 <style type="text/css">
 
@@ -41,13 +42,10 @@ input:checked + label {
 input {
 	display:none;
 }
- 
- 
-
 
 </style>
 </head>
-<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<body bgcolor="#FFFFFF">
 <!-- Save for Web Slices (back.psd) -->
 <div style="position: absolute; top: 0px; left: 50px; height:100%; width: auto;">
 <div id="align"> 
@@ -55,9 +53,10 @@ input {
 		<div class="box_ov">
 			<div  id="box_in" style="height:675; width:950;margin: 0 30px;padding:30px;">		
 			<h3> Twitterアイコン配信中！</h3>
-			<button id="matome">選択したアイコンをまとめてzipダウンロード</button><br>
-			<h5 id="err"> </h5>
-			<form id="icons"></form>
+			(右クリック→対象をファイルに保存、もしくは↓)<br/>
+			<button id="matome">チェックしたアイコンをまとめてzipダウンロード</button><br>
+			<h5 id="err">ＤＬしたいアイコンをチェックてください</h5>
+			<form id="icons" style="text-align:center"></form>
 			<h3> WEB体験版（？）公開中！</h3>
 			<a href="images/game_dummy.jpg"  data-top="10px" data-iframe="test3.html" data-lightbox="game-1">
 			<img src="images/fake.jpg" style="margin-left:240px">
@@ -85,7 +84,9 @@ input {
 
 	<!-- custom scrollbar plugin -->
 	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>	
-	<script>
+	<script type="text/javascript">
+		var img1;
+		var canvas;
 		(function($){
 			$(window).load(function(){
 				$("#box_in").mCustomScrollbar({
@@ -94,11 +95,24 @@ input {
 				});
 				
 			});
-			for(var i=1;i<=5;i++){
-			$('<input id="checkbox'+i+'" type="checkbox" name="iconses" >').attr('value','icon'+i+'.png').appendTo('#icons');
-			$('<label/>').appendTo('#icons').attr({'id':'label'+i,'for':'checkbox'+i+''}).css({'cursor':'pointer'});
-			$('<img/>').appendTo('#label'+i).attr('src','images/icon/icon'+i+'.png').css({'width':'80px','height':'auto'});
+			for(var i=1;i<=6;i++){
+			$('<input id="checkbox'+i+'" type="checkbox" name="iconses" ></input>').attr('value','icon'+i+'.png').appendTo('#icons');
+			$('<label></label>').appendTo('#icons').attr({'id':'label'+i,'for':'checkbox'+i+''}).css({'cursor':'pointer'});
+			$('<img src="">').appendTo('#label'+i).attr('src','images/icon/icon'+i+'.png').css({'width':'80px','height':'auto'});
+				if(isIE()){
+				$('input').css('display','inline');
+				}
 			}
+			$('#icons input').click(function(){
+				var idx=0;
+				$("input:checkbox[name=iconses]:checked").each(function(){idx++});
+				if(idx!=0){
+				$('#err').html(idx+'個のアイコンを選択しました');
+				}
+				else{
+				$('#err').html('クリックしてＤＬしたいアイコンを選択してください');
+				}
+			});
 			$('#matome').click(function(){
 			var zip = new JSZip();
 			var idx=0;
@@ -109,12 +123,13 @@ input {
 			else{
 				$('#err').html(idx+'個のアイコンをダウンロードします');
 			}
+			if(isIE()&&$.browser.version*1<10){
 			$("input:checkbox[name=iconses]:checked").each(function(i){
 			var fle=$(this).val();
 			var xhr = new XMLHttpRequest();
-			xhr.open('GET', "images/icon/"+fle, true);
-				xhr.responseType = "arraybuffer";
-				xhr.onreadystatechange = function(evt) {
+			xhr.open('GET', "./images/icon/"+fle, true);
+			xhr.responseType = "arraybuffer";
+			xhr.onreadystatechange = function(evt) {
 					if (xhr.readyState === 4) {
 						if (xhr.status === 200) {
 							zip.file(fle, xhr.response);
@@ -127,9 +142,39 @@ input {
 				};
 				xhr.send();
 				});
-			});
+			}
+			else{
+			$("input:checkbox[name=iconses]:checked").each(function(i){
+				var fle=$(this).val();
+				convert64URL("./images/icon/"+fle,function(base64Img){
+				zip.file(fle, base64Img,{base64: true} );
+				if(i==(idx-1)){
+					var content = zip.generate({type:"blob"});
+					saveAs(content, "stpk_icons.zip");
+					}
+				});	
+				})
+				}
+			});		
 		})(jQuery);
-	</script>
+		function isIE() { return ((navigator.appName == 'Microsoft Internet Explorer') || ((navigator.appName == 'Netscape') && (new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})").exec(navigator.userAgent) != null))); }
+		function convert64URL(url, callback, outputFormat){
+			var canvas = document.createElement('CANVAS'),
+			ctx = canvas.getContext('2d'),
+			img = new Image;
+			img.crossOrigin = 'Anonymous';
+			img.onload = function(){
+				var dataURL;
+				canvas.height = img.height;
+				canvas.width = img.width;
+				ctx.drawImage(img, 0, 0);
+				dataURL = canvas.toDataURL(outputFormat);
+				callback(dataURL.split('base64,')[1]);
+				canvas = null; 
+			};
+			img.src = url;
+		}
+			</script>
 <!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->
 <!--[if IE 7 ]>    <body class="ie7"> <![endif]-->
 <!--[if IE 8 ]>    <body class="ie8"> <![endif]-->
