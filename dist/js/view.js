@@ -60,7 +60,8 @@ function handleQueryResponse(event){
 		else if(data.getValue(0,5).indexOf('html')!=-1){
 			console.log('this');
 				var jqxhr = $.ajax( data.getValue(0,5) )
-				.done(function(htl){$('#home').html(htl);
+				.done(function(htl){
+				$('#home').css('text-align','left').html(htl);
 				$('body').fadeIn();})
 				.error(function(){console.log('err');});
 				
