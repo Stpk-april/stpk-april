@@ -15,21 +15,14 @@ $('body').hide();
 	 query = new google.visualization.Query('http://spreadsheets.google.com/a/google.com/tq?key='+key+'&pub=1');
 	 var t= $(location).attr('search').split('&')[0];
 	 if(t.indexOf('?')!=-1){
-		 t=t.split('?aid=')[1];
-		 now_=t;
-		 set_Q(t);
-	 }
+		t=t.split('?aid=')[1];
+		now_=t;
+		query.setQuery("SELECT B, C, D, E, F, G WHERE A LIKE "+now_);
+		query.send(handleQueryResponse);
+	}
 })
-function set_Q(txt)
-{
-	console.log(txt);
-	query.setQuery("SELECT B, C, D, E, F, G WHERE A LIKE "+txt+"");
-	query.send(handleQueryResponse);
-}
-
 var test=new Array('blue','red','black','white','purple','yellow','gray'); //have to change vector
 var test2=new Array('セレナリア','インガノック','シャルノス','ヴァルーシア','ソナーニル','ガクトゥーン','カルシェール'); //have to change vector
-
 function handleQueryResponse(event){
 	if (event.isError()) {
 		$(location).attr('href','matome.html');
@@ -47,8 +40,10 @@ function handleQueryResponse(event){
 			}
 		}
 		$('#usertwitter').html(data.getValue(0,2));
-		if(data.getValue(0,5)!=null&&data.getValue(0,5).indexOf('html')==-1){
-			var img = new Image();
+		if(data.getValue(0,5)!=null&&data.getValue(0,5).indexOf(',')==-1&&data.getValue(0,5).indexOf('html')==-1){
+			console.log('this');
+
+		var img = new Image();
 			img.onload = function() {
 			var $imgs=$('<img id="arts" src='+img.src+' style="margin-right:auto;margin-left:auto;width:100%">');
 			if($(window).width()<800||this.width>800){
@@ -60,13 +55,23 @@ function handleQueryResponse(event){
 			}
 			img.src = data.getValue(0,5);
 		}
-		
+		else if(data.getValue(0,5).indexOf(',')!=-1){			
+		}
+		else if(data.getValue(0,5).indexOf('html')!=-1){
+			console.log('this');
+				var jqxhr = $.ajax( data.getValue(0,5) )
+				.done(function(htl){$('#tabbs').html(htl)})
+				.error(function(){console.log('err');});			  
+		}
 		if(now_>1){$('.previous').wrap('<a href="gallery.html?aid='+(now_*1-1)+'"></a>');}
 		else{$('.previous').hide()};		
 		if(now_<27){$('.next').wrap('<a href="gallery.html?aid='+(now_*1+1)+'"></a>');}
 		else{$('.next').hide()};
 		$('#userprof').popover('show');
 		$('#userprof').popover('hide');
+	}
+	else{
+		console.log('NONE');
 	}
 	}
 	nowimage=false;
