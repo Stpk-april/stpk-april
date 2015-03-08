@@ -1,5 +1,4 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<html>
 <head>
 <title>ダウンロード</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -14,7 +13,6 @@
 <script type="text/javascript" src="http://stuk.github.io/jszip/dist/jszip.js"></script>
 <link rel="stylesheet" href="css/lightbox.css" />
 <style type="text/css">
-
 .lb-data .lb-closeContainer .lb-close{
 	position:fixed !important;
 	z-index:9999 !important;
@@ -46,17 +44,18 @@ input {
 	display:none;
 }
 
+
 </style>
 </head>
-<body bgcolor="#FFFFFF">
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <!-- Save for Web Slices (back.psd) -->
 <div style="position: absolute; top: 0px; left: 50px; height:100%; width: auto;">
 <div id="align"> 
 	<div id="content">
 		<div class="box_ov">
 			<div  id="box_in" style="height:675; width:950;margin: 0 30px;padding:30px;">		
-			<h3> Twitterアイコン配信中！</h3>
-			(右クリック→対象をファイルに保存、もしくは↓)<br/>
+			<h3> Twitterアイコン(200x200)配信中！</h3>
+			<span id="help">(右クリック→対象をファイルに保存、もしくは↓)</span><br/>
 			<button id="matome">チェックしたアイコンをまとめてzipダウンロード</button><br>
 			<h5 id="err">ＤＬしたいアイコンをチェックてください</h5>
 			<form id="icons" style="text-align:center"></form>
@@ -83,14 +82,18 @@ input {
 	</div>
 </div>
 
-
-
+</div>
 	<!-- custom scrollbar plugin -->
 	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>	
-	<script type="text/javascript">
-		var img1;
-		var canvas;
-		(function($){
+	<script>
+	if ( $.browser.msie&&$.browser.version*1<10 ) {
+		$('#box_in').css({'height':'650px',
+						 'overflow':'scroll',
+						'z-index':'10000',
+						'scrollbar-track-color':'#000'});
+	}
+	else{
+	(function($){
 			$(window).load(function(){
 				$("#box_in").mCustomScrollbar({
 					autoHideScrollbar:true,
@@ -98,14 +101,31 @@ input {
 				});
 				
 			});
-			for(var i=1;i<=6;i++){
+		})(jQuery);
+	}
+
+	$(function(){
+	
+			for(var i=1;i<=8;i++){
 			$('<input id="checkbox'+i+'" type="checkbox" name="iconses" ></input>').attr('value','icon'+i+'.png').appendTo('#icons');
-			$('<label></label>').appendTo('#icons').attr({'id':'label'+i,'for':'checkbox'+i+''}).css({'cursor':'pointer'});
-			$('<img src="">').appendTo('#label'+i).attr('src','images/icon/icon'+i+'.png').css({'width':'80px','height':'auto'});
-				if(isIE()){
-				$('input').css('display','inline');
-				}
+			$('<label/>').appendTo('#icons').attr({'id':'label'+i,'for':'checkbox'+i+''}).css({'cursor':'pointer'});
+			$('<img/>').appendTo('#label'+i).attr('src','images/icon/icon'+i+'.png').css({'width':'80px','height':'auto'});
+			if(i%4==0){
+			$('#icons').append('<br/>');
 			}
+			}
+			if(isIE()){
+					$('input').css('display','inline');
+				}
+			if((navigator.userAgent.indexOf('Safari')!=-1)||( $.browser.msie&&$.browser.version*1<10)){	
+					$('#matome').remove();
+					$('input').remove();
+					$('label').css('cursor','none	');
+					$('#help').html('(右クリック→対象をファイルに保存)');
+					$('label img').css({'width	':'90px','margin':'3px'});
+					$('#err').remove();
+				}
+			
 			$('#icons input').click(function(){
 				var idx=0;
 				$("input:checkbox[name=iconses]:checked").each(function(){idx++});
@@ -153,14 +173,14 @@ input {
 				zip.file(fle, base64Img,{base64: true} );
 				if(i==(idx-1)){
 					var content = zip.generate({type:"blob"});
-					saveAs(content, "stpk_icons.zip");
+								saveAs(content, "stpk_icons.zip");
 					}
 				});	
 				})
 				}
 			});		
-		})(jQuery);
-		function isIE() { return ((navigator.appName == 'Microsoft Internet Explorer') || ((navigator.appName == 'Netscape') && (new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})").exec(navigator.userAgent) != null))); }
+	});
+	function isIE() { return ((navigator.appName == 'Microsoft Internet Explorer') || ((navigator.appName == 'Netscape') && (new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})").exec(navigator.userAgent) != null))); }
 		function convert64URL(url, callback, outputFormat){
 			var canvas = document.createElement('CANVAS'),
 			ctx = canvas.getContext('2d'),
@@ -177,7 +197,10 @@ input {
 			};
 			img.src = url;
 		}
-			</script>
+	
+	</script>
+	
+	
 <!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->
 <!--[if IE 7 ]>    <body class="ie7"> <![endif]-->
 <!--[if IE 8 ]>    <body class="ie8"> <![endif]-->
