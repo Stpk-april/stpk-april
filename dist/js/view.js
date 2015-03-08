@@ -60,8 +60,10 @@ function handleQueryResponse(event){
 		else if(data.getValue(0,5).indexOf('html')!=-1){
 			console.log('this');
 				var jqxhr = $.ajax( data.getValue(0,5) )
-				.done(function(htl){$('#tabbs').html(htl)})
-				.error(function(){console.log('err');});			  
+				.done(function(htl){$('#tabbs').html(htl);
+				$('body').fadeIn();})
+				.error(function(){console.log('err');});
+				
 		}
 		if(now_>1){$('.previous').wrap('<a href="gallery.html?aid='+(now_*1-1)+'"></a>');}
 		else{$('.previous').hide()};		
