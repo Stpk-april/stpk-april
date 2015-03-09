@@ -9,33 +9,48 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" src="../js/lightbox.js"></script>
 	<script type="text/javascript" src="js/view.js"></script>
-  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<link rel="stylesheet" type="text/css" href="../ruby.css">
+
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript">
 google.load('visualization', '1', {packages: ['corechart']});
 </script> 
   </head>
   <body>
+
 <div id="navgat" class="page-header">
 <h1><a href="matome.html"><button id="back_" class="btn btn-default" style="margin-left:-50px;margin-right:20px">←戻る</button></a><span id="username" >名前</span> <small> <span id="usertwitter">@Twitter</span> </small></h1>
 <button id="userprof" style="margin-left:40px;margin-bottom:20px;" class="btn btn-info btn-xs" data-toggle="button"  data-content="" data-placement="bottom" data-html="true">プロフィールを見る</button>
 <br>
 <div id="genres" style="text-align:right;"></div>
-  		
-</div>
-	
-<div  id="tabbs"  style="position:relative;margin-left:auto; margin-right:auto">
+</div>	
+<div  id="tabbs"  style="position:relative;margin-left:auto; margin-right:auto; text-align:center;">
 <ul class="pager homepager" id="pageTab">
 	  <li class="previous"><a>←</a></li>
 	  <li class="next"><a>→</a></li>
 </ul>
-  <div class="panel panel-default " style="position:relative;margin-left:auto; margin-right:auto;text-align:;max-width:800px;" id="home"></div>
+  <div class="panel panel-default " style="position:relative;margin-left:auto; margin-bottom:60px; margin-right:auto;text-align:;max-width:800px;" id="home"></div>
+</div>
+<div style="position:fixed;bottom:-30px;width:100%;text-align:center"> 
+<ul class="pagination" id="myTab" >
+  <li class="active"><a href="#page1">1</a></li>
+</ul>
 </div>
 
 </div>
+
   <style>
 	
   </style>
 	<script src="js/bootstrap.min.js"></script>
     <script src="js/respond.js"></script>
+	
+	
+<!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <body class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <body class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <body class="ie9"> <![endif]-->
+<!--[if (gt IE 9)]><body class="modern"> <![endif]-->
+<!--[!(IE)]><!--><body class="notIE modern"> <!--<![endif]-->
 </body>
 </html>

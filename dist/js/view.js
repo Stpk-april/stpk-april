@@ -45,6 +45,8 @@ function handleQueryResponse(event){
 
 		var img = new Image();
 			img.onload = function() {
+			console.log('this');
+
 			var $imgs=$('<img id="arts" src='+img.src+' style="margin-right:auto;margin-left:auto;width:100%">');
 			if($(window).width()<800||this.width>800){
 					$('#tabbs').prepend('<h6>(画像クリックで 拡大表示します）</h6>');
@@ -62,8 +64,21 @@ function handleQueryResponse(event){
 				var jqxhr = $.ajax( data.getValue(0,5) )
 				.done(function(htl){
 				$('#home').css('text-align','left').html(htl);
-				$('img').css('max-width','800px');
-				$('body').fadeIn();})
+				$('img').css('width','100%');
+				$('body').fadeIn();
+				$('.tab-pane').each(function(i){
+				if(i!=0){
+				$('#myTab').show().append('<li><a href="#'+$(this).attr('id')+'">'+(i+1)+'</a></li>');
+				}
+				});	
+				if($('.tab-pane')){
+					$('#myTab a').click(function (e) {
+					 e.preventDefault();
+					 $("html, body").animate({ scrollTop: 0 }, 0);
+					 $(this).tab('show');
+					 });
+				}
+				})
 				.error(function(){console.log('err');});
 				
 		}
@@ -82,7 +97,7 @@ function handleQueryResponse(event){
 }
 var togg=false;
 $(function(){
-
+		$('#myTab').hide();
 		var isMobile = {
 			Android: function() {
 				return navigator.userAgent.match(/Android/i);
