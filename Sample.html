@@ -106,18 +106,18 @@ input {
 
 	$(function(){
 	
-			for(var i=1;i<=8;i++){
+			for(var i=1;i<=13;i++){
 			$('<input id="checkbox'+i+'" type="checkbox" name="iconses" ></input>').attr('value','icon'+i+'.png').appendTo('#icons');
 			$('<label/>').appendTo('#icons').attr({'id':'label'+i,'for':'checkbox'+i+''}).css({'cursor':'pointer'});
 			$('<img/>').appendTo('#label'+i).attr('src','images/icon/icon'+i+'.png').css({'width':'80px','height':'auto'});
-			if(i%4==0){
+			if(i%6==0){
 			$('#icons').append('<br/>');
 			}
 			}
 			if(isIE()){
 					$('input').css('display','inline');
 				}
-			if((navigator.userAgent.indexOf('Safari')!=-1)||( $.browser.msie&&$.browser.version*1<10)){	
+			if((navigator.userAgent.indexOf('Chrome')==-1)&&(navigator.userAgent.indexOf('Safari')!=-1)||( $.browser.msie&&$.browser.version*1<10)){	
 					$('#matome').remove();
 					$('input').remove();
 					$('label').css('cursor','none	');
