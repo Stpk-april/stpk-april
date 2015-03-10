@@ -57,7 +57,24 @@ function handleQueryResponse(event){
 			}
 			img.src = data.getValue(0,5);
 		}
-		else if(data.getValue(0,5).indexOf(',')!=-1){			
+		else if(data.getValue(0,5).indexOf(',')!=-1){
+			var galler = data.getValue(0,5).split(',');
+			$('#home').append('<div class="tab-content" id="glls" >');
+			for(var i in galler){
+				if(i*1>0){
+				$('<img style="width:100%"/>').attr('src',galler[i]).appendTo('#glls').wrap('<div id="page'+(i*1+1)+'" class="tab-pane non-active"></div>');
+				$('#myTab').show().append('<li><a href="#page'+(i*1+1)+'">'+(i*1+1)+'</a></li>');
+				}
+				else{
+				$('<img style="width:100%"/>').attr('src',galler[i]).appendTo('#glls').wrap('<div id="page1" class="tab-pane active"></div>');
+				}
+			}
+			$('#myTab a').click(function (e) {
+					 e.preventDefault();
+					 $("html, body").animate({ scrollTop: 0 }, 0);
+					 $(this).tab('show');
+			});
+			$('body').fadeIn();
 		}
 		else if(data.getValue(0,5).indexOf('html')!=-1){
 			console.log('this');

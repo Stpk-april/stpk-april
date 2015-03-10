@@ -50,6 +50,15 @@ width:80%;
 	background: url("top-fade.png");
 }
 
+.novel{
+color: #222;
+text-shadow: 0px -1px 0px #fff,0px 1px 0px #fff,-1px 0px 0px #fff;,1px 0px 0px #fff, 0px 2px 3px #555;
+}
+:hover .novel{
+color: #eee;
+text-shadow: 0px 2px 3px #555;
+}
+
 a:hover,
 a:active {
 	selector-dummy: expression(this.hideFocus=true);
@@ -247,10 +256,12 @@ height:300px;
 .box_in{
 
 }
-.box_inf h3{
+.box_inf
+{
+} 
+
+.web_nov{
 font-size:30px;
-text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
-            -1px 1px 0 #000, 0px 0px 10px #F0F;
 }
 .box_inf span{
 font-size:30px;
@@ -479,6 +490,28 @@ height:168px;
 top:375px;
 left:0px;
 background-position: -0px -375px;
+background-image:url(images/cha_sprite.jpg);
+}
+
+.cha_19{
+position:absolute;
+float:left;
+width:125px;
+height:168px; 
+top:375px;
+left:266px;
+background-position: -266px -376px;
+background-image:url(images/cha_sprite.jpg);
+}
+
+.cha_20{
+position:absolute;
+float:left;
+width:126px;
+height:116px; 
+top:410px;
+left:656px;
+background-position: -656px -410px;
 background-image:url(images/cha_sprite.jpg);
 }
 
