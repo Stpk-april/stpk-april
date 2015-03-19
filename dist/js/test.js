@@ -1,23 +1,4 @@
 var key ='1yqK2p_HGwxrLLixIxNShiwtVElpHySCC282M0S7Z_XA';
-/*
-var number=1;
-$(function(){
-$('#go').click(function(){
-	 doajax({name:$("#name").val(), work:$("#work").val(),twitter:$("#twitter").val(),arts:$("#arts").val()});
-	 $('#view').prepend($("#name").val()+' '+$("#work").val()+' '+$("#twitter").val()+' '+$("#arts").val()+'<br>'); 
-	});
-});
-
-function doajax(option){
-	console.log(option);
-	number++;
-	$.ajax({
-	  url: "https://script.google.com/macros/s/AKfycbwd5TwwGgbe6FmgsJk1cUHrddGGYiz37h7jG8wabqC3haiH8Yo/exec",
-	  data: {"num":number,"name":option.name, "twitter":option.twitter,"profile":'images/profile'+number+'.png',"work":option.work,arts:option.arts},
-	  type: "POST"
-	});
-}
-*/
 
 var obj=new Object;
 obj['name']='B';
@@ -117,7 +98,7 @@ pgr=(pgr==null)? 0: pgr;
 				}
 			}
 		}
-		if(temp1>=16&&pgr!=0){
+		if(temp1>16&&pgr!=0){
 			$('.'+pge+'pager').show();
 			$('.'+pge+'pager > .next').show();
 			$('.'+pge+'pager > .previous').hide();
@@ -131,7 +112,6 @@ function copyarray(array2){
 		temp=''+array2[i];
 		tarray.push(temp);
 	}
-//	console.log(tarray);
 	return tarray;
 }
 
@@ -144,7 +124,6 @@ $(function(){
 		 })
 		$('#pageTab a').click(function (e) {
 		  e.preventDefault();
-//		  console.log(this);
 		  var targetbox = $(this).attr('href');
 		  $('.home-page').hide();
 		  $('.hpg').toggle();
@@ -153,7 +132,6 @@ $(function(){
 		
 		$('#pageTab2 a').click(function (e) {
 		  e.preventDefault();
-//		  console.log(this);
 		  var targetbox = $(this).attr('href');
 		  $('.illust-page').hide();
 		  $('.illustpager > li').toggle();
@@ -236,6 +214,12 @@ $(function(){
 			$('#gototop').hide();
 			$('#dummy').attr('data-'+($( document ).height()+1000),"opacity:0;");
 		}
+		else{
+			$('#gototop').click(function(e){
+				e.preventDefault();
+				$("html, body").animate({ scrollTop: 0 }, "slow");
+			})
+		}
 		
 		var s= skrollr.init({
 			forceHeight: true,
@@ -248,51 +232,9 @@ function generate_thumb(img, name,genre,id)
 	return '<a href="gallery.html?aid='+id+'"><button type="button" class="genr btn btn-default col-xs-5 col-sm-13" style="margin:5px" genre="'+genre+'"><img class="img-thumbnail" src="'+img+'"><br>'+name+'</button></a>';
 }
 
-function sorting(id_){
-			var al2= copyarray(alls);
-			var il2= copyarray(illust);
-			var ma2= copyarray(manga);
-			var no2= copyarray(novel);
-			if($(id_).attr('id')!='option0'){
-				$('#la'+$(id_).attr('id')).toggleClass('active');
-			}
-			else{
-				$('input').attr('checked',false);			
-				$('.btn').removeClass('active');			
-			}
-			var temp=$(id_).val();
-				for(var i=0;i<al2.length;i++){
-					if(al2[i].indexOf(temp)==-1){
-						al2[i]='0';
-					}
-				}
-				for(var i=0;i<il2.length;i++){
-					if(il2[i].indexOf(temp)==-1){
-						il2[i]='0';
-					}
-				}
-				for(var i=0;i<ma2.length;i++){
-					if(ma2[i].indexOf(temp)==-1){
-						ma2[i]='0';
-					}
-				}
-				for(var i=0;i<no2.length;i++){
-					if(no2[i].indexOf(temp)==-1){
-						no2[i]='0';
-					}
-				}
-			$('.genr').remove();
-			re_merg(il2, 'illust',1);
-			re_merg(ma2, 'manga');
-			re_merg(no2, 'novel');
-			re_merg(al2, 'home',1);			
-			$( "img" )
-			  .error(function() {
-				$( this ).attr( "src", "http://dummyimage.com/150x150/FFF/000" );
-			  });
-			$('#home').tab('show');
-			$('#home-page1').fadeIn();
-			$('#home-page2').hide();
-			$('#illust-page1').fadeIn();
-			$('#illust-page2').hide();
+function sorting(id_)
+{
+			$('#genre_sel input').filter(function(index){
+				return id_.split('option')[1]*1==index;
+			}).click();
 }

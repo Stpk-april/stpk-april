@@ -10,6 +10,7 @@ obj['arts']='G';
 
 var query;
 var now_;
+var now_pg=0;
 $( document ).ready(function() {
 $('body').hide();
 	 query = new google.visualization.Query('http://spreadsheets.google.com/a/google.com/tq?key='+key+'&pub=1');
@@ -41,48 +42,77 @@ function handleQueryResponse(event){
 		}
 		$('#usertwitter').html(data.getValue(0,2));
 		if(data.getValue(0,5)!=null&&data.getValue(0,5).indexOf(',')==-1&&data.getValue(0,5).indexOf('html')==-1){
-			console.log('this');
 
 		var img = new Image();
 			img.onload = function() {
-			console.log('this');
-
 			var $imgs=$('<img id="arts" src='+img.src+' style="margin-right:auto;margin-left:auto;width:100%">');
 			if($(window).width()<800||this.width>800){
-					$('#tabbs').prepend('<h6>(画像クリックで 拡大表示します）</h6>');
+					$('#sizing').prepend('<h6>(画像クリックで 拡大表示します）</h6>');
 					$imgs=$('<a href="'+data.getValue(0,5)+'"rel="lightbox"></a>').append($imgs);
 				}
 				$('#home').append($imgs);
-				$('body').fadeIn();		
+					$('body').fadeIn();
 			}
 			img.src = data.getValue(0,5);
 		}
 		else if(data.getValue(0,5).indexOf(',')!=-1){
 			var galler = data.getValue(0,5).split(',');
+			var loaded = 0;
+			var numImages = galler.length;
 			$('#home').append('<div class="tab-content" id="glls" >');
 			for(var i in galler){
 				if(i*1>0){
-				$('<img style="width:100%"/>').attr('src',galler[i]).appendTo('#glls').wrap('<div id="page'+(i*1+1)+'" class="tab-pane non-active"></div>');
+				
+				$('<img class="comic"/>').attr('src',galler[i]).hide()
+				.on('load',function(){			
+				++loaded;
+				if(this.width>800||($(window).width()<800)){
+					$('#sizing').html('<h6>(画像クリックで 拡大表示します）</h6>');
+					$(this).wrap('<a href="'+$(this).attr('src')+'"rel="lightbox"></a>');
+				}
+				$(this).css('width','100%');
+				
+				if (loaded === numImages) {
+					$('.comic').show();
+					$('body').fadeIn();
+					set_key();
+				
+				}
+				})
+				.appendTo('#glls').wrap('<div id="page'+(i*1+1)+'" class="tab-pane non-active"></div>');
 				$('#myTab').show().append('<li><a href="#page'+(i*1+1)+'">'+(i*1+1)+'</a></li>');
 				}
 				else{
-				$('<img style="width:100%"/>').attr('src',galler[i]).appendTo('#glls').wrap('<div id="page1" class="tab-pane active"></div>');
+				$('<img class="comic"/>').hide().attr('src',galler[i])
+				.on('load',function(){			
+				++loaded;
+				if(this.width>800||($(window).width()<800)){
+					$('#sizing').html('<h6>(画像クリックで 拡大表示します）</h6>');
+					$(this).wrap('<a href="'+$(this).attr('src')+'"rel="lightbox"></a>');
 				}
-			}
+				$(this).css('width','100%');
+				
+				if (loaded === numImages) {
+					$('.comic').show();
+					$('body').fadeIn();
+					set_key();
+				}
+				})
+				.appendTo('#glls').wrap('<div id="page1" class="tab-pane active"></div>');
+				}
+			}		
 			$('#myTab a').click(function (e) {
 					 e.preventDefault();
 					 $("html, body").animate({ scrollTop: 0 }, 0);
-					 $(this).tab('show');
+					 $(this).tab('show'); 
+					 now_pg=$('#myTab a').index(this);
 			});
-			$('body').fadeIn();
 		}
 		else if(data.getValue(0,5).indexOf('html')!=-1){
-			console.log('this');
 				var jqxhr = $.ajax( data.getValue(0,5) )
 				.done(function(htl){
 				$('#home').css('text-align','left').html(htl);
 				$('img').css('width','100%');
-				$('body').fadeIn();
 				$('.tab-pane').each(function(i){
 				if(i!=0){
 				$('#myTab').show().append('<li><a href="#'+$(this).attr('id')+'">'+(i+1)+'</a></li>');
@@ -93,8 +123,11 @@ function handleQueryResponse(event){
 					 e.preventDefault();
 					 $("html, body").animate({ scrollTop: 0 }, 0);
 					 $(this).tab('show');
+					 now_pg=$('#myTab a').index(this);
 					 });
 				}
+					set_key();
+					$('body').fadeIn();
 				})
 				.error(function(){console.log('err');});
 				
@@ -112,6 +145,29 @@ function handleQueryResponse(event){
 	}
 	nowimage=false;
 }
+
+
+function set_key(){
+$('#keying').html('←キー:前のページ、→キー：次のページ');
+$('body').keypress(function (event) {
+if($('#lightbox').css('display')=='none'){
+if(event.keyCode==39&&now_pg<$('#myTab a').length){
+$('#myTab a').filter(function(index){
+	return index-1==now_pg;
+}).click();
+}
+else if (event.keyCode==37&&now_pg>0){
+$('#myTab a').filter(function(index){
+	return index+1==now_pg;
+}).click();
+}
+}
+});
+
+}
+
+
+
 var togg=false;
 $(function(){
 		$('#myTab').hide();
@@ -150,8 +206,7 @@ $(function(){
 			'text-align':'center',
 			});
 		}
-	
-	
+		
 	$('#userprof').click(function(){
 		if(togg==false){
 			$('#userprof').html('プロフィールを閉じる');

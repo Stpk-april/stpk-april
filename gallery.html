@@ -7,7 +7,7 @@
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="icon" href="favicon.ico">
 <script type="text/javascript" src="extras/jquery.min.1.7.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
 <script src="js/lightbox.js"></script>
 <link rel="stylesheet" href="css/lightbox.css" />
@@ -16,8 +16,7 @@
 ul,li {list-style:none;  margin:5px 10px;}
 #box_in ul {margin-left:-10px;margin-top:20px}
 #box_in li {float:left;}
-#box_in li a {margin-left:10px; }
-#box_in li a img{width:160px; height:120px;}
+#box_in li a{ margin-left:10px;}
 
 </style>
 </head>
@@ -29,29 +28,26 @@ ul,li {list-style:none;  margin:5px 10px;}
 		<div class="box_ov">
 			<div  id="box_in" style="height:675; width:950;margin: 0 30px;padding:30px;">
 			<ul>
-<!--			<li><a href="images/video_dummy.jpg" data-iframe="https://www.youtube.com/embed/eN72RnF2O3g" data-lightbox="image-1"><img class="pict_thumb" src="images/thumb-2.jpg" alt="" /></a></li> -->
-			<li><a href="images/image01.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb01.jpg" alt="" /></a></li>
-			<li><a href="images/image02.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb02.jpg" alt="" /></a></li>
-			<li><a href="images/image03.png"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb03.jpg" alt="" /></a></li>
-			<li><a href="images/image04.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb04.jpg" alt="" /></a></li>
-			<li><a href="images/image05.png"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb05.jpg" alt="" /></a></li>
-			<li><a href="images/image-3.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb-3.jpg" alt="" /></a></li>
-			<li><a href="images/image-3.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb-3.jpg" alt="" /></a></li>
-			<li><a href="images/image-3.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb-3.jpg" alt="" /></a></li>
-			<li><a href="images/image-3.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb-3.jpg" alt="" /></a></li>
-			<li><a href="images/image-3.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb-3.jpg" alt="" /></a></li>
-			<li><a href="images/image-3.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb-3.jpg" alt="" /></a></li>
-			<li><a href="images/image-3.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb-3.jpg" alt="" /></a></li>
-			<li><a href="images/image-3.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb-3.jpg" alt="" /></a></li>
-			<li><a href="images/image-3.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb-3.jpg" alt="" /></a></li>
-			<li><a href="images/image-3.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb-3.jpg" alt="" /></a></li>
-			<li><a href="images/image-3.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb-3.jpg" alt="" /></a></li>
-			<li><a href="images/image-3.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb-3.jpg" alt="" /></a></li>
-			<li><a href="images/image-2.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb-2.jpg" alt="" /></a></li>
-			<li><a href="images/image-3.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb-3.jpg" alt="" /></a></li>
-			<li><a href="images/image-2.jpg"  rel="lightbox[imgBox1]"><img class="pict_thumb" src="images/thumb-2.jpg" alt="" /></a></li>
+			<li><a href="https://lh4.googleusercontent.com/-jjVzvCypxjU/VPvw58ago-I/AAAAAAAAAKw/AKNV6-arhhE/s1415/image01.jpg"  rel="lightbox[imgBox1]" class="pict_thumb thumb01" alt="" /></a></li>
+			<li><a href="https://lh6.googleusercontent.com/-yypna9F1jTM/VQApmnoGoYI/AAAAAAAAANo/pV1P_Z7yy5g/w800-h600-no/%E6%B8%A9%E6%B3%89.png"  rel="lightbox[imgBox1]" class="pict_thumb thumb02" alt="" /></a></li>
+			<li><a href="https://lh6.googleusercontent.com/-ByXh5-Qhjw8/VPvS5pTsivI/AAAAAAAAAJo/4ENLdi0s1Fg/w800-h1181-no/%E7%94%B7%E5%A5%B3%E9%A2%A8%E5%91%82.png"  rel="lightbox[imgBox1]" class="pict_thumb thumb03" alt="" /></a></li>
+			<li><a href="images/image06.png"  rel="lightbox[imgBox1]" class="pict_thumb thumb06" alt="" /></a></li>
+			<li><a href="https://lh6.googleusercontent.com/-wLfJGwDZKBo/VPxKmUKua6I/AAAAAAAAALM/NA2lhFQLK8k/w1333-h1000-no/image04.jpg"  rel="lightbox[imgBox1]" class="pict_thumb thumb04" alt="" /></a></li>
+			<li><a href="images/image05.png"  rel="lightbox[imgBox1]" class="pict_thumb thumb05" alt="" /></a></li>
+			<li><a href="images/image07.png"  rel="lightbox[imgBox1]" class="pict_thumb thumb07" alt="" /></a></li>
+			<li><a href="https://lh3.googleusercontent.com/-QmKGxj8wGLA/VQWfU-vg-FI/AAAAAAAAATQ/QDc1YyIis5w/w1630-h862-no/%EA%B7%BD%EA%B9%8B%EA%B8%9A%EA%B8%A3.png"  rel="lightbox[imgBox1]" class="pict_thumb thumb08" alt="" /></a></li>
+			<li><a href="images/image-3.jpg"  rel="lightbox[imgBox1]" class="pict_thumb thumb09" alt="" /></a></li>
+			<li><a href="images/image-3.jpg"  rel="lightbox[imgBox1]" class="pict_thumb thumb10" alt="" /></a></li>
+			<li><a href="https://lh4.googleusercontent.com/-xCv90g_0Lc0/VQbAJhACT7I/AAAAAAAAAU4/j_RZ5qRQOSw/w1200-h900-no/image12.png"  rel="lightbox[imgBox1]" class="pict_thumb thumb12" alt="" /></a></li>
+			<li><a href="images/image15.png"  rel="lightbox[imgBox1]" class="pict_thumb thumb15" alt="" /></a></li>
+			<li><a href="images/image16.png"  rel="lightbox[imgBox1]" class="pict_thumb thumb16" alt="" /></a></li>
+			<li><a href="#comic1" class="comicv pict_thumb thumb17" rel="5" alt="" /></a></li>
+			<li><a href="#comic2" class="comicv pict_thumb thumb18" rel="8"  alt="" /></a></li>
+			<li><a href="#comic3" class="comicv pict_thumb thumb13" rel="5" alt="" /></a></li>
+			<li><a href="#comic4" class="comicv pict_thumb thumb11" rel="25" alt="" /></a></li>
+			<li><a href="#comic5" class="comicv pict_thumb thumb14" rel="6" alt="" /></a></li>
 			</ul>
-			<img src="images/null_t.png">
+			<img src="images/null_t.png" style="height:50px">
 		</div>
 		<div class="bottom_fade"></div>
 		<div class="top_fade"></div>
@@ -79,6 +75,7 @@ ul,li {list-style:none;  margin:5px 10px;}
 	<!-- custom scrollbar plugin -->
 	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>	
 	<script>
+	var zoomed=0;
 	if ( $.browser.msie&&$.browser.version*1<10 ) {
 		$('#box_in').css({'height':'650px',
 						 'overflow':'scroll',
@@ -96,10 +93,101 @@ ul,li {list-style:none;  margin:5px 10px;}
 			});
 		})(jQuery);
 	}
+	var pge;
+	$('.comicv').click(function(e){
+		e.preventDefault();
+		var target=$(this).attr('href').split('#')[1];
+		pge=$(this).attr('rel')*1;		
+		if($('.comic_container').css('diplay')=='none'){	
+			for(var i=1;i<=pge;i+=2)
+			{
+				$('.comic_container').append('<div class="comic_page"><a href="#"> <img id="page'+(i+1)+'" class="comic_side" src="./images/'+target+' ('+(i+1)+').png"><img id="page'+(i)+'"  class="comic_side" src="./images/'+target+' ('+(i)+').png"></a>');
+			}
+			$('.comic_container').fadeIn();
 			
-	
-	
-	
+		}
+		else{
+			var $tmp=$('<div class="comic_container"><div class="navi"><a href="#" class="ext"><img src="images/close.png"></a><a href="#" class="zoom"><img src="images/zoomin.png"></a><a href="#" class="zoomout"><img src="images/zoomout.png"></a></div></div>');
+			for(var i=1;i<=pge;i+=2)
+			{
+				$tmp.append('<div class="comic_page"><a href="#"> <img id="page'+(i+1)+'" class="comic_side" src="./images/'+target+' ('+(i+1)+').png"><img id="page'+(i)+'"  class="comic_side" src="./images/'+target+' ('+(i)+').png"></a>');
+			}
+			$tmp.appendTo('body').hide().fadeIn();
+			$('.comic_side').bind('click', function(e){
+			e.preventDefault();
+			if(zoomed==0){
+			var idx=$(this).attr('id').split('page')[1]*1;
+			console.log(pge);
+			if(idx%2==0&&idx<pge){
+				console.log('left');
+				$('.comic_page').filter(function(index){
+					if(index+1==idx/2) return this;
+					}).hide();
+				$('.comic_page').filter(function(index){
+					if(index==idx/2) return this;
+				}).show();
+			}
+			else if(idx>1){
+				console.log('right');
+				$('.comic_page').filter(function(index){
+					if(index+1==(idx+1)/2) return this;
+				}).hide();
+				$('.comic_page').filter(function(index){
+					if(index+1==(idx-1)/2) return this;
+				}).show();
+					}
+			}
+			else if(zoomed==1&&$(this).css('cursor')!='move'){
+			console.log(zoomed);
+				var idx=$(this).attr('id').split('page')[1]*1;
+					if(idx%2==1&&idx<pge){
+						$('.comic_page').css({'top':'0px','left':'-45%'});
+						$(this).css('cursor','move');
+						$('#page'+(idx+1)).css('cursor','pointer');
+						}
+					else if(idx%2==0&&idx<pge){
+						$('.comic_page').css({'top':'0px','left':'0%'});
+						$(this).css('cursor','move');
+						$('#page'+(idx-1)).css('cursor','pointer');
+						}
+					}		
+				}
+			);	
+			$('.ext').click(function(e){
+				e.preventDefault();
+				zoomed=0;
+				$('.comic_container').fadeOut().html('');
+			});	
+			$('.comic_page').draggable().draggable('disable');
+			$('.zoom').click(function(e){
+				e.preventDefault();
+				zoomed=1;
+				$('.comic_side:odd').css('cursor','move');
+				$('.comic_page').css('left','-45%').draggable('enable');
+				$('.comic_container').animate({'height':'1517px','width':(1074*2+200)+'px'},'slow');
+			});
+			$('.zoomout').click(function(e){
+				e.preventDefault();
+				zoomed=0;
+				$('.comic_side').css('cursor','pointer');
+				$('.comic_page').animate({'top':'0px','left':'0px'},'slow').draggable('disable');
+				$('.comic_container').css({'height':'100%','width':'100%'});
+			});	
+			}
+			
+			$('.comic_page').filter(function(index){
+				if(index!=0) return this
+			}).hide();
+			if($(window).height()>1517){
+				$('#navi').hide();
+				$('.comic_page').css('height','1517px');
+			}
+			$( "img" )
+			  .error(function() {
+				$( this ).hide();
+			});
+
+	});
 	</script>
 	
 	
