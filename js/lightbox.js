@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Lightbox v2.7.1
  * by Lokesh Dhakar - http://lokeshdhakar.com/projects/lightbox2/
  *
@@ -47,9 +47,12 @@ to show charactor in caption
 		lightbox.changeImage(lightbox.currentImageIndex,0);
 	});
 
+	+) pan zoom in
 
  */
 
+var def_top;
+var def_left;
 var nowimage=true;
  
 (function() {
@@ -61,7 +64,7 @@ var nowimage=true;
       this.fadeDuration                = 500;
       this.fitImagesInViewport         = true;
       this.resizeDuration              = 700;
-      this.positionFromTop             = 70;
+      this.positionFromTop             = 50;
       this.showImageNumberLabel        = true;
       this.alwaysShowNavOnTouchDevices = false;
       this.wrapAround                  = false;
@@ -105,7 +108,9 @@ var nowimage=true;
     Lightbox.prototype.build = function() {
       var self = this;
       $("<div id='lightboxOverlay' class='lightboxOverlay'></div><div id='lightbox' class='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' /><div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a><iframe class='lb-iframe' style='position:absolute; left:0px; padding:4px;' src='' frameborder='0' allowfullscreen></iframe></div><div class='lb-loader'><a class='lb-cancel'></a></div></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'></a></div></div></div></div>").appendTo($('body'));
-      
+	  if($('title').attr('id')=='evtv'){
+	  $('#lightbox').draggable()
+	  }
       // Cache jQuery objects
       this.$lightbox       = $('#lightbox');
       this.$overlay        = $('#lightboxOverlay');
@@ -120,23 +125,32 @@ var nowimage=true;
       
       // Attach event handlers to the newly minted DOM elements
       this.$overlay.hide().on('click', function() {
-		$('#inout').hide();        
+		$('#inout').hide();
+		$('.lb-outerContainer').css('cursor','auto');
         self.end();
+		$('#lightbox').css({'left':def_left,'top':def_top});
+		$('.lb-data .lb-closeContainer .lb-close').removeClass('ext').css({'position':'relative','left':'auto','top':'auto'});
         return false;
       });
 
       this.$lightbox.hide().on('click', function(event) {
         if ($(event.target).attr('id') === 'lightbox') {
-		$('#inout').hide();        
+		$('#inout').hide();
+		$('.lb-outerContainer').css('cursor','auto');
 		self.end();
+		$('#lightbox').css({'left':def_left,'top':def_top});
+		$('.lb-data .lb-closeContainer .lb-close').removeClass('ext').css({'position':'relative','left':'auto','top':'auto'});
         }
         return false;
       });
 
       this.$outerContainer.on('click', function(event) {
         if ($(event.target).attr('id') === 'lightbox') {
-		$('#inout').hide();        
+		$('#inout').hide();
+		$('.lb-outerContainer').css('cursor','auto');
 		self.end();
+		$('#lightbox').css({'left':def_left,'top':def_top});
+		$('.lb-data .lb-closeContainer .lb-close').removeClass('ext').css({'position':'relative','left':'auto','top':'auto'});
         }
         return false;
       });
@@ -159,8 +173,11 @@ var nowimage=true;
       });
 	  
       this.$lightbox.find('.lb-loader, .lb-close').on('click', function() {
-		$('#inout').hide();        
+		$('#inout').hide();
+		$('.lb-outerContainer').css('cursor','auto');
 		self.end();
+		$('#lightbox').css({'left':def_left,'top':def_top});
+		$('.lb-data .lb-closeContainer .lb-close').removeClass('ext').css({'position':'relative','left':'auto','top':'auto'});
         return false;
       });
     };
@@ -226,7 +243,6 @@ var nowimage=true;
 		$('#inout').fadeIn(this.options.fadeDuration);
       this.changeImage(imageNumber);
     };
-	
     // Hide most UI elements in preparation for the animated resizing of the lightbox.
     Lightbox.prototype.changeImage = function(imageNumber, option) {
 	  option=(option==null)? -1:option;
@@ -234,7 +250,8 @@ var nowimage=true;
 		  $('#zomout').hide();        
 		  $('#zomin').show();        
 	  }
-      var self = this;
+	  ch_zoom=true;
+	  var self = this;
       this.disableKeyboardNav();
       var $image = this.$lightbox.find('.lb-image');
       this.$overlay.fadeIn(this.options.fadeDuration);
@@ -268,16 +285,16 @@ var nowimage=true;
 			$('.lb-iframe').attr('height', '0%');
 		}
 		
-		
-		
+	
         if (self.options.fitImagesInViewport&&self.album[imageNumber].iframe.indexOf('.html')==-1&&option!=1&&nowimage==true) {
         // Fit image inside the viewport.
         // Take into account the border around the image and an additional 10px gutter on each side.
+		  ch_zoom=false;
           windowWidth    = $(window).width();
           windowHeight   = $(window).height();
           maxImageWidth  = windowWidth - self.containerLeftPadding - self.containerRightPadding - 20;
           maxImageHeight = windowHeight - self.containerTopPadding - self.containerBottomPadding - 120;
-
+		console.log(windowHeight);
           // Is there a fitting issue?
           if ((preloader.width > maxImageWidth) || (preloader.height > maxImageHeight)) {
             if ((preloader.width / maxImageWidth) > (preloader.height / maxImageHeight)) {
@@ -291,7 +308,13 @@ var nowimage=true;
               $image.width(imageWidth);
               $image.height(imageHeight);
             }
-          }
+        }
+		if($('title').attr('id')=='evtv'){		
+			$('#lightbox').draggable('disable');
+			def_left=$('#lightbox').css('left');
+			def_top=$('#lightbox').css('top');
+		}
+
         }
         self.sizeContainer($image.width(), $image.height());
       };
@@ -344,7 +367,7 @@ var nowimage=true;
       this.preloadNeighboringImages();
       this.enableKeyboardNav();
     };
-
+	var ch_zoom=false;
     // Display previous and next navigation if appropriate.
     Lightbox.prototype.updateNav = function() {
       // Check to see if the browser supports touch events. If so, we take the conservative approach
@@ -355,8 +378,8 @@ var nowimage=true;
         document.createEvent("TouchEvent");
         alwaysShowNav = (this.options.alwaysShowNavOnTouchDevices)? true: false;
       } catch (e) {}
-
-      this.$lightbox.find('.lb-nav').show();
+	 if(ch_zoom==false) this.$lightbox.find('.lb-nav').show();
+	 else this.$lightbox.find('.lb-nav').hide();
       if (this.album.length > 1) {
         if (this.options.wrapAround) {
           if (alwaysShowNav) {
@@ -400,9 +423,7 @@ var nowimage=true;
       } else {
         this.$lightbox.find('.lb-number').hide();
       }
-    
-      this.$outerContainer.removeClass('animating');
-    
+      this.$outerContainer.removeClass('animating');    
       this.$lightbox.find('.lb-dataContainer').fadeIn(this.options.resizeDuration, function() {
         return self.sizeOverlay();
       });
@@ -469,21 +490,28 @@ var nowimage=true;
   $(function() {
     var options  = new LightboxOptions();
     var lightbox = new Lightbox(options);
+	if($('title').attr('id')=='evtv'){
 	$('#inout').hide();
 	$('#zomin').click(function(){
 		$('#zomin').hide();
 		$('#zomout').show();
-			lightbox.changeImage(lightbox.currentImageIndex,1);
+		$('.lb-outerContainer').css('cursor','move');
+		lightbox.changeImage(lightbox.currentImageIndex,1);
 		lightbox.sizeOverlay();
+		$('.lb-data .lb-closeContainer .lb-close').css({'position':'fixed','left':'0px','top':'50px'});
+		if($('title').attr('id')!='ch_prof'){
+		  $('#lightbox').draggable().draggable('enable');
+		  }
 	});
 	$('#zomout').click(function(){
+		$('#lightbox').css({'left':def_left,'top':def_top});
+		$('.lb-outerContainer').css('cursor','auto');
 		$('#zomout').hide();
 		$('#zomin').show();
 		lightbox.changeImage(lightbox.currentImageIndex,0);
 		lightbox.sizeOverlay();
-
-	});
-
+		$('.lb-data .lb-closeContainer .lb-close').removeClass('ext').css({'position':'relative','left':'auto','top':'auto'});
+		});
+	}
   });
-
 }).call(this);

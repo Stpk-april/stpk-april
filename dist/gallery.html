@@ -46,6 +46,34 @@ google.load('visualization', '1', {packages: ['corechart']});
   </style>
 	<script src="js/bootstrap.min.js"></script>
     <script src="js/respond.js"></script>
+
+	<script>
+	function moveItem(event) {
+	if($('#lightbox').css('display')=='none'){
+			if(event.keyCode==39&&now_pg<$('#myTab a').length){
+			$('#myTab a').filter(function(index){
+				return index-1==now_pg;
+			}).click();
+			}
+			else if (event.keyCode==37&&now_pg>0){
+			$('#myTab a').filter(function(index){
+				return index+1==now_pg;
+			}).click();
+			}
+			}
+		}
+	$(document.documentElement)
+				.keypress(function(evt) {
+					if ($.data(this, '_lastKeyEvent') != 'keydown') {
+						moveItem.call(this, evt);
+					}
+					$.data(this, '_lastKeyEvent', 'keypress');
+				})
+				.keydown(function(evt) {
+					moveItem.call(this, evt);
+					$.data(this, '_lastKeyEvent', 'keydown');
+	});
+	</script>
 	
 	
 <!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->

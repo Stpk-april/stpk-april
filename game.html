@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>温泉</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/jquery.toastmessage.css">
+<link rel="stylesheet" href="default_thema.css">
+<link rel="stylesheet" href="game_sys.css">
+<link id="now_thema" rel="stylesheet" href="ani_cha.css">
+
+<script type="text/javascript" src="js/jquery.toastmessage.js"></script>
+<script type="text/javascript" src="js/gamemain.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+</head>
+<body>
+
+<div id="game_view">
+	<div id="clickbut">
+	</div>
+	<div id="_menu" class="button-group" style="text-align:center">
+		<button id="button5" class="btn btn_ btn_a icon-cart" data-hover="20回消費"><span>良き青空を願う<br>LV:<t id="now_a_l">0</t></span></button>
+		<button id="button1" class="btn btn_ btn_a icon-cart"  data-hover="200回消費"><span>輝く<br>LV:<span id="now_k_l">0</span></span></button>
+		<button id="button3" class="btn btn_ btn_a icon-cart" data-hover="200回消費"><span>諦めなくなる<br>LV:<span id="now_c_l">0</span></span></button>
+		<button id="button4" class="btn btn_ btn_a icon-cart"   data-hover="初回無料"><span>メモリーが増える<br>LV:<span id="now_cha_l">0</span></span></button>
+	</div>
+	<div class="help_line">
+		<span id="view_help">&nbsp;</span>
+	</div>
+	<div id="count_">
+				<span id="btnCount">0</span>回手を伸ばした<br/>
+				<span style="font-size:14px">（<span  id="te_second"></span>）</span>
+	</div>
+	<span id="save_load" style="position:relative; top:350px;">
+		<button  class="btn btn_ btn_a" onclick="reset_clk()">CLEAR SAVE</button>
+		<button  class="btn btn_ btn_a" onclick="save_clk()">SAVE</button>
+		<button  class="btn btn_ btn_a" onclick="load_clk()">LOAD</button>
+	</span>
+</div>
+
+
+<button id="change_s" class="btn btn_ btn_a " style="position:absolute; bottom:20px; right:20px;">S</button>
+<button id="change_a" class="btn btn_ btn_a " style="position:absolute; bottom:20px; right:60px;">A</button>
+
+<div id="archives">
+<h3 class="exit">x</h3>
+<h1>アーカイブ</h1>
+<h4 id="view_arc_c">(<span id="arc_c">0</span>/17)&nbsp;<span id="view_arc">&nbsp;</span></h4>
+<div style="outline: 1px #fff;">
+<ul id="archive_"></ul>
+</div>
+</div>
+
+
+<div id="shop">
+<h3 class="exit">x</h3>
+<h1>ショップ</h1>
+<ul id="shop_">
+<h3 id="thema" style="cursor:pointer;">テーマカラー ▽</h3>
+<form id="chg_thema">
+	<input id="chg00" type="radio" name="thema_ch" checked="checked" ></input>
+	<label for="chg00">
+		<div  class="thema_box" style="height:40px;background:#CED7D6"></div>
+		基本
+	</label>
+</form>
+<h3 id="onsen" style="cursor:pointer;"> 温泉 ▽</h3>
+	<form id="chg_onsen">
+	<input type="radio" name="onsen_ch"  id="onsen00" checked="checked" ></input>
+	<label for="onsen00"><div   style="position:relative;">
+		<div class="thema_box" style="height:60px;width:85px;background:url('images/on_thumb00.png');"></div>
+		基本
+		</div>
+	</label>	
+	</form>
+	<h3 id="back_" style="cursor:pointer;">Twitterアイコン ▽</h3>
+	<form id="chg_back">
+	<input type="radio" name="back_ch"  id="back00" checked="checked" ></input>
+	<label for="back00"><div style="position:relative;">
+		<div class="thema_box" style="height:60px;width:60px;background:black;"></div>
+		基本
+		</div>
+	</label>
+	</form>
+</ul>
+</div>
+<script>
+
+
+</script>
+
+
+
+</body>
+</html>

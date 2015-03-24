@@ -39,7 +39,7 @@ function handleQueryResponse(event){
 		if(data.getValue(i,3).indexOf('comic')!=-1) insother(data,'manga','');
 		if(data.getValue(i,3).indexOf('Novel')!=-1) insother(data,'novel','');
 	}
-	for (i=16; i<data.getNumberOfRows()-1; i++){
+	for (i=16; i<data.getNumberOfRows(); i++){
 		$("#home-page2").append(generate_thumb(data.getValue(i,5),data.getValue(i,0),data.getValue(i,4),(i+1)));
 		alls.push(generate_thumb(data.getValue(i,5),data.getValue(i,0),data.getValue(i,4),(i+1)));
 		if(data.getValue(i,3).indexOf('Illust')!=-1) insother(data,'illust','-page2');
@@ -212,19 +212,18 @@ $(function(){
 
 		if(isMobile.any()) {
 			$('#gototop').hide();
-			$('#dummy').attr('data-'+($( document ).height()+1000),"opacity:0;");
 		}
 		else{
 			$('#gototop').click(function(e){
 				e.preventDefault();
 				$("html, body").animate({ scrollTop: 0 }, "slow");
 			})
-		}
-		
 		var s= skrollr.init({
 			forceHeight: true,
 			skrollrBody:'skrollr-body'
-		});	
+		});
+		}
+		
 });
 
 function generate_thumb(img, name,genre,id)

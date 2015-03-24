@@ -1,0 +1,80 @@
+ï»¿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>?ô»</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> 
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load('visualization', '1', {packages: ['corechart']});
+</script> 
+</head>
+<body>
+
+
+
+
+</body>
+<script>
+/*
+for ( var i = 1; i <= 9; i++ ){
+   var img    = new Image();
+    $(img).on('load',function(){
+	   $('body').append('<br/>.'+this.src.split('/onsen/')[1].split('.png')[0]+'<br/>{');
+       $('body').append('<br/>width:'+this.width+'px;<br/>');	
+       $('body').append('height:'+this.height+'px;<br/>');
+	   $('body').append('background:url(./onsen/'+this.src.split('/onsen/')[1]+');<br/>}');
+	   
+		console.log(this.width);
+	});
+
+	img.src='./onsen/char_0'+i+'.png';
+}
+
+for ( var i = 10; i <= 15; i++ ){
+   var img    = new Image();
+    $(img).on('load',function(){
+	   $('body').append('<br/>.'+this.src.split('/onsen/')[1].split('.png')[0]+'<br/>{');
+       $('body').append('<br/>width:'+this.width+'px;<br/>');	
+       $('body').append('height:'+this.height+'px;<br/>');
+	   $('body').append('background:url(./onsen/'+this.src.split('/onsen/')[1]+');<br/>}');
+	   
+		console.log(this.width);
+	});
+
+	img.src='./onsen/char_'+i+'.png';
+}*/
+
+
+
+
+$( document ).ready(function() {
+	query = new google.visualization.Query('http://spreadsheets.google.com/a/google.com/tq?key=1m5exnOYnq2z5fQo7SAun5zPDRX5blqFchJVZ7I8N9H0&pub=1');
+	set_Q('');
+})
+function set_Q(txt){
+	now='';
+	query.setQuery("SELECT B, C, D, E, F, G, H, I, J");
+	query.send(handleQueryResponse);
+}
+
+function handleQueryResponse(event){
+	if (event.isError()) {
+		alert('Error in query: ' + event.getMessage() + ' ' + event.getDetailedMessage());
+		return;
+	}
+	
+	var data = event.getDataTable();
+	for(var i=data.getNumberOfRows()-1;i--;)
+	{
+		var $t='char_list.push(new Set_char({id:"#char_'+(((i+1)>=10)? (i+1):('0'+(i+1)))+'", genre:'+data.getValue(i,0)+', sex:'+((data.getValue(i,1)==0)? 'false':'true')+', ougon:'+((data.getValue(i,2)==0)? 'false':'true')+', maguro:'+((data.getValue(i,3)==0)? 'false':'true')+', speed_up:'+(data.getValue(i,4))+', auto_up:'+(data.getValue(i,5))+', min_up:'+(data.getValue(i,6))+', click_up:'+(data.getValue(i,7))+', txt:"'+(data.getValue(i,8))+'"}));<br/>';
+		console.log($t);
+		$('body').append($t);
+	}
+}
+
+</script>
+</html>

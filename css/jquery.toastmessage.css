@@ -9,7 +9,7 @@
 
 .toast-item {
 	height: auto;
-	background: #333;
+	background: rgba(0,0,0,0.4);
 	color: #eee;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -106,7 +106,7 @@
 .toast-position-bottom-right {
     position: fixed;
     right: 20px;
-    bottom: 60px;
+    bottom: 50px;
 }
 .toast-position-top-center {
     position: fixed;

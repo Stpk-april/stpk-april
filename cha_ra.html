@@ -6,6 +6,7 @@
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="icon" href="favicon.ico">
 <script type="text/javascript" src="extras/jquery.min.1.7.js"></script>
+<script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700' rel='stylesheet' type='text/css' />
 <script src="js/lightbox.js"></script>
 <link rel="stylesheet" href="css/lightbox.css" />
@@ -45,6 +46,13 @@
 			</div>
 			</div>
 			</a>
+			<a href="images/profile16.png" class="Button2" rel="lightbox[imgs]">
+			<div class="ch-item cha_04">
+					<div class="ch-info" style="top:20px;left:10px">
+			<h2>コージー</h2>
+			</div>
+			</div>
+			</a>
 			<a href="images/profile01.png" class="Button2" rel="lightbox[imgs]" >
 			<div class="ch-item cha_05">
 					<div class="ch-info" style="top:350px; left:-30px;">
@@ -56,6 +64,13 @@
 			<div class="ch-item cha_06">
 					<div class="ch-info" style="top:160px; left:6px;">
 						<h3>プラリネ</h3>
+					</div>	
+			</div>
+			</a>
+			<a href="images/profile15.png" class="Button2" rel="lightbox[imgs]" >
+			<div class="ch-item cha_07">
+					<div class="ch-info" style="top:160px; left:6px;">
+						<h3>甚一郎</h3>
 					</div>	
 			</div>
 			</a>
@@ -101,6 +116,13 @@
 					</div>	
 			</div>
 			</a>
+			<a href="images/profile10.png" class="Button2" rel="lightbox[imgs]"  >
+			<div class="ch-item cha_15">
+				<div class="ch-info" style="float:right; top:90px; right:5px;">
+						<h3>Ｓ・彼方</h3>
+					</div>	
+			</div>
+			</a>
 			<a href="images/profile25.png" class="Button2" rel="lightbox[imgs]"  >
 			<div class="ch-item cha_16">
 				<div class="ch-info" style="top:110px; left:30px;">
@@ -129,10 +151,17 @@
 					</div>	
 			</div>
 			</a>
-			<a href="images/profile16.png" class="Button2" rel="lightbox[imgs]"  >
+			<a href="images/profile24.png" class="Button2" rel="lightbox[imgs]"  >
 			<div class="ch-item cha_20">
 				<div class="ch-info" style="top:70px; left:5px;">
-						<h3>コージー</h3>
+						<h3>おやっさん</h3>
+					</div>	
+			</div>
+			</a>
+			<a href="images/profile18.png" class="Button2" rel="lightbox[imgs]"  >
+			<div class="ch-item cha_21">
+				<div class="ch-info" style="top:70px; left:5px;">
+						<h2>りり</h2>
 					</div>	
 			</div>
 			</a>
@@ -146,7 +175,7 @@
 			<a href="images/profile16.png" class="Button2" rel="lightbox[imgs]"  >
 			<div class="ch-item cha_23">
 				<div class="ch-info" style="top:70px; left:5px;">
-						<h3>ddd</h3>
+						<h3>都深野</h3>
 					</div>	
 			</div>
 			</a>
@@ -192,7 +221,17 @@ if ( $.browser.msie&&$.browser.version*1<10 )
 		});
 
 //		.mouseover(
-}	
+}
+$(document).ready(function(){
+	$('.Button2').each(function(){
+		var temp=$(this).attr('href');
+		temp=temp.replace('images','http://googledrive.com/host/0B2pOZywE5TjAeFJLQkdaOHIxVXc')
+		$(this).attr('href',temp);
+	});
+});
+$(window).load(function(){
+
+});
 
 </script>
 

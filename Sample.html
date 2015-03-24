@@ -33,7 +33,7 @@ input + label {
 	transition: all 0.3s;
 }
 label{
-	height:84px;
+	height:54px;
 }
 input:checked + label { 
 	border: 2px dotted rgba(255,255,255,1.0);
@@ -43,7 +43,17 @@ input:checked + label {
 input {
 	display:none;
 }
-
+.sample{
+	position:absolute;
+	float:right;
+	right:200px;
+	top:20px;
+	width:200px;
+	height:200px;
+}
+#icons{
+text-align:center;
+}
 
 </style>
 </head>
@@ -54,15 +64,26 @@ input {
 	<div id="content">
 		<div class="box_ov">
 			<div  id="box_in" style="height:675; width:950;margin: 0 30px;padding:30px;">		
-			<h3> Twitterアイコン(200x200)配信中！</h3>
+			<div class="sample"></div>
+			<h3> Twitterアイコン(200x200)配布中！</h3>
+			<span style="font-size:10px">
+			※主義事項<br/>
+			・アイコン内の作者表記を消さないでください。<br/>
+			・二次配布禁止。<br/>
+			</span>
 			<span id="help">(右クリック→対象をファイルに保存、もしくは↓)</span><br/>
 			<button id="matome">チェックしたアイコンをまとめてzipダウンロード</button><br>
 			<h5 id="err">ＤＬしたいアイコンをチェックてください</h5>
-			<form id="icons" style="text-align:center"></form>
+			<form id="icons"></form>
 			<h3> WEB体験版（？）公開中！</h3>
-			<a href="images/game_dummy.jpg"  data-top="10px" data-iframe="test3.html" data-lightbox="game-1">
+			<a href="#" id="game_open" >
 			<img src="images/fake.jpg" style="margin-left:240px">
 			</a>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
 			<img src="images/null_t.png">
 		</div>
 		<div class="bottom_fade"></div>
@@ -105,11 +126,14 @@ input {
 	}
 
 	$(function(){
-			for(var i=1;i<=16;i++){
+			for(var i=1;i<=18;i++){
 			$('<input id="checkbox'+i+'" type="checkbox" name="iconses" ></input>').attr('value','icon'+i+'.png').appendTo('#icons');
 			$('<label/>').appendTo('#icons').attr({'id':'label'+i,'for':'checkbox'+i+''}).css({'cursor':'pointer'});
-			$('<img/>').appendTo('#label'+i).attr('src','images/icon/icon'+i+'.png').css({'width':'80px','height':'auto'});
-			if(i%6==0){
+			$('<img/>').appendTo('#label'+i).attr('src','images/icon/icon'+i+'.png').css({'width':'50px','height':'auto'}).click(function(e){
+				$('.sample').html($('<img>').attr('src',this.src));
+				});
+
+			if(i%10==0){
 			$('#icons').append('<br/>');
 			}
 			}
@@ -124,7 +148,6 @@ input {
 					$('label img').css({'width	':'90px','margin':'3px'});
 					$('#err').remove();
 				}
-			
 			$('#icons input').click(function(){
 				var idx=0;
 				$("input:checkbox[name=iconses]:checked").each(function(){idx++});
@@ -196,7 +219,15 @@ input {
 			};
 			img.src = url;
 		}
-	
+		
+
+	$('#game_open').click(function popupOpen(e){
+			e.preventDefault();
+			var popUrl = "game.html";
+			var popOption = "width=960, height=638, location=no, resizable=no, scrollbars=no, status=no;"; 
+				window.open(popUrl,"",popOption);
+		});
+		
 	</script>
 	
 	
