@@ -87,11 +87,6 @@
 	top: 0;
 }
 
-.help_line{
- margin:10px 0px; 
- width:100%
-}
-
 #count_{
 font-size:26px;
 pointer-events: none;

@@ -44,6 +44,7 @@ body{
 .steam{
 pointer-events:none;
 position:fixed;
+z-index:1000;
 cursor:pointer;
 background:url(images/steam01.png);
 width:100px;
@@ -52,9 +53,45 @@ background-size:100%;
 opacity:0.8;
 }
 
+#game_view{
+	width:960px;
+	height:638px;
+	background:url(onsen/onsen1.png) no-repeat;
+}
+
+#clickbut{
+	cursor:pointer;
+	position:absolute; 
+	z-index:0;
+	left:0px; 
+	top:0px; 
+	width:960px;
+	height:638px;
+}
+
+
 #game_main{
 	margin:0px 10px;
 }
+#_menu{
+	width:100%;
+}
+#_menu button{
+	width:25%;
+	margin-left:-3px;
+	margin-right:-3px;
+}
+#count_{
+	position:relative;
+	float:left;
+	width:100%;
+	z-index:10;
+	margin-top:0px;
+	padding-top:30px;
+	padding-bottom:30px;
+	color:white;
+}
+
 
 .div_round {
 padding:3px;
@@ -86,29 +123,52 @@ background: rgba(114, 114, 114, 0.5);
 border-radius: 3px;
 }
 
-#archives{
-position:absolute;
-width:450px; 
-left:750px;
-top:20px;
-}
-#clickbut{
-	display:block;
-	cursor:pointer;
-	background:url(images/ons_s.jpg) no-repeat ;
-	position:relative; 
-	left:0px; 
-	outline: 5px  double white;
-	top:0px; 
-	width:700px; 
-	height:495px
+#change_a,#change_s{
+
+-moz-border-radius: 50%;
+-o-border-radius: 50%;
+-khtml-border-radius: 50%;
+-webkit-border-radius: 50%;
+border-radius: 50%;
 }
 
+#archives{
+position:absolute;
+display:none;
+width:500px;
+height:auto;
+left:25%;
+top:30%;
+background:rgba(0,0,0,0.8);
+-moz-border-radius: 3px;
+-o-border-radius: 3px;
+-khtml-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+z-index:100;
+padding:10px;
+}
 #shop{
 position:absolute;
-width:450px; 
-left:720px;
-top:20px;
+width:500px;
+padding:10px;
+height:auto;
+left:25%;
+top:20%;
+z-index:100;
+background:rgba(0,0,0,0.8);
+-moz-border-radius: 3px;
+-o-border-radius: 3px;
+-khtml-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+}
+.exit{
+position:absolute;
+float:right;
+right:15px;
+top:-10px;
+cursor:pointer;
 }
 
 input + label {
@@ -142,17 +202,6 @@ input {
  
  
  
-#neon{
-	position:absolute;
-	top:26.8%;
-	left:510px;
-	float:bottom;
-	overflow:hidden;
-	width:100px;
-	height:105px;
-	cursor:pointer;
-    background-image: url(images/neon_b.png); 
-}
 #tesla{
 	cursor:pointer;
 	position:absolute;
@@ -230,43 +279,6 @@ input {
 
 
 
-#hi{
-	position:absolute;
-	width:100px;
-	height:105px;
-	cursor:pointer;
-    background-image: url(images/neon_h_s.png); 
-    -webkit-animation: plays 2s steps(10) infinite alternate;
-       -moz-animation: plays 2s steps(10) infinite alternate;
-        -ms-animation: plays 2s steps(10) infinite alternate;
-         -o-animation: plays 2s steps(10) infinite alternate;
-            animation: plays 2s steps(10) infinite alternate;
-}
-
-@-webkit-keyframes plays {
-   from { background-position:    0px; }	
-     to { background-position: -1000%; }
-}
-
-@-moz-keyframes plays {
-   from { background-position:    0px; }
-     to { background-position: -1000%; }
-}
-
-@-ms-keyframes plays {
-   from { background-position:    0px; }
-     to { background-position: -1000%; }
-}
-
-@-o-keyframes plays {
-   from { background-position:    0px; }
-     to { background-position: -1000%; }
-}
-
-@keyframes plays {
-   from { background-position:    0px; }
-     to { background-position: -1000%; }
-}
 
 
 
@@ -301,4 +313,243 @@ overflow: hidden; text-indent: -9999px; text-align: left; }
 .arc_16 { background-position: -255px -255px; width: 85px; height: 85px; }
 .arc_17 { background-position: -0px -340px; width: 85px; height: 85px; }
 
+
+.onsen_ch
+{
+	position:absolute;
+}
+
+
+
+#char_01
+{
+z-index:2;
+width:108px;
+height:108px;
+top:506px;
+left:608px;
+background:url(./onsen/char_01.png);
+}
+#char_13
+{
+width:116px;
+height:116px;
+top:466px;
+left:510px;
+background:url(./onsen/char_13.png);
+    -webkit-animation: play_13 1.5s steps(2) infinite alternate;
+       -moz-animation: play_13 1.5s steps(2) infinite alternate;
+        -ms-animation: play_13 1.5s steps(2) infinite alternate;
+         -o-animation: play_13 1.5s steps(2) infinite alternate;
+            animation: play_13 1.5s steps(2) infinite alternate;
+
+}
+
+@-webkit-keyframes play_13 {
+   from { background-position:    0px; }	
+     to { background-position: -200%; }
+}
+
+@-moz-keyframes play_13 {
+   from { background-position:    0px; }
+     to { background-position: -200%; }
+}
+
+@-ms-keyframes play_13 {
+   from { background-position:    0px; }
+     to { background-position: -200%; }
+}
+
+@-o-keyframes play_13 {
+   from { background-position:    0px; }
+     to { background-position: -200%; }
+}
+
+@keyframes play_13 {
+   from { background-position:    0px; }
+     to { background-position: -200%; }
+}
+
+
+
+
+
+
+
+
+#char_11
+{
+width:102px;
+height:201px;
+top:282px;
+left:860px;
+background:url(./onsen/char_11.png);
+}
+#char_08
+{
+width:90px;
+height:95px;
+top:310px;
+left:510px;
+background:url(./onsen/char_08.png);
+}
+#char_02
+{
+z-index:1;
+width:94px;
+height:115px;
+top:335px;
+left:613px;
+background:url(./onsen/char_02.png);
+}
+#char_14
+{
+z-index:2;
+width:99px;
+height:77px;
+top:383px;
+left:533px;
+background:url(./onsen/char_14.png);
+}
+#char_07
+{
+z-index:2;
+width:63px;
+height:119px;
+top:369px;
+left:451px;
+background:url(./onsen/char_07.png);
+}
+#char_04
+{
+width:106px;
+height:119px;
+z-index:2;
+top:387px;
+left:322px;
+background:url(./onsen/char_04.png);
+}
+#char_09
+{
+width:119px;
+height:115px;
+top:323px;
+left:364px;
+background:url(./onsen/char_09.png);
+}
+#char_10
+{
+z-index:2;
+width:110px;
+height:121px;
+top:443px;
+left:248px;
+background:url(./onsen/char_10.png);
+}
+#char_03
+{
+z-index:2;
+width:118px;
+height:91px;
+top:445px;
+left:103px;
+background:url(./onsen/char_03.png);
+}
+#char_15
+{
+width:102px;
+height:92px;
+top:400px;
+left:178px;
+background:url(./onsen/char_15.png);
+}
+#char_05
+{
+z-index:1;
+width:140px;
+height:140px;
+top:410px;
+left:637px;
+background:url(./onsen/char_05.png);
+    -webkit-animation: play_05 1s steps(2) infinite alternate;
+       -moz-animation: play_05 1s steps(2) infinite alternate;
+        -ms-animation: play_05 1s steps(2) infinite alternate;
+         -o-animation: play_05 1s steps(2) infinite alternate;
+            animation: play_05 1s steps(2) infinite alternate;
+}
+
+
+@-webkit-keyframes play_05 {
+   from { background-position:    0px; }	
+     to { background-position: -200%; }
+}
+
+@-moz-keyframes play_05 {
+   from { background-position:    0px; }
+     to { background-position: -200%; }
+}
+
+@-ms-keyframes play_05 {
+   from { background-position:    0px; }
+     to { background-position: -200%; }
+}
+
+@-o-keyframes play_05 {
+   from { background-position:    0px; }
+     to { background-position: -200%; }
+}
+
+@keyframes play_05 {
+   from { background-position:    0px; }
+     to { background-position: -200%; }
+}
+
+
+
+
+
+
+
+#char_06
+{
+width:102px;
+height:107px;
+top:307px;
+left:745px;
+background:url(./onsen/char_06.png);
+}
+#char_12
+{
+width:103px;
+height:113px;
+top:424px;
+left:747px;
+background:url(./onsen/char_12.png);
+}
+
+
+#char_16
+{
+width:110px;
+height:120px;
+top:509px;
+left:738px;
+background:url(./onsen/char_16.png);
+}
+
+#char_17
+{
+width:101px;
+height:104px;
+top:324px;
+left:678px;
+background:url(./onsen/char_17.png);
+}
+
+.help_line{
+ margin:5px 0px; 
+ width:100%;
+ position:relative;
+ z-index:10;
+}
 

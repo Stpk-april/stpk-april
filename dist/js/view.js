@@ -55,14 +55,13 @@ function handleQueryResponse(event){
 			}
 			img.src = data.getValue(0,5);
 		}
-		else if(data.getValue(0,5).indexOf(',')!=-1){
+	 else if(data.getValue(0,5).indexOf(',')!=-1){
 			var galler = data.getValue(0,5).split(',');
 			var loaded = 0;
 			var numImages = galler.length;
 			$('#home').append('<div class="tab-content" id="glls" >');
 			for(var i in galler){
 				if(i*1>0){
-				
 				$('<img class="comic"/>').attr('src',galler[i]).hide()
 				.on('load',function(){			
 				++loaded;
@@ -149,21 +148,22 @@ function handleQueryResponse(event){
 
 function set_key(){
 $('#keying').html('←キー:前のページ、→キー：次のページ');
-$('body').keypress(function (event) {
-if($('#lightbox').css('display')=='none'){
-if(event.keyCode==39&&now_pg<$('#myTab a').length){
-$('#myTab a').filter(function(index){
-	return index-1==now_pg;
-}).click();
-}
-else if (event.keyCode==37&&now_pg>0){
-$('#myTab a').filter(function(index){
-	return index+1==now_pg;
-}).click();
-}
-}
-});
-
+/*if(navigator.userAgent.indexOf('Safari')==-1){
+		$('body').keypress(function (event) {
+		if($('#lightbox').css('display')=='none'){
+			if(event.keyCode==39&&now_pg<$('#myTab a').length){
+				$('#myTab a').filter(function(index){
+					return index-1==now_pg;
+				}).click();
+			}
+			else if (event.keyCode==37&&now_pg>0){
+					$('#myTab a').filter(function(index){
+						return index+1==now_pg;
+					}).click();
+				}
+			}
+		});
+	} */
 }
 
 
