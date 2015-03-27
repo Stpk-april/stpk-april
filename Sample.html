@@ -126,7 +126,7 @@ text-align:center;
 	}
 
 	$(function(){
-			for(var i=1;i<=18;i++){
+			for(var i=1;i<=20;i++){
 			$('<input id="checkbox'+i+'" type="checkbox" name="iconses" ></input>').attr('value','icon'+i+'.png').appendTo('#icons');
 			$('<label/>').appendTo('#icons').attr({'id':'label'+i,'for':'checkbox'+i+''}).css({'cursor':'pointer'});
 			$('<img/>').appendTo('#label'+i).attr('src','images/icon/icon'+i+'.png').css({'width':'50px','height':'auto'}).click(function(e){
