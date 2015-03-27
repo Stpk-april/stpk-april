@@ -910,6 +910,7 @@ nav a:focus {
 }
 .comic_page{
 	text-align:center;
+	white-space: nowrap;
 	height:95%;
 	margin-left:auto;
 	margin-right:auto;

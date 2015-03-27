@@ -11,37 +11,65 @@
 <link rel="stylesheet" type="text/css" href="ruby.css">
 <link rel="stylesheet" href="default.css">
 <script type="text/javascript" src="extras/jquery.min.1.7.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 </head>
 	<style type="text/css">
-	.boxaa {
-		position:relative;
-		float:left;
-		z-index:1;
-		bottom:0;
-		padding:6em 1em;
-		background:#fff;
-		margin:2px;
-	}
-	.resz{
-	background-size:auto 100%;
-
+.ri_04,.ri_05{
+	position:fixed; 
+	float:left;
+	width:110%; 
+	top:0px;
+	z-index:0;
+	height:100%; 
 	}
 	.ri_01{
 	position:fixed; 
-	width:20%; 
-	z-index:20;
+	float:left;
+	width:100%; 
+	top:0px;
+	z-index:0;
+	height:120%; 
+	}
+	.ri_06{
+	position:fixed; 
+	float:left;
+	width:100%; 
+	top:0px;
+	z-index:0;
 	height:100%; 
-	background:url(images/onsen.jpg) no-repeat;  
 	}
 	.ri_02{
-	
+	opacity:0px;
+	position:fixed; 
+	float:left;
+	width:120%; 
+	top:0px;
+	z-index:0;
+	height:100%; 
+	}
+	.ri_03{
+	position:fixed; 
+	float:left;
+	width:100%; 
+	top:0px;
+	z-index:0;
+	height:100%;  
+	}
+	.ri_05{
+	left:-100%;
 	}
 
 #content img{
 	max-width:100%;
 }
 
+#uso4{
+}
+#uso
+{
+	font-size:auto;
+}
 
 
 </style>
@@ -50,11 +78,49 @@
 
 
 <div class="ri_01 resz" 
-	data-anchor-target="#cheka" 
-	data-500-bottom-top= "height:0%"
-	data-center-bottom="height:100%"
-	data-top="height:100%"
-	data-top-bottom= "height:0%"
+	data-anchor-target="#back-1" 
+	data-top="top:-10%;opacity:1.0"
+	data-center-bottom="top:-20%;opacity:1.0"
+	data-top-bottom= "top:-20%;opacity:0.0"
+></div>
+<div class="ri_03" 
+	data-anchor-target="#back-3" 
+	data--300-bottom-top= "opacity:0.0"
+	data-top="opacity:1.0"
+	data-100-top="opacity:1.0"
+	data-center-bottom="opacity:1.0"
+	data-top-bottom= "opacity:0.0"
+></div>
+
+<div class="ri_04" 
+	data-anchor-target="#back-4" 
+	data-bottom-top= "left:0%;opacity:0.0"
+	data-center="left:-10%;opacity:1.0"
+	data-top="left:0%;opacity:1.0"
+	data-top-bottom="left:0%;opacity:1.0"
+	data--200-top-bottom="left:0%;opacity:0.0"
+></div>
+
+<div class="ri_03" 
+	data-anchor-target="#back-5" 
+	data--300-bottom-top= "opacity:0.0"
+	data-center-bottom="opacity:1.0"
+	data-top="opacity:1.0"
+	data-top-bottom= "opacity:0.0"
+></div>
+<div class="ri_05" 
+	data-anchor-target="#back-6" 
+	data-500-bottom-top= "left:-100%"
+	data-center-bottom="left:0%"
+	data-top="left:0%;"
+	data-top-bottom= "left:-100%;"
+></div>
+<div class="ri_06" 
+	data-anchor-target="#back-7" 
+	data--300-bottom-top= "opacity:0.0"
+	data-center-bottom="opacity:1.0"
+	data-top="opacity:1.0"
+	data-top-bottom= "opacity:0.0"
 ></div>
 
 <div id="skrollr-body">
@@ -70,13 +136,19 @@
 <div id="align"style="z-index: 10;position: relative;"> 
 <div id="content" style="text-align:center; margin-right:auto;margin-left:auto;width:60%; background: rgba(0,0,0,0.6)">
 <div>
-
-
 <br/>『カメラに残された映像記録、とある世界から訪れた少女達の旅行風景』
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>
 <br/>
 <br/>◆カメラ担当:メアリ
 <br/>
+<span id="back-1">
 <br/><img id="onsen1" src="images/onsn1.png">
 <br/>
 <br/>「えっと、ここは…？」
@@ -167,6 +239,8 @@
 <br/>そうね、ルール違反はよくないものね。今日一日、私もハメを外してめいっぱい楽しみましょう。
 <br/>
 <br/>
+</span>
+<span id="back-3">
 <br/>◆カメラ担当:コニー
 <br/>
 <br/>宿についてまずは、と荷物を用意された部屋に置いて今回の旅のメインである温泉へ早速向かう。
@@ -205,6 +279,7 @@
 <br/>
 <br/><img id="onsen3" src="images/onsn3.png">
 <br/>
+</span>
 <br/>「あ」
 <br/>
 <br/>リリィの驚いた声にカメラを回しっぱなしだったことに気がつく。
@@ -221,6 +296,7 @@
 <br/>あーあ、本当ごめん。後で皆で見るとか…ないよね？ないと祈っておこう。
 <br/>
 <br/>
+<span id="back-4">
 <br/>◆カメラ担当:シャーリィ
 <br/>
 <br/>コニーが「向いてないみたい」と何故か落ち込んでいたので、温泉は私が撮影するわね。
@@ -274,6 +350,8 @@
 <br/>ほんとーに？と言って訝しむアティに「ならここから先は撮りません！」と撮影停止のボタンをタッチして、私も湯船に浸かりなおすことにした。
 <br/>
 <br/>
+</span>
+<span id="back-5">
 <br/>◆カメラ担当:アティ
 <br/>
 <br/>十分温まって肌もすべすべになった頃合を見て温泉から出ることにして、宿が用意してくれた服、浴衣？を着ることにした。
@@ -288,10 +366,12 @@
 <br/>三人団子になってなにか話してる様子をカメラに映す。
 <br/>あーでもないこーでもないってやけに真剣そう？
 <br/>
+<span id="back-6">
 <br/>「これ、ドライヤーっていう温風があたる機械なのだけどどういう仕組みなのかしらって話をしてて。私は工学に疎いのだけど二人は専門で学んでるみたいだから意見を聞いてみたの」
 <br/>
 <br/>「こちらでは機関じゃなくて電気で機械が動いてるっていうのはわかるのだけれど、この長いコードを介して動力を供給してるのよね？廃熱処理はここからしてるとして…エネルギーの変換は、分解しちゃダメかしら？」
 <br/>
+</span>
 <br/>「だめだめ！だめですよ宿の備品なんですから！私ももっと勉強ちゃんとしてればわかったのかもしれないけれど。電気機械…マスターならわかるのかな？」
 <br/>
 <br/>なるほど、未来を担う碩学の卵たちにはこの世界の技術はどこを見ても不思議の塊のよう。私はそういうのよくわかんないけど。
@@ -324,6 +404,8 @@
 <br/>
 <br/>お食事の準備ができました、と声をかけてもらったので案内された部屋へ合流したみんなで一緒に向かったの。
 <br/>通された場所は人数を考えても十分なほどの広さの個室で、客室と同じように藺草の香りが素敵なお座敷。
+</span>
+<span id="back-7">
 <br/>人数分の座椅子に座布団というクッションを敷いてもらってあってみんな好きな場所に座る。
 <br/>本来は正座に慣れてないとたいへんらしいのだけれど、堀りごたつ式テーブルというの？足が下に伸ばせるようになってて不慣れな私達でも快適に食事ができるようになってるみたい。
 <br/>
@@ -388,6 +470,7 @@
 <br/>そう思って撮影もそこそこに美味しいお料理に舌鼓を打つことに戻ったの。
 <br/>
 <br/>
+</span>
 <br/>◆カメラ担当:アナ
 <br/>
 <br/>食事も終わって一息ついて、自由に散策しようって話になったからカメラを持って館内を回ってみる。
@@ -495,7 +578,13 @@
 <br/>
 <br/>　見えない？―
 <br/>
-<br/>　　　　　《原因/電池残量》
+<br/><span 
+id="uso2"
+data-0="font-size:18px"
+data-bottom-top="font-size:18px"
+data-center="font-size:20px"
+>《原因/電池残量》
+</span>
 <br/>
 <br/>
 <br/>残量･･･もうすぐ切れちゃうってこと？
@@ -504,7 +593,13 @@
 <br/>
 <br/>　見えない？―
 <br/>
-<br/>　　　　　《もうすぐ明日》
+<br/><span 
+id="uso2"
+data-0="font-size:18px"
+data-bottom-top="font-size:18px"
+data-center="font-size:24px"
+>《もうすぐ明日》
+</span>
 <br/>
 <br/>
 <br/>日付が変わると使えない？
@@ -512,7 +607,12 @@
 <br/>
 <br/>　見えない？―
 <br/>
-<br/>　　　　　《全部嘘》
+<br/><span 
+id="uso"
+data-0="font-size:18px"
+data-bottom-top="font-size:18px"
+data-center="font-size:70px"
+>《全部嘘》</span>
 <br/>
 <br/>
 <br/>「《全部嘘》エイプリル･フール？嘘って、何が」
@@ -526,10 +626,20 @@
 <br/>
 <br/>
 <br/>
-<br/>　　　　《発動/真実暴露》
+<br/><span 
+id="uso4"
+data-0="font-size:20px;color:rgba(255,255,255,0.4)"
+data-bottom-top="font-size:20px;color:rgba(255,255,255,0.4)"
+data-center="color:rgba(255,239,0,1)"
+>《発動/真実暴露》
+</span>
 <br/>
 <br/>
-<br/><img id="onsen8" src="images/onsn8.png">
+<br/><img
+data-0="opacity:0px"
+data-bottom-top="opacity:0.0"
+data-bottom="opacity:1.0"
+ id="onsen8" src="images/onsn8.png">
 <br/>
 <br/>「すぅ…すぅ…ブクブクッ！？？ふわあっ！！」
 <br/>
@@ -574,7 +684,6 @@
 <br/>
 <br/>＜おしまい＞
 
-
 </div>
 </div>
 </div>
@@ -582,12 +691,14 @@
 </div>
  <script type="text/javascript" src="./js/skrollr.min.js"></script>
  <script type="text/javascript">
+ /*
 	$(document).ready(function(){
 	var f=$(window).height();
 	$(".resz").css("background-size",'auto '+f+'px');
 	});
+	 */
 	var p=skrollr.init({
-	forceHeight: true,
+	forceHeight: false,
 	smoothScrolling: true,
 	constants: {
         foo: function() {
@@ -596,8 +707,44 @@
 		fuu: function() {
 			return document.body.scrollHeight;
 			}
-		}
+		},
+	easing: {
+			vibrate: function(p) {
+				return Math.sin(p  * Math.PI);
+			}
+		}	
 	 });
+	  $(".ri_01").backstretch("./images/a0002_011847_m.jpg"); 
+	  $(".ri_02").backstretch("./images/a0002_011755_m.jpg"); 
+	  $(".ri_03").backstretch("./images/a0001_012193_m.jpg"); 
+	  $(".ri_04").backstretch("./images/a0003_000325_m.jpg"); 
+	  $(".ri_05").backstretch("./images/hairdryer-295616_1920.png"); 
+	  $(".ri_06").backstretch("./images/a0002_003917_m.jpg"); 
+	 
+var isMobile = {
+			Android: function() {
+				return navigator.userAgent.match(/Android/i);
+			},
+			BlackBerry: function() {
+				return navigator.userAgent.match(/BlackBerry/i);
+			},
+			iOS: function() {
+				return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+			},
+			Opera: function() {
+				return navigator.userAgent.match(/Opera Mini/i);
+			},
+			Windows: function() {
+				return navigator.userAgent.match(/IEMobile/i);
+			},
+			any: function() {
+				return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+			}
+		};
+		if(isMobile.any()){
+			$('#content').css('width','100%');
+		}
+
 </script>
 <script type="text/javascript">
 /*	$(window).scroll(function () { 

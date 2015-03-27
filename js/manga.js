@@ -39,8 +39,8 @@ comic.prototype.build_ =function()
 	{
 		var preloader = new Image();
 		preloader.id='page'+(i+1);
-		//http://googledrive.com/host/0B2pOZywE5TjAeFJLQkdaOHIxVXc/
-		preloader.src='./images/'+this.cominum+' ('+(i+1)+').png';
+		//
+		preloader.src='http://googledrive.com/host/0B2pOZywE5TjAeFJLQkdaOHIxVXc/'+this.cominum+' ('+(i+1)+').png';
 		this.images.push(preloader);
 		if(i%2==0)
 		{
@@ -105,12 +105,14 @@ comic.prototype.bindgin = function()
 	});
 	self.self_.find('.zoom').on('click',function(e){
 		e.preventDefault();
-		self.self_.find('.comic_page').draggable('enable').css({'width':1074*2+20+'px','height':'auto'});
+		self.self_.find('.comic_side').css('cursor','move');
+		self.self_.find('.comic_page').draggable('enable').css({'width':'auto','height':'auto','left':'-65%'});
 		self.zoomed=true;
 	});
 	self.self_.find('.zoomout').on('click',function(e){
 		e.preventDefault();
 		self.zoomed=false;
+		self.self_.find('.comic_side').css('cursor','pointer');
 		self.self_.find('.comic_page').draggable('disable').css({'width':'auto','height':'95%','top':'0px','left':'0px'});
 	});
 }
