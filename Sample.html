@@ -53,6 +53,7 @@ input {
 }
 #icons{
 text-align:center;
+margin-top:-50px;
 }
 
 </style>
@@ -70,6 +71,7 @@ text-align:center;
 			※主義事項<br/>
 			・アイコン内の作者表記を消さないでください。<br/>
 			・二次配布禁止。<br/>
+			・Twitter以外の使用については、アイコンに表記されている作者にお問い合わせください。<br/>
 			</span>
 			<span id="help">(右クリック→対象をファイルに保存、もしくは↓)</span><br/>
 			<button id="matome">チェックしたアイコンをまとめてzipダウンロード</button><br>
@@ -126,17 +128,32 @@ text-align:center;
 	}
 
 	$(function(){
-			for(var i=1;i<=20;i++){
+			$('#icons').append('<br/>背景あり<br/>');	
+			for(var i=1;i<=21;i++){
 			$('<input id="checkbox'+i+'" type="checkbox" name="iconses" ></input>').attr('value','icon'+i+'.png').appendTo('#icons');
 			$('<label/>').appendTo('#icons').attr({'id':'label'+i,'for':'checkbox'+i+''}).css({'cursor':'pointer'});
 			$('<img/>').appendTo('#label'+i).attr('src','images/icon/icon'+i+'.png').css({'width':'50px','height':'auto'}).click(function(e){
 				$('.sample').html($('<img>').attr('src',this.src));
 				});
-
-			if(i%10==0){
+				
+			if(i%11==0){
 			$('#icons').append('<br/>');
 			}
 			}
+			$('#icons').append('<br/>背景なし<br/>');	
+			for(var i=1;i<=21;i++){
+			$('<input id="checkbox'+(i+21)+'" type="checkbox" name="iconses" ></input>').attr('value','icon'+i+'_trans.png').appendTo('#icons');
+			$('<label/>').appendTo('#icons').attr({'id':'label'+(i+21),'for':'checkbox'+(i+21)+''}).css({'cursor':'pointer'});
+			$('<img/>').appendTo('#label'+(i+21)).attr('src','images/icon/icon'+i+'_trans.png').css({'width':'50px','height':'auto'}).click(function(e){
+				$('.sample').html($('<img>').attr('src',this.src));
+				});
+				
+			if(i%11==0){
+			$('#icons').append('<br/>');
+			}
+			}
+
+			
 			if(isIE()){
 					$('input').css('display','inline');
 				}
