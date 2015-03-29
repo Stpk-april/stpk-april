@@ -1023,3 +1023,23 @@ border-radius: 0px 3px 3px 0px;
 .thumb17 { background-position: -1px -484px; width: 160px; height: 120px; }
 .thumb18 { background-position: -162px -484px; width: 160px; height: 120px; }
 
+
+.gra-0000-13, .gra-0001-12, .gra-0002-11, .gra-0003-10, .gra-0004-9, 
+.gra-0005-8, .gra-0006-7, .gra-0007-6, .gra-0008-5, .gra-0009-4, 
+.gra-0010-3, .gra-0011-2, .gra-0012-1
+{ display: inline-block; background: url('images/grafig.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
+ 
+.gra-0000-13 { background-position: -1px -0px; width: 120px; height: 90px; }
+.gra-0001-12 { background-position: -122px -0px; width: 120px; height: 90px; }
+.gra-0002-11 { background-position: -243px -0px; width: 120px; height: 90px; }
+.gra-0003-10 { background-position: -1px -91px; width: 120px; height: 90px; }
+.gra-0004-9 { background-position: -122px -91px; width: 120px; height: 90px; }
+.gra-0005-8 { background-position: -243px -91px; width: 120px; height: 90px; }
+.gra-0006-7 { background-position: -1px -182px; width: 120px; height: 90px; }
+.gra-0007-6 { background-position: -122px -182px; width: 120px; height: 90px; }
+.gra-0008-5 { background-position: -243px -182px; width: 120px; height: 90px; }
+.gra-0009-4 { background-position: -1px -273px; width: 120px; height: 90px; }
+.gra-0010-3 { background-position: -122px -273px; width: 120px; height: 90px; }
+.gra-0011-2 { background-position: -243px -273px; width: 120px; height: 90px; }
+.gra-0012-1 { background-position: -1px -364px; width: 120px; height: 90px; }
+Your HTML
