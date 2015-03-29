@@ -1,9 +1,9 @@
 ﻿/*
 
- * Copyright 2015 
+ * Copyright 2015 stpk-april kikaku
  * Licensed under the MIT License
  * http://opensource.org/licenses/MIT
-
+ 
 */
 
 var count =0;
@@ -11,6 +11,7 @@ var char_list=new Array();
 var arcv_list=new Array();
 var char_list_num=new Array();
 var char_count=0;
+var char_count_cost=0;
 
 var timer, timer2;
 var btnCount;
@@ -28,13 +29,14 @@ var help_on=true;
 
 var arc_cl=0;
 var arcv=new Array(0,0,0,0,0,0,0);
-var arcv_re=new Array(3,3,2,2,3,2,2);
+var arcv_re=new Array(3,3,3,2,3,2,2);
 var male=0, female=0, ougon=0, maguro=0;
 var male_=0, female_=0, ougon_=0, maguro_=0;
 
 var comp_thema=new Array();
 var comp_onsen=new Array();
 var comp_back=new Array();
+var thema_count=0;
 
 var thema_now=new Array('','','');
 var thema=0;
@@ -150,6 +152,13 @@ Set_arc.prototype.ap_archive=function (eve){
 	$('#arc_c').html(arc_cl);				
 };
 
+window.console.log = function(){
+  window.console.log = function() {
+      return false;
+  }
+}
+
+
 function push_arc(){
 		arcv_list.push(new Set_arc('01','蒼天のメモリーを集めました'));
 		arcv_list.push(new Set_arc('02','赫炎のメモリーを集めました'));
@@ -166,7 +175,7 @@ function push_arc(){
 		arcv_list.push(new Set_arc('13','キラキラ輝いています'));
 		arcv_list.push(new Set_arc('14','１万回以上手を伸ばしました'));
 		arcv_list.push(new Set_arc('15','１千回以上クリックしました'));
-		arcv_list.push(new Set_arc('16','チク・タク'));
+		arcv_list.push(new Set_arc('16','１０万回以上手を伸ばしました'));
 		arcv_list.push(new Set_arc('17','最後まで諦めないでした'));
 }
 
@@ -303,12 +312,21 @@ if(find_arc('14').checked!=-1&&total_c>10000){
 	find_arc('14').ap_archive();
 	find_arc('14').checked=-1;
 }
+else if(find_arc('16').checked!=-1&&total_c>100000){
+	find_arc('16').ap_archive();
+	find_arc('16').checked=-1;
+}
 var ccc=Math.floor(count);
 $(btnCount).html(ccc);
 }
 
 function change_thema_f(no_thema){
 	if(comp_thema[no_thema].checked!=1){
+		thema_count++;
+		if(thema_count==6){
+			find_arc('13').checked=-1;
+			find_arc('13').ap_archive();
+		}
 		comp_thema[no_thema].checked=1;
 		count-=comp_thema[no_thema].cost;
 		$(comp_thema[no_thema].id+'_lock').fadeOut();
@@ -328,11 +346,12 @@ $(function(){
 	$('<div id="char_0'+i+'" class="onsen_ch"/>').appendTo('#clickbut');
 	char_list_num.push(i-1);
 	}
-	for(var i=10;i<=17;i++){
+	for(var i=10;i<=18;i++){
 	$('#clickbut').append('<div id="char_'+i+'" class="onsen_ch"/>');
 	char_list_num.push(i-1);
 	}
-	
+
+	char_list.push(new Set_char({id:"#char_18", genre:2, sex:false, ougon:false, maguro:true, speed_up:20, auto_up:15, min_up:5, click_up:10, txt:"M"}));		
 	char_list.push(new Set_char({id:"#char_17", genre:6, sex:true, ougon:false, maguro:false, speed_up:10, auto_up:25, min_up:0, click_up:15, txt:"ジュネ"}));
 	char_list.push(new Set_char({id:"#char_16", genre:2, sex:true, ougon:false, maguro:false, speed_up:15, auto_up:15, min_up:0, click_up:20, txt:"シャーリィ"}));
 	char_list.push(new Set_char({id:"#char_15", genre:0, sex:true, ougon:false, maguro:false, speed_up:50, auto_up:0, min_up:0, click_up:0, txt:"コーニー"}));
@@ -363,6 +382,8 @@ $(function(){
 	comp_thema[0].checked=1;
 	comp_thema.push(new Set_thema({name:'黄色', id:'chg01', thumb: '#FFFF00', type:'thema', cost:10000, option1:'ani_cha3.css'}));
 	comp_thema.push(new Set_thema({name:'オレンジ', id:'chg08', thumb:'#FFC76B', type:'thema', cost:10000, option1:'ani_cha2.css'}));
+	comp_thema.push(new Set_thema({name:'蒼色', id:'chg04', thumb:'#A4E7F5', type:'thema', cost:10000, option1:'ani_cha4.css'}));
+	comp_thema.push(new Set_thema({name:'赤色', id:'chg05', thumb:'#A4E7F5', type:'thema', cost:10000, option1:'ani_cha5.css'}));
 
 	$('#change_s').click(function(){
 			$('#shop').slideToggle('slow');
@@ -386,32 +407,23 @@ $(function(){
 	});
 	
 	$("#chg_thema input").click(function(event){
-		var now_ck= '#'+$('#chg_thema input[type=radio]:checked').attr('id');		
-//		console.log(now_ck);
-		for(var i=0;i<comp_thema.length;i++){
-			if(now_ck==comp_thema[i].id){
-				if(count<comp_thema[i].cost&&comp_thema[i].checked!=1){
+		var now_ck=$('#chg_thema input').index(this);
+				if(count<comp_thema[now_ck].cost&&comp_thema[now_ck].checked!=1){
 						event.stopPropagation();
 						return false;
 				}
 				else{
-					change_thema_f(i);
+					change_thema_f(now_ck);
 				}
-				break;
-			}
-		}
 	});
 	comp_onsen.push(new Set_thema({id: 'onsen00', type: 'onsen', cost:0, option1: 'onsen/onsen1.png'}));
 	comp_onsen[0].checked=1;
-	comp_onsen.push(new Set_thema({id : 'onsen01', name: '室内温泉①', type: 'onsen', cost: 10000, thumb:'images/on_thumb01.png', option1: 'onsen/onsen2.jpg', option2:'#char_11:top:400px:left:830px:z-index:3/#char_16:left:376px:top:470px:z-index:2'}));
-	comp_onsen.push(new Set_thema({id : 'onsen02', name: '野外温泉①', type: 'onsen', cost: 10000, thumb:'images/on_thumb02.png', option1: 'images/ons_s3.png', option2:'#tesla:top:31%/#neon:top:34%/#kia_con:top:40%/#lily:top:370px:left:160px'}));
-
+	comp_onsen.push(new Set_thema({id : 'onsen01', name: '室内温泉', type: 'onsen', cost: 10000, thumb:'images/on_thumb01.png', option1: 'onsen/onsen2.jpg', option2:'#char_11:top:400px:left:830px:z-index:3/#char_16:left:376px:top:470px:z-index:2'}));
+	comp_onsen.push(new Set_thema({id : 'onsen02', name: '野外温泉', type: 'onsen', cost: 10000, thumb:'images/on_thumb01.png', option1: 'onsen/onsen3.jpg', option2:'#char_07:top:304px:left:363px:z-index:0/#char_11:top:414px:left:436px:z-index:3/#char_09:top:247px:left:156px/#char_01:top:240px:left:429px:z-index:0'}));
 
 	$("#chg_onsen input").click(function(event){
-		var now_ck= '#'+$('#chg_onsen input[type=radio]:checked').attr('id');
-		for(var i=0;i<comp_onsen.length;i++){
-			if(now_ck==comp_onsen[i].id){
-				if(count<comp_onsen[i].cost&&comp_onsen[i].checked!=1){
+		var now_ck=$('#chg_onsen input').index(this);
+		if(count<comp_onsen[now_ck].cost&&comp_onsen[now_ck].checked!=1){
 						event.stopPropagation();
 						return false;
 				}
@@ -419,41 +431,52 @@ $(function(){
 					for(j=0;j<char_list.length;j++){
 						char_list[j].set_defaultxy();
 					}
-						if(count>comp_onsen[i].cost&&comp_onsen[i].checked!=1)
+					if(count>comp_onsen[now_ck].cost&&comp_onsen[now_ck].checked!=1)
 					{
-						comp_onsen[i].checked=1;
-						count-=comp_onsen[i].cost;
-						$(comp_onsen[i].id+'_lock').fadeOut();
+						comp_onsen[now_ck].checked=1;
+						thema_count++;
+						count-=comp_onsen[now_ck].cost;
+						$(comp_onsen[now_ck].id+'_lock').fadeOut();
+						if(thema_count==6){
+							find_arc('13').checked=-1;
+							find_arc('13').ap_archive();
+						}
 					}
-					$('#clickbut').css('background','url('+comp_onsen[i].option1+')');
-					var temp= comp_onsen[i].option2.split('/');
+					$('#clickbut').css('background','url('+comp_onsen[now_ck].option1+')');
+					var temp= comp_onsen[now_ck].option2.split('/');
 					for(var j=0;j<temp.length;j++){
 						var temp2=temp[j].split(':');
 							for(var k=1;k<temp2.length;k+=2){
 								$(temp2[0]).css(temp2[k],temp2[k+1]);
 							}
 						}
-					}
-				break;
-			}
-		}
+				}
+	
 	});
 	
-	$("#chg_back input").click(function(event){
-		var now_ck= '#'+$('#chg_back input[type=radio]:checked').attr('id');
-		// console.log(now_ck);
-		for(var i=0;i<comp_back.length;i++){
-			if(now_ck==comp_oback[i].id){
-				if(count<comp_back[i].cost&&comp_back[i].checked!=1){
-						event.stopPropagation();
+	comp_back.push(new Set_thema({id: 'back00', type: 'back', cost:0, option1: 'onsen/onsen1.png'}));
+	$('#chg_back input:eq(0),#chg_back label:eq(0)').hide();
+	comp_back.push(new Set_thema({id: 'back01', name: 'カダスｾｯﾄ', type: 'back', cost:30000, option1: 'onsen/onsen1.png'}));
+	comp_back.push(new Set_thema({id: 'back02', name: '地球ｾｯﾄ', type: 'back', cost:30000, option1: 'onsen/onsen1.png'}));
+	$("#chg_back input").click(function(event){	
+		var now_ck=$('#chg_back input').index(this);
+				if(count<comp_back[now_ck].cost&&comp_back[now_ck].checked!=1){
 						return false;
 				}
-				else{
+				else if(comp_back[now_ck].checked!=1){
+					count-=comp_back[now_ck].cost;
+					comp_back[now_ck].checked=1;
+					$(comp_back[now_ck].id+'_lock').fadeOut();
 				}
-				break;
-			}
-		}
+				if(now_ck==1){
+					window.location.href = 'https://drive.google.com/uc?export=download&id=0B2pOZywE5TjAcXlOVzUyUnZhcVU';
+				}
+				else{
+					window.location.href = 'https://drive.google.com/uc?export=download&id=0B2pOZywE5TjAY0JPdjRQN1pDakE';
+				}
+		event.stopPropagation();
 	});
+	
 	$('#clickbut').bind('click',function(e){
 		total_c+=1+click_cnt;
 		count+=1+click_cnt;
@@ -487,7 +510,6 @@ $(function(){
 	});
 	
 	$('#button5').bind('click',function(){
-		// console.log('nowing');
 		if(count>=(click_cnt_or+1)*(click_cnt_or+1)*20){
 			count-=(click_cnt_or+1)*(click_cnt_or+1)*20;
 			click_cnt++;
@@ -562,6 +584,7 @@ $(function(){
 				char_list[char_list_num[result]].chk=-1;
 				char_list[char_list_num[result]].chk_cha();
 				char_count++;
+				char_count_cost++;
 				$('#now_cha_l').html(char_count);
 				var ccc=Math.floor(count);
 				$(btnCount).html(ccc);
@@ -574,6 +597,7 @@ $(function(){
 				else{
 					$(this).attr('data-hover', 400*(char_count)*(char_count)+'回消費');
 				}
+			save_clk();
 			}
 		})
 			.bind('touchstart mouseover',function(){
@@ -691,7 +715,6 @@ if (('localStorage' in window) && window.localStorage != null && localStorage.ge
 		click_cnt=localStorage.getItem('click_cnt')*1;
 		total_c=localStorage.getItem('total_c')*1;
 		click_cnt_or=localStorage.getItem('click_cnt_or')*1;
-
 		male=localStorage.getItem('male')*1;
 		female=localStorage.getItem('female')*1;
 		ougon=localStorage.getItem('ougon')*1;
@@ -788,9 +811,10 @@ if (('localStorage' in window) && window.localStorage != null && localStorage.ge
 			ap_archive('14','１万回以上手を伸ばしました',1);
 			find_arc('14').checked=-1;
 		}
-		
-		
-		
+		if(total_c>100000){
+			find_arc('16').ap_archive(1);
+			find_arc('16').checked=-1;
+		}
 		if(char_list_num.length==0){
 			$('#now_cha_l').html('MAX');
 			$('#button4').attr('data-hover', '全員集合！');

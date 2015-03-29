@@ -78,6 +78,8 @@ margin-top:-50px;
 			<h5 id="err">ＤＬしたいアイコンをチェックてください</h5>
 			<form id="icons"></form>
 			<h3> WEB体験版（？）公開中！</h3>
+			・アイコンが貰える！
+			<br/>
 			<a href="#" id="game_open" >
 			<img src="images/fake.jpg" style="margin-left:240px">
 			</a>
@@ -142,15 +144,15 @@ margin-top:-50px;
 			}
 			$('#icons').append('<br/>背景なし<br/>');	
 			for(var i=1;i<=21;i++){
-			$('<input id="checkbox'+(i+21)+'" type="checkbox" name="iconses" ></input>').attr('value','icon'+i+'_trans.png').appendTo('#icons');
-			$('<label/>').appendTo('#icons').attr({'id':'label'+(i+21),'for':'checkbox'+(i+21)+''}).css({'cursor':'pointer'});
-			$('<img/>').appendTo('#label'+(i+21)).attr('src','images/icon/icon'+i+'_trans.png').css({'width':'50px','height':'auto'}).click(function(e){
-				$('.sample').html($('<img>').attr('src',this.src));
-				});
+				$('<input id="checkbox'+(i+21)+'" type="checkbox" name="iconses" ></input>').attr('value','icon'+i+'_trans.png').appendTo('#icons');
+				$('<label/>').appendTo('#icons').attr({'id':'label'+(i+21),'for':'checkbox'+(i+21)+''}).css({'cursor':'pointer'});
+				$('<img/>').appendTo('#label'+(i+21)).attr('src','images/icon/icon'+i+'_trans.png').css({'width':'50px','height':'auto'}).click(function(e){
+					$('.sample').html($('<img>').attr('src',this.src));
+					});
 				
-			if(i%11==0){
-			$('#icons').append('<br/>');
-			}
+				if(i%11==0){
+				$('#icons').append('<br/>');
+				}
 			}
 
 			
