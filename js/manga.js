@@ -17,6 +17,7 @@ function comic (option)
 	this.cominum=option.cominum
 	this.self_=$('<div class="comic_container"></div>');
 	this.images=new Array();
+	this.name=option.name;
 }
 comic.prototype.build_ =function()
 {	
@@ -50,7 +51,7 @@ comic.prototype.build_ =function()
 		else{
 			$(this.images[i]).addClass('left_');
 			t.prepend(this.images[i]);
-			t.append('<br/><span class="view_pg">'+((i+1)/2)+'/'+Math.ceil(this.pages/2)+'</span>');
+			t.append('<br/><span class="view_name views">'+self.name+'</span><span class="view_pg views">'+((i+1)/2)+'/'+Math.ceil(this.pages/2)+'</span>');
 			this.self_.append(t);
 		}
 		if(i==this.pages-1&&this.pages%2==1){
@@ -105,6 +106,7 @@ comic.prototype.bindgin = function()
 	});
 	self.self_.find('.zoom').on('click',function(e){
 		e.preventDefault();
+		self.self_.find('.views').hide();
 		self.self_.find('.comic_side').css('cursor','move');
 		self.self_.find('.comic_page').draggable('enable').css({'width':'auto','height':'auto','left':'-65%'});
 		self.zoomed=true;
@@ -112,6 +114,7 @@ comic.prototype.bindgin = function()
 	self.self_.find('.zoomout').on('click',function(e){
 		e.preventDefault();
 		self.zoomed=false;
+		self.self_.find('.views').show();
 		self.self_.find('.comic_side').css('cursor','pointer');
 		self.self_.find('.comic_page').draggable('disable').css({'width':'auto','height':'95%','top':'0px','left':'0px'});
 	});
@@ -139,7 +142,7 @@ $(function(){
 		var pge=$(this).attr('rel')*1;
 		if(comit[target]==null)
 		{
-			comit[target]= new comic({pages:pge,cominum:target});
+			comit[target]= new comic({pages:pge,cominum:target,name:$(this).attr('data-title')});
 		}
 		comit[target].show_();
 	});
