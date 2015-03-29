@@ -546,6 +546,15 @@ left:678px;
 background:url(./onsen/char_17.png);
 }
 
+#char_18
+{
+width:99px;
+height:119px;
+top:388px;
+left:8px;
+background:url(./onsen/char_18.png);
+}
+
 .help_line{
  margin:5px 0px; 
  width:100%;

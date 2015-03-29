@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>温泉</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="game_sys.css">
+<link rel="stylesheet" href="style.css">
+<style>
+.back_g{
+	width:100%;
+	height:100%;
+}
+.back_rgt,.back_lft{
+	width:50%;
+	height:100%;
+}
+.middle{
+	margin: auto;
+	position: absolute;
+	padding-top:20%;
+	text-align:center;
+	top: 0; left: 0; bottom: 0; right: 0;
+	z-index:10000;
+	color:white;
+	display: inline;
+	width:30px;
+	min-height:30px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="middle"></div>
+
+</body>
+<script>
+$(document).ready(function(){
+	var ran1=Math.floor(Math.random()*17)+1;
+	ran1=(ran1<10)? '0'+ran1:''+ran1;
+	$('.middle').append('<div id="char_'+ran1+'"/><br/>Loding...');
+	$('#char_'+ran1).animate({'margin-top':'20px'},10000);
+});
+</script>
