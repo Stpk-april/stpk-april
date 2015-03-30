@@ -40,8 +40,8 @@ comic.prototype.build_ =function()
 	{
 		var preloader = new Image();
 		preloader.id='page'+(i+1);
-		//
-		preloader.src='http://googledrive.com/host/0B2pOZywE5TjAeFJLQkdaOHIxVXc/'+this.cominum+' ('+(i+1)+').png';
+		//http://googledrive.com/host/0B2pOZywE5TjAeFJLQkdaOHIxVXc/
+		preloader.src='./images/'+this.cominum+' ('+(i+1)+').png';
 		this.images.push(preloader);
 		if(i%2==0)
 		{
