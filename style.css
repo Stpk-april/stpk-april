@@ -330,17 +330,19 @@ top:300px;
 left:400px;
 height:135px;
 width:135px;
-background-position: 0px 0px;
+-webkit-transition: all 0.4s ease-in-out;
+-moz-transition: all 0.4s ease-in-out;
+-o-transition: all 0.4s ease-in-out;
+-ms-transition: all 0.4s ease-in-out;
+transition: all 0.4s ease-in-out;  
+-webkit-filter: invert(0%);
+filter: invert(0%);
 background-image:url(images/hatuki.png);
 }
 :hover.ha_but{
-position:absolute;
-top:300px;
-left:400px;
-height:135px;
-width:135px;
-background-position: -135px 0px;
-background-image:url(images/hatuki.png);
+-webkit-filter: invert(100%);
+filter: invert(100%);
+-ms-background-position: -135px 0px;
 }
 
 .cha_01{
