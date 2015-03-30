@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="stylesheet" type="text/css" href="ruby.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
 <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
 <script src="js/lightbox.js"></script>
@@ -80,14 +81,23 @@ ul,li {list-style:none;  margin:5px 10px;}
 	<!-- custom scrollbar plugin -->
 	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>	
 	<script>
+	if ( $.browser.msie&&$.browser.version*1<10 ) {
+		$('#box_in').css({'height':'650px',
+						 'overflow':'scroll',
+						'z-index':'10000',
+						'width':'900px',
+						'scrollbar-track-color':'#000'});
+	}
+	else{
 	(function($){
-			$(window).load(function(){
+			$(document).ready(function(){
 				var t=$("#box_in").mCustomScrollbar({
 					autoHideScrollbar:true,
 					theme:"rounded-dots"
 				});
 			});
 		})(jQuery);
+	}
 	</script>
 	
 	
