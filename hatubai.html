@@ -38,7 +38,7 @@
 	width:100%; 
 	top:0px;
 	z-index:0;
-	height:100%; 
+	height:120%; 
 	opacity:0;
 	}
 	.ri_02{
@@ -51,7 +51,7 @@
 	height:100%; 
 	opacity:0;
 	}
-	.ri_03{
+	.ri_03,.ri_07{
 	position:fixed; 
 	float:left;
 	width:100%; 
@@ -124,10 +124,21 @@
 <div class="ri_06" 
 	data-anchor-target="#back-7" 
 	data--300-bottom-top= "opacity:0.0"
+	data-center-bottom="top:-20%;opacity:1.0"
+	data-top="top:-10%;opacity:1.0"
+	data-top-bottom= "top:-20%;opacity:0.0"
+></div>
+
+
+<div class="ri_07" 
+	data-anchor-target="#back-8" 
+	data--300-bottom-top= "opacity:0.0"
 	data-center-bottom="opacity:1.0"
 	data-top="opacity:1.0"
 	data-top-bottom= "opacity:0.0"
 ></div>
+
+
 
 <div id="skrollr-body">
 
@@ -475,6 +486,7 @@
 <br/>
 <br/>
 </span>
+<span id="back-8">
 <br/>◆カメラ担当:アナ
 <br/>
 <br/>食事も終わって一息ついて、自由に散策しようって話になったからカメラを持って館内を回ってみる。
@@ -568,6 +580,7 @@
 <br/>これといって見たいものがあるわけではないのだけど気にし屋さんのようなので素直に荷物とカメラを交換することにした。
 <br/>
 <br/>
+</span>
 <br/>◆カメラ担当:ネオン
 <br/>
 <br/>受け取ったカメラを手に持ってディスプレイの録画部分をタッチする。
@@ -733,13 +746,14 @@ data-bottom="opacity:1.0"
 		$img.src=imgs[i];
 	 }
 	 $('img').on('load',function(){
-		if(++now_img==tot){
+		if(++now_img==tot+1){
 		  $(".ri_01").backstretch("./images/a0002_011847_m.jpg");
 		  $(".ri_02").backstretch("./images/a0002_011755_m.jpg"); 
 		  $(".ri_03").backstretch("./images/a0001_012193_m.jpg"); 
 		  $(".ri_04").backstretch("./images/a0003_000325_m.jpg"); 
 		  $(".ri_05").backstretch("./images/hairdryer-295616_1920.png"); 
 		  $(".ri_06").backstretch("./images/a0002_003917_m.jpg"); 
+		  $(".ri_07").backstretch("./images/a0002_003944_m.jpg"); 
 		  $('body').fadeIn();
 		}
 	 });
