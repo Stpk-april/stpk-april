@@ -335,12 +335,12 @@ width:135px;
 -o-transition: all 0.4s ease-in-out;
 -ms-transition: all 0.4s ease-in-out;
 transition: all 0.4s ease-in-out;  
--webkit-filter: invert(0%);
+-webkit-filter: invert(0%) !important;
 filter: invert(0%);
 background-image:url(images/hatuki.png);
 }
 :hover.ha_but{
--webkit-filter: invert(100%);
+-webkit-filter: invert(100%)  !important;
 filter: invert(100%);
 -ms-background-position: -135px 0px;
 }
