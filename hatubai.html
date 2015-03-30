@@ -690,30 +690,49 @@ data-bottom="opacity:1.0"
 </div>
  <script type="text/javascript" src="./js/skrollr.min.js"></script>
  <script type="text/javascript">
- /*
-	$(document).ready(function(){
-	var f=$(window).height();
-	$(".resz").css("background-size",'auto '+f+'px');
+
+	$('document').ready(function(){
+		$('body').hide();
 	});
-	 */
-	var p=skrollr.init({
-	forceHeight: false,
-	smoothScrolling: true,
-	constants: {
-        foo: function() {
-			return (document.body.scrollHeight/2);
+		var p=skrollr.init({
+		forceHeight: false,
+		smoothScrolling: true,
+		constants: {
+			foo: function() {
+				return (document.body.scrollHeight/2);
+				},
+			fuu: function() {
+				return document.body.scrollHeight;
+				}
 			},
-		fuu: function() {
-			return document.body.scrollHeight;
-			}
-		},
-	easing: {
-			vibrate: function(p) {
-				return Math.sin(p  * Math.PI);
-			}
-		}	
+		easing: {
+				vibrate: function(p) {
+					return Math.sin(p  * Math.PI);
+				}
+			}	
+		 });
+	 var imgs=new Array();
+	 
+	 imgs.push("./images/a0002_011847_m.jpg");
+	 imgs.push("./images/a0002_011755_m.jpg"); 
+	 imgs.push("./images/a0001_012193_m.jpg"); 
+	 imgs.push("./images/a0003_000325_m.jpg"); 
+	 imgs.push("./images/hairdryer-295616_1920.png"); 
+	 imgs.push("./images/a0002_003917_m.jpg"); 
+	 var tot=imgs.length;
+	 var now_img=0;
+	 for(var i=tot;i--;){
+		var $img=new Image;
+		$img.src=imgs[i];
+		$('.ri_0'+(i+1)).backstretch(imgs[i]);
+	 }
+	 $('img').on('load',function(){
+		if(++now_img==tot){
+			$('body').fadeIn();
+		}
 	 });
-	  $(".ri_01").backstretch("./images/a0002_011847_m.jpg"); 
+	 
+	  $(".ri_01").backstretch("./images/a0002_011847_m.jpg");
 	  $(".ri_02").backstretch("./images/a0002_011755_m.jpg"); 
 	  $(".ri_03").backstretch("./images/a0001_012193_m.jpg"); 
 	  $(".ri_04").backstretch("./images/a0003_000325_m.jpg"); 
