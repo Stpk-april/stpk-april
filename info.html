@@ -22,7 +22,13 @@
 <div id="align"> 
 	<div id="content">
 		<div class="box_ov">
-			<div  id="box_in" style="height:675px; width:950px;margin: 0px 30px;padding:30px;">		
+			<div  id="box_in" style="height:675px; width:950px;margin: 0px 30px;padding:30px;">
+			<h3> WEB体験版（？）公開中！</h3>
+			・隠しＳＤキャラアイコンが貰える！
+			<br/>
+			<a href="#" id="game_open" >
+			<img src="images/fake.jpg" style="margin-left:240px">
+			</a>			
 			<h1>店舗特典</h1>
 			<h3>●おるぅごん屋さま</h3>
 			<div class="arasuji">  マイクロファイバータオル </div>
@@ -32,8 +38,7 @@
 			<div class="t_in"><img src="images/toku_02.png"><img src="images/toku_04.png"></div>
 			<img src="images/toku_06.png"/>
 			<h3>●西インド会社さま</h3>
-			<div class="arasuji">シャルノス１泊チケット&└＜●＞┘抱き枕カバーセット</div>
-			<img src="images/toku_07.jpg"/>
+			<div class="arasuji">└＜●＞┘抱き枕カバーセット</div>
 			<div class="t_in"><img src="images/toku_01.jpg"></div>
 			<h3>●大協会さま</h3>
 			<div class="arasuji">B3ポスター</div>
@@ -43,6 +48,11 @@
 			<div class="arasuji">特別キャラソンアルバム</div>
 			<BR/>
 			<img src="images/toku_03.png">
+			<hr>
+			<h1>イベント情報</h1>
+			<div class="arasuji">シャルノス計画会</div>
+			<div class="t_in">シャルノス計画に参加すると……<br/>なんと！抽選で19060名さまに、シャルノス１泊チケットをプレゼントします！</div>
+			<img src="images/toku_07.jpg"/>
 			<hr>
 			<img src="images/back_3.png">
 			<img src="images/null_t.png">
@@ -87,6 +97,14 @@
 			});
 		})(jQuery);
 	}
+	
+		$('#game_open').click(function popupOpen(e){
+			e.preventDefault();
+			var popUrl = "game.html";
+			var popOption = "width=960, height=638, location=no, resizable=no, scrollbars=no, status=no;"; 
+				window.open(popUrl,"",popOption);
+		});
+
 	</script>
 	
 	
