@@ -691,10 +691,11 @@ data-bottom="opacity:1.0"
  <script type="text/javascript" src="./js/skrollr.min.js"></script>
  <script type="text/javascript">
 
-	$('document').ready(function(){
+	$(document).ready(function(){
 		$('body').hide();
 	});
-		var p=skrollr.init({
+	$(window).load(function(){
+	skrollr.init({
 		forceHeight: false,
 		smoothScrolling: true,
 		constants: {
@@ -711,8 +712,8 @@ data-bottom="opacity:1.0"
 				}
 			}	
 		 });
+		 })
 	 var imgs=new Array();
-	 
 	 imgs.push("./images/a0002_011847_m.jpg");
 	 imgs.push("./images/a0002_011755_m.jpg"); 
 	 imgs.push("./images/a0001_012193_m.jpg"); 
