@@ -323,13 +323,31 @@ padding: 10px;
    border-radius: 15px;
 }
 
-
+.ha_but{
+z-index:10;
+position:absolute;
+top:300px;
+left:400px;
+height:135px;
+width:135px;
+background-position: 0px 0px;
+background-image:url(images/hatuki.png);
+}
+:hover.ha_but{
+position:absolute;
+top:300px;
+left:400px;
+height:135px;
+width:135px;
+background-position: -135px 0px;
+background-image:url(images/hatuki.png);
+}
 
 .cha_01{
-position:relative;
+position:absolute;
 float:left;
 width:184px;
-height:122px; 
+height:228px; 
 top:0px;
 left:0px;
 background-position: 0px 0px;
@@ -574,6 +592,27 @@ height:156px;
 top:544px;
 left:0px;
 background-position: -0px -544px;
+background-image:url(images/cha_sprite.jpg);
+}
+
+.cha_25{
+position:absolute;
+float:left;
+width:209px;
+height:156px; 
+top:544px;
+left:266px;
+background-position: -266px -544px;
+background-image:url(images/cha_sprite.jpg);
+}
+.cha_27{
+position:absolute;
+float:left;
+width:181px;
+height:130px; 
+top:569px;
+left:474px;
+background-position: -474px -569px;
 background-image:url(images/cha_sprite.jpg);
 }
 
