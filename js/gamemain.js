@@ -323,7 +323,7 @@ $(btnCount).html(ccc);
 function change_thema_f(no_thema){
 	if(comp_thema[no_thema].checked!=1){
 		thema_count++;
-		if(thema_count==6){
+		if(thema_count==5){
 			find_arc('13').checked=-1;
 			find_arc('13').ap_archive();
 		}
@@ -383,7 +383,6 @@ $(function(){
 	comp_thema.push(new Set_thema({name:'黄色', id:'chg01', thumb: '#FFFF00', type:'thema', cost:10000, option1:'ani_cha3.css'}));
 	comp_thema.push(new Set_thema({name:'オレンジ', id:'chg08', thumb:'#FFC76B', type:'thema', cost:10000, option1:'ani_cha2.css'}));
 	comp_thema.push(new Set_thema({name:'蒼色', id:'chg04', thumb:'#A4E7F5', type:'thema', cost:10000, option1:'ani_cha4.css'}));
-	comp_thema.push(new Set_thema({name:'赤色', id:'chg05', thumb:'#A4E7F5', type:'thema', cost:10000, option1:'ani_cha5.css'}));
 
 	$('#change_s').click(function(){
 			$('#shop').slideToggle('slow');
@@ -437,7 +436,7 @@ $(function(){
 						thema_count++;
 						count-=comp_onsen[now_ck].cost;
 						$(comp_onsen[now_ck].id+'_lock').fadeOut();
-						if(thema_count==6){
+						if(thema_count==5){
 							find_arc('13').checked=-1;
 							find_arc('13').ap_archive();
 						}
