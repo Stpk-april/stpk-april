@@ -545,6 +545,11 @@ $(function(){
 		.bind('mouseout touchend',function(){
 			$('#view_help').html("&nbsp;");
 		});		
+		$('#change_h').click(function(){
+			$('#helps_int').fadeIn();
+		});
+		$('#helps_int').click(function(){$(this).hide()});
+		
 		
 	    $('#button3').bind('click',function(){ 
 			var cost=(1+tictac_l)*(1+tictac_l)*300;
