@@ -747,7 +747,7 @@ data-bottom="opacity:1.0"
 	 }
 
 	 $('img').on('load',function(){
-		if(++now_img==$('img').length-1){
+		if(++now_img>=$('img').length-3&&$('body').css('display')=='none'){
 		$(".ri_01").backstretch("./images/a0002_011847_m.jpg");
 		$(".ri_02").backstretch("./images/a0002_011755_m.jpg"); 
 		$(".ri_03").backstretch("./images/a0001_012193_m.jpg"); 
@@ -755,7 +755,7 @@ data-bottom="opacity:1.0"
 		$(".ri_05").backstretch("./images/hairdryer-295616_1920.png"); 
 		$(".ri_06").backstretch("./images/a0002_003917_m.jpg"); 
 		$(".ri_07").backstretch("./images/a0002_003944_m.jpg"); 
-		  $('body').fadeIn();
+		$('body').fadeIn();
 		}
 	 });
 	 
