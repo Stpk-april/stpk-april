@@ -17,6 +17,10 @@ body{
 .btn_:active:before {
 	color: #004F5F;
 }
+
+#shop, #archives{
+background:rgba(191,234,245,0.7);
+}
 #shop h1,h3{
 text-shadow:
    -1px -1px 0 #27AEC9,  
@@ -42,3 +46,4 @@ text-shadow:
     1px  1px 0 #27AEC9;
 background:rgba(191,234,245,0.4);
 }
+
