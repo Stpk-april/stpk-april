@@ -269,7 +269,7 @@ function Set_thema(option){
 			'width': ((option.type=='thema')? '':'85px'),
 			'background' : this.thumb
 		});
-		$tempdiv3=$('<div class="lock_box">'+option.cost+'</div>').attr('id',option.id+'_lock');
+		$tempdiv3=$('<div class="lock_box"><br/>'+option.cost+'</div>').attr('id',option.id+'_lock');
 		$tempdiv.append($tempdiv3);
 		$tempdiv.prepend($tempdiv2);
 		$templabel.append($tempdiv);
@@ -369,7 +369,7 @@ $(function(){
 	char_list.push(new Set_char({id:"#char_03", genre:0, sex:false, ougon:true, maguro:false, speed_up:0, auto_up:20, min_up:15, click_up:15, txt:"カル"}));
 	char_list.push(new Set_char({id:"#char_02", genre:4, sex:false, ougon:false, maguro:false, speed_up:15, auto_up:25, min_up:0, click_up:10, txt:"Ａ"}));
 	char_list.push(new Set_char({id:"#char_01", genre:3, sex:false, ougon:false, maguro:false, speed_up:30, auto_up:5, min_up:5, click_up:10, txt:"アスル"}));	
-
+	$('#bc2').hide();				
 	push_arc();
 	$('#chg_thema').toggle();
 	$('#chg_onsen').toggle();
@@ -383,6 +383,8 @@ $(function(){
 	comp_thema.push(new Set_thema({name:'黄色', id:'chg01', thumb: '#FFFF00', type:'thema', cost:10000, option1:'ani_cha3.css'}));
 	comp_thema.push(new Set_thema({name:'オレンジ', id:'chg08', thumb:'#FFC76B', type:'thema', cost:10000, option1:'ani_cha2.css'}));
 	comp_thema.push(new Set_thema({name:'蒼色', id:'chg04', thumb:'#A4E7F5', type:'thema', cost:10000, option1:'ani_cha4.css'}));
+	$('#save_load button:eq(0)').click(save_clk)
+	$('#save_load button:eq(1)').click(load_clk)
 
 	$('#change_s').click(function(){
 			$('#shop').slideToggle('slow');
@@ -418,7 +420,7 @@ $(function(){
 	comp_onsen.push(new Set_thema({id: 'onsen00', type: 'onsen', cost:0, option1: 'onsen/onsen1.png'}));
 	comp_onsen[0].checked=1;
 	comp_onsen.push(new Set_thema({id : 'onsen01', name: '室内温泉', type: 'onsen', cost: 10000, thumb:'images/on_thumb01.png', option1: 'onsen/onsen2.jpg', option2:'#char_11:top:400px:left:830px:z-index:3/#char_16:left:376px:top:470px:z-index:2'}));
-	comp_onsen.push(new Set_thema({id : 'onsen02', name: '野外温泉', type: 'onsen', cost: 10000, thumb:'images/on_thumb01.png', option1: 'onsen/onsen3.jpg', option2:'#char_07:top:304px:left:363px:z-index:0/#char_11:top:414px:left:436px:z-index:3/#char_09:top:247px:left:156px/#char_01:top:240px:left:429px:z-index:0'}));
+	comp_onsen.push(new Set_thema({id : 'onsen02', name: '野外温泉', type: 'onsen', cost: 10000, thumb:'images/on_thumb02.png', option1: 'onsen/onsen3.jpg', option2:'#char_07:top:304px:left:363px:z-index:0/#char_11:top:414px:left:436px:z-index:3/#char_09:top:247px:left:156px/#char_01:top:240px:left:429px:z-index:0'}));
 
 	$("#chg_onsen input").click(function(event){
 		var now_ck=$('#chg_onsen input').index(this);
@@ -441,6 +443,12 @@ $(function(){
 							find_arc('13').ap_archive();
 						}
 					}
+					if(now_ck==1){
+					$('#bc2').show();
+					}
+					else{
+					$('#bc2').hide();
+					}
 					$('#clickbut').css('background','url('+comp_onsen[now_ck].option1+')');
 					var temp= comp_onsen[now_ck].option2.split('/');
 					for(var j=0;j<temp.length;j++){
@@ -455,8 +463,8 @@ $(function(){
 	
 	comp_back.push(new Set_thema({id: 'back00', type: 'back', cost:0, option1: 'onsen/onsen1.png'}));
 	$('#chg_back input:eq(0),#chg_back label:eq(0)').hide();
-	comp_back.push(new Set_thema({id: 'back01', name: 'カダスｾｯﾄ', type: 'back', cost:30000, option1: 'onsen/onsen1.png'}));
-	comp_back.push(new Set_thema({id: 'back02', name: '地球ｾｯﾄ', type: 'back', cost:30000, option1: 'onsen/onsen1.png'}));
+	comp_back.push(new Set_thema({id: 'back01', name: 'カダスｾｯﾄ', thumb:'',type: 'back', cost:30000, option1: 'onsen/onsen1.png'}));
+	comp_back.push(new Set_thema({id: 'back02', name: '地球ｾｯﾄ', thumb:'',type: 'back', cost:30000, option1: 'onsen/onsen1.png'}));
 	$("#chg_back input").click(function(event){	
 		var now_ck=$('#chg_back input').index(this);
 				if(count<comp_back[now_ck].cost&&comp_back[now_ck].checked!=1){
@@ -475,7 +483,6 @@ $(function(){
 				}
 		event.stopPropagation();
 	});
-	
 	$('#clickbut').bind('click',function(e){
 		total_c+=1+click_cnt;
 		count+=1+click_cnt;
