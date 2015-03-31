@@ -139,6 +139,10 @@
 ></div>
 
 
+<div class="dummy" 
+	data-anchor-target="#align" 
+></div>
+
 
 <div id="skrollr-body">
 
@@ -738,6 +742,7 @@ data-bottom="opacity:1.0"
 	 imgs.push("./images/a0003_000325_m.jpg"); 
 	 imgs.push("./images/hairdryer-295616_1920.png"); 
 	 imgs.push("./images/a0002_003917_m.jpg"); 
+     imgs.push("./images/a0002_003944_m.jpg"); 
 	 
 	 var tot=imgs.length;
 	 var now_img=0;
@@ -747,7 +752,7 @@ data-bottom="opacity:1.0"
 	 }
 
 	 $('img').on('load',function(){
-		if(++now_img>=5&&$('body').css('display')=='none'){
+		if($('body').css('display')=='none'){
 		$(".ri_01").backstretch("./images/a0002_011847_m.jpg");
 		$(".ri_02").backstretch("./images/a0002_011755_m.jpg"); 
 		$(".ri_03").backstretch("./images/a0001_012193_m.jpg"); 
