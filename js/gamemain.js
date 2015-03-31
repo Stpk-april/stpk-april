@@ -5,7 +5,7 @@
  * http://opensource.org/licenses/MIT
  
 */
-
+$(function(){
 var count =0;
 var char_list=new Array();
 var arcv_list=new Array();
@@ -835,3 +835,5 @@ if (('localStorage' in window) && window.localStorage != null && localStorage.ge
 			set_toast('ロード完了');		
 	}
 }
+
+});
