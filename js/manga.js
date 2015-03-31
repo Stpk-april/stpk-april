@@ -8,6 +8,28 @@
 */
 
 var viewing;
+	
+		  var isMobile = {
+			Android: function() {
+				return navigator.userAgent.match(/Android/i);
+			},
+			BlackBerry: function() {
+				return navigator.userAgent.match(/BlackBerry/i);
+			},
+			iOS: function() {
+				return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+			},
+			Opera: function() {
+				return navigator.userAgent.match(/Opera Mini/i);
+			},
+			Windows: function() {
+				return navigator.userAgent.match(/IEMobile/i);
+			},
+			any: function() {
+				return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+			}
+		};
+
 function comic (option)
 {
 	this.zoomed=false;
@@ -79,6 +101,10 @@ comic.prototype.build_ =function()
 		$('.prog').html(loaded+'/'+self.pages);
 	});
 	$('img').error(function(){$(this).hide()});
+		if(isMobile.any()){
+			$('.comic_side').css({'width':'50%','height':'auto'});
+		}
+	
 }
 comic.prototype.bindgin = function()
 {
@@ -108,6 +134,9 @@ comic.prototype.bindgin = function()
 		e.preventDefault();
 		self.self_.find('.views').hide();
 		self.self_.find('.comic_side').css('cursor','move');
+		if(isMobile.any()){
+			self.self_.find('.comic_side').css('width','auto');
+		}
 		self.self_.find('.comic_page').draggable('enable').css({'width':'auto','height':'auto','left':'-65%'});
 		self.zoomed=true;
 	});
@@ -115,6 +144,9 @@ comic.prototype.bindgin = function()
 		e.preventDefault();
 		self.zoomed=false;
 		self.self_.find('.views').show();
+		if(isMobile.any()){
+			$('.comic_side').css({'width':'50%','height':'auto'});
+		}
 		self.self_.find('.comic_side').css('cursor','pointer');
 		self.self_.find('.comic_page').draggable('disable').css({'width':'auto','height':'95%','top':'0px','left':'0px'});
 	});
@@ -136,7 +168,7 @@ comic.prototype.show_ = function()
 $(function(){
 	var comit=new Object();
 	$('body').append('<span class="prog" style="display:none"></span>');
-	$('.comicv').on('click',function(e){
+	$('.comicv').bind('click touchstart',function(e){
 		e.preventDefault();
 		var target=$(this).attr('href').split('#')[1];
 		var pge=$(this).attr('rel')*1;
@@ -155,4 +187,9 @@ $(function(){
 				viewing.find('#page3').click();		
 			}
       });
+	  
+	  
+
 });
+
+
