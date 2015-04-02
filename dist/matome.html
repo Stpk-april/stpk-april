@@ -83,13 +83,15 @@ google.load('visualization', '1', {packages: ['corechart']});
   </label>
     <input type="checkbox" name="options" id="option7" value="gray"> </input>
   </div>
+  
 <div  id="tabbs"  style="position:relative;margin-left:auto; margin-right:auto">
 <ul class="nav nav-tabs" id="myTab">
   <li class="active"><a href="#home"><span class="glyphicon glyphicon-home"> </span> All</a></li>
   <li><a href="#illust"><span class="glyphicon glyphicon-picture" ></span> イラスト</a></li>
   <li><a href="#manga"><span class="glyphicon glyphicon-th-large" ></span> 漫画</a></li>
   <li><a href="#novel"><span class="glyphicon glyphicon-book" ></span> 小説</a></li>
-</ul>
+  <li id="gomain" ><a href="#" style="color:red">嘘サイトへ…</a></li>
+ </ul>
 
 <div class="tab-content">
   <div class="tab-pane active" style="text-align:center" id="home">  
@@ -152,7 +154,10 @@ google.load('visualization', '1', {packages: ['corechart']});
 
   ga('create', 'UA-60947786-2', 'auto');
   ga('send', 'pageview');
-
+$('#gomain').click(function(){
+	window.location="../main.html";
+});
+  
 </script>
 </body>
 <footer>
